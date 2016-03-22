@@ -1,0 +1,35 @@
+@font-face {
+    font-family: Slim-Joe;
+    src: url(../fonts/Slim-Joe.otf);
+}
+@font-face{
+    font-family: Big-John;
+    src:url(../fonts/Big-John.otf);
+}
+
+
+h1{
+    font-family: Slim-Joe;
+    letter-spacing: 0.1em;
+    font-size: 7em;
+    font-weight: bold;
+    text-align: center;
+
+
+}
+h2{
+    font-family: Slim-Joe;
+    font-size: 2em;
+    text-align: center;
+}
+
+.parallax-container {
+    height: 835px;
+}
+
+
+filler{
+    height: 2000px;
+    width: 100%;
+    background-color: grey;
+}
