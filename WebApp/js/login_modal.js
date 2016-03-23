@@ -5,11 +5,10 @@ var modal = (function(){
 				method = {},
 				$overlay,
 				$modal,
-				$content,
-				$close;
+				$content;
 
 				// Center the modal in the viewport
-				method.center = function () {
+				/*method.center = function () {
 					var top, left;
 
 					top = Math.max($(window).height() - $modal.outerHeight(), 0) / 2;
@@ -19,7 +18,7 @@ var modal = (function(){
 						top:top + $(window).scrollTop(), 
 						left:left + $(window).scrollLeft()
 					});
-				};
+				};*/
 
 				// Open the modal
 				method.open = function (settings) {
@@ -30,7 +29,7 @@ var modal = (function(){
 						height: settings.height || 'auto'
 					});
 
-					method.center();
+					//method.center();
 					$(window).bind('resize.modal', method.center);
 					$modal.show();
 					$overlay.show();
@@ -48,20 +47,18 @@ var modal = (function(){
 				$overlay = $('<div id="overlay"></div>');
 				$modal = $('<div id="modal"></div>');
 				$content = $('<div id="content"></div>');
-				$close = $('<a id="close" href="#">close</a>');
+				
 
 				$modal.hide();
 				$overlay.hide();
-				$modal.append($content, $close);
+				$modal.append($content);
 
 				$(document).ready(function(){
 					$('body').append($overlay, $modal);						
 				});
 
-				$close.click(function(e){
-					e.preventDefault();
-					method.close();
-				});
+				
 
 				return method;
 			}());
+			
