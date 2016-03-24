@@ -1,64 +1,82 @@
-/*Got this from http://www.jacklmoore.com/notes/jquery-modal-tutorial/ */
+function loginFunction(){
+	var login, password1, result1;
+	login = $("#venue_login").val();
+	password1 = $("#password1").val();
+	str = login + " " + password1;
+	
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			result1 = xmlhttp.responseText;
+			if(result1 == 'no' || result1 == 'no1'){
+				if(result1 == 'no'){
+					alert("Your username is not valid");
+				}
+				else{
+					alert("Your password is incorrect");
+				}
+			}
+			else{
+				$('#myModal').modal('toggle');
+			}
+		}
+	};
+	xmlhttp.open("GET", "php/login.php?q=" + str, true);
+	xmlhttp.send();
+}
 
-var modal = (function(){
-				var 
-				method = {},
-				$overlay,
-				$modal,
-				$content;
+function registerFunction(){
+	$('#myModal').modal('toggle');
+	$('#RegisterModal').modal({backdrop: 'static', keyboard: false});
+}
 
-				// Center the modal in the viewport
-				/*method.center = function () {
-					var top, left;
+function backToLogin(){
+	$('#RegisterModal').modal('toggle');
+	$('#myModal').modal({backdrop: 'static', keyboard: false});
+}
 
-					top = Math.max($(window).height() - $modal.outerHeight(), 0) / 2;
-					left = Math.max($(window).width() - $modal.outerWidth(), 0) / 2;
+function addVenueFunction(){
+	login = $("#venue_login1").val();
+	password2 = $("#password2").val();
+	name = $("#venue_name").val();
+	address = $("#venue_address").val();
+	credit = $("#venue_credit").val();
+	
+	str = login + "," + password2 + "," + name + "," + address + "," + credit;
+	
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			$('#RegisterModal').modal('toggle');
+		}
+	};
+	xmlhttp.open("GET", "php/register.php?q=" + str, true);
+	xmlhttp.send();
+}
 
-					$modal.css({
-						top:top + $(window).scrollTop(), 
-						left:left + $(window).scrollLeft()
-					});
-				};*/
+function settingsFunction(){
+	login = $("#venue_login2").val();
+	password3 = $("#password3").val();
+	name = $("#venue_name1").val();
+	address = $("#venue_address1").val();
+	credit = $("#venue_credit1").val();
+	
+	str = login + "," + password3 + "," + name + "," + address + "," + credit;
+	
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			result1 = xmlhttp.responseText;
+			alert(result1);
+			$('#SettingsModal').modal('toggle');
+		}
+	};
+	xmlhttp.open("GET", "php/settings.php?q=" + str, true);
+	xmlhttp.send();
+	
+}
 
-				// Open the modal
-				method.open = function (settings) {
-					$content.empty().append(settings.content);
-
-					$modal.css({
-						width: settings.width || 'auto', 
-						height: settings.height || 'auto'
-					});
-
-					//method.center();
-					$(window).bind('resize.modal', method.center);
-					$modal.show();
-					$overlay.show();
-				};
-
-				// Close the modal
-				method.close = function () {
-					$modal.hide();
-					$overlay.hide();
-					$content.empty();
-					$(window).unbind('resize.modal');
-				};
-
-				// Generate the HTML and add it to the document
-				$overlay = $('<div id="overlay"></div>');
-				$modal = $('<div id="modal"></div>');
-				$content = $('<div id="content"></div>');
-				
-
-				$modal.hide();
-				$overlay.hide();
-				$modal.append($content);
-
-				$(document).ready(function(){
-					$('body').append($overlay, $modal);						
-				});
-
-				
-
-				return method;
-			}());
-			
+function addFunction(){
+	alert("Hello! I am an alert box!!");
+	
+}
