@@ -1,0 +1,1 @@
+INSERT INTO `tab`(`venue_id`, `customer_id`, `table_number`, `start_time`, `delivery_time`, `status`) VALUES ('9','1','1234','2016-03-23 13:23:24',NULL,'Ordered')

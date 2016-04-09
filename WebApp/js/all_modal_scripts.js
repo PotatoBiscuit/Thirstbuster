@@ -18,6 +18,7 @@ function loginFunction(){
 			}
 			else{
 				$('#myModal').modal('toggle');
+				initOrder();
 			}
 		}
 	};
@@ -217,6 +218,22 @@ function ViewRefresh(){
 	xmlhttp.open("GET", "php/view_drink_init.php", true);
 	xmlhttp.send();
 }
+
+function initOrder(){
+	$('#order_holder').html("");
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			var result1 = xmlhttp.responseText;
+			alert(result1);
+			$('#order_holder').append(result1);
+		}
+	};
+	
+	xmlhttp.open("GET", "php/init_order.php", true);
+	xmlhttp.send();
+}
+
 function moveToViewDrinks(){
 	$('#ViewDrinkModal').modal('toggle');
 }
