@@ -33,7 +33,7 @@
            // });
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-		<script src="js/login_modal.js"></script>
+		<script src="js/all_modal_scripts.js"></script>
 
     </head>
     <body>
@@ -178,43 +178,96 @@
 			  <div class="modal-body">
 					<div class="form-group">
 					  <label for="pwd">Re-enter Password: </label>
-					  <input type="password" class="form-control" id="pwd">
+					  <input id = "password4" type="password" class="form-control" id="pwd">
 					</div>
 					<div class="form-group">
 					  <label for="name">Name: </label>
-					  <input type="text" class="form-control" id="name">
+					  <input id = "drink_name" type="text" class="form-control" id="name">
 					</div>
 					<div class="form-group">
 					  <label for="cost">Cost: </label>
-					  <input type="text" class="form-control" id="cost">
+					  <input id = "drink_cost" type="text" class="form-control" id="cost">
 					</div>
 					<div class="form-group">
 					  <label for="al_type">Type: </label>
-					  <input type="text" class="form-control" id="al_type">
+					  <input id = "drink_type" type="text" class="form-control" id="al_type">
 					</div>
 					<div class="form-group">
 					  <label for="description">Description:</label>
-					  <textarea class="form-control" rows="5" id="description"></textarea>
+					  <textarea id = "drink_description" class="form-control" rows="5" id="description"></textarea>
 					</div>
 			  </div>
 			  <div class="modal-footer">
-				<button onclick = "addFunction()" type="submit" class="btn btn-primary" data-dismiss="modal">Add</button>
+				<button onclick = "moveToViewDrinks()" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				<button onclick = "addFunction()" type="submit" class="btn btn-primary">Add</button>
+			  </div>
+			</div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		
+		<div id = "ViewDrinkModal" class="modal fade" tabindex="-1" role="dialog">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">View Drinks</h4>
+			  </div>
+			  <div id = "view_modal_body" class="modal-body">
+					<!--This is where data from an SQL call goes -->
+			  </div>
+			  <div class="modal-footer">
+				<button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddDrinkModal" data-dismiss="modal">Add Drinks</button>
+			  </div>
+			</div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		
+		<div id = "EditDrinkModal" class="modal fade" tabindex="-1" role="dialog">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Add Drinks</h4>
+			  </div>
+			  <div class="modal-body">
+					<div class="form-group">
+					  <label for="pwd">Re-enter Password: </label>
+					  <input id = "password5" type="password" class="form-control" id="pwd">
+					</div>
+					<div class="form-group">
+					  <label for="name">Name: </label>
+					  <input id = "drink_name1" type="text" class="form-control" id="name">
+					</div>
+					<div class="form-group">
+					  <label for="cost">Cost: </label>
+					  <input id = "drink_cost1" type="text" class="form-control" id="cost">
+					</div>
+					<div class="form-group">
+					  <label for="al_type">Type: </label>
+					  <input id = "drink_type1" type="text" class="form-control" id="al_type">
+					</div>
+					<div class="form-group">
+					  <label for="description">Description:</label>
+					  <textarea id = "drink_description1" class="form-control" rows="5" id="description"></textarea>
+					</div>
+			  </div>
+			  <div class="modal-footer">
+				<button onclick = "moveToViewDrinks()" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				<button id = "changeButton" onclick = "EditDrink()" type="submit" class="btn btn-primary">Change</button>
 			  </div>
 			</div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
 		
         <!-- Button trigger settings modal -->
-		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#SettingsModal">
+		<button onclick = "initSettings()" type="button" class="btn btn-primary btn-lg">
 		  Settings
 		</button>
 		
-		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#AddDrinkModal">
-		  Add Drinks
-		</button>
 		
-		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#DelDrinkModal">
-		  Delete Drinks
+		<button type="button" class="btn btn-primary btn-lg" onclick = "ViewInitialization()">
+		  View Drinks
 		</button>
 
     </body>

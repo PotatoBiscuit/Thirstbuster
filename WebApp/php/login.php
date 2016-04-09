@@ -2,7 +2,7 @@
 session_start();
 
 $q = $_REQUEST["q"];
-$stringArray = explode(" ", $q);
+$stringArray = explode(",", $q);
 
 /*establish connection with the mySQL database*/
 $servername = "tund";
