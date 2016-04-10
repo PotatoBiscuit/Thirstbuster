@@ -225,7 +225,6 @@ function initOrder(){
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			var result1 = xmlhttp.responseText;
-			alert(result1);
 			$('#order_holder').append(result1);
 		}
 	};
