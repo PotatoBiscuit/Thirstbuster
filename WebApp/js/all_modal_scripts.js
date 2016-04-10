@@ -233,6 +233,32 @@ function initOrder(){
 	xmlhttp.send();
 }
 
+function changeStatusMinus(order_id){
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			var result1 = xmlhttp.responseText;
+			initOrder();
+		}
+	};
+	
+	xmlhttp.open("GET", "php/change_order_status_minus.php?q=" + order_id, true);
+	xmlhttp.send();
+}
+
+function changeStatusPlus(order_id){
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			var result1 = xmlhttp.responseText;
+			initOrder();
+		}
+	};
+	
+	xmlhttp.open("GET", "php/change_order_status_plus.php?q=" + order_id, true);
+	xmlhttp.send();
+}
+
 function moveToViewDrinks(){
 	$('#ViewDrinkModal').modal('toggle');
 }
