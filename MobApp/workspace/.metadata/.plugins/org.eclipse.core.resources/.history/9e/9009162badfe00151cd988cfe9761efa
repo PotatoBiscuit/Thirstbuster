@@ -1,0 +1,30 @@
+package com.CS477.drinkandgo;
+
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
+
+public class SignUpActivity extends DrinkAndGoActivity 
+{
+	public SignUpActivity()
+	{	super(R.layout.activity_sign_up);}
+	
+	public void performSignUp(View view)
+	{
+		TextView username = (TextView) findViewById(R.id.usernameView),
+				password = (TextView) findViewById(R.id.passwordView),
+				password2 = (TextView) findViewById(R.id.passwordView);
+		
+		if(password.equals(password2))
+		{
+			startActivity(VenueSearchActivity.class);
+		}
+		else
+		{
+			Toast.makeText(this, getString(R.string.password_error), Toast.LENGTH_SHORT);
+			password.setText("");
+			password2.setText("");
+		}
+	}
+}
