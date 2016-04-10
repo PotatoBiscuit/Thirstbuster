@@ -33,3 +33,12 @@ filler{
     background-color: grey;
 }
 
+.row {
+	margin-top: 10px;
+}
+
+.container-fluid {
+	position: absolute;
+	top: 60px;
+	width: 100%;
+}
