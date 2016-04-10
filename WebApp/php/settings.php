@@ -33,8 +33,10 @@ if($row["password"] != $stringArray[1]){
 }
 
 $queryString = "UPDATE `venue` SET address = '" . $stringArray[3]
+. "', city = '" . $stringArray[4] . "', state = '" . $stringArray[5]
+. "', zip = '" . $stringArray[6]
 . "', name = '" . $stringArray[2] . "', credit = '"
-. $stringArray[4] . "', login_name = '" . $stringArray[0]
+. $stringArray[7] . "', login_name = '" . $stringArray[0]
 . "' WHERE id = '" . $_SESSION["ID"] . "'";
 
 $conn->query($queryString);

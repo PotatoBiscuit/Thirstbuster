@@ -26,7 +26,8 @@ if ($result->num_rows == 0 || $result->num_rows > 1){
 }
 
 $row = $result->fetch_assoc();
-$infoString = $row["login_name"] . "," . $row["name"] . "," . $row["address"] . "," . $row["credit"];
+$infoString = $row["login_name"] . "," . $row["name"] . "," . $row["address"] . ","
+. $row["city"] . "," . $row["state"] . "," . $row["zip"] . "," . $row["credit"];
 echo $infoString;
 ?>
 

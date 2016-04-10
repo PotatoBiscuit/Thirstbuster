@@ -41,14 +41,18 @@ function addVenueFunction(){
 	password2 = $("#password2").val();
 	name = $("#venue_name").val();
 	address = $("#venue_address").val();
+	city = $("#venue_city").val();
+	state = $("#venue_state").val();
+	zip = $("#venue_zip").val();
 	credit = $("#venue_credit").val();
 	
-	str = login + "," + password2 + "," + name + "," + address + "," + credit;
+	str = login + "," + password2 + "," + name + "," + address + "," + city + "," + state + "," + zip + "," + credit;
 	
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			$('#RegisterModal').modal('toggle');
+			initOrder();
 		}
 	};
 	xmlhttp.open("GET", "php/register.php?q=" + str, true);
@@ -61,6 +65,9 @@ function initSettings(){
 	$("#password3").val("");
 	$("#venue_name1").val("");
 	$("#venue_address1").val("");
+	$("#venue_city1").val("");
+	$("#venue_state1").val("");
+	$("#venue_zip1").val("");
 	$("#venue_credit1").val("");
 	
 	var xmlhttp = new XMLHttpRequest();
@@ -72,7 +79,10 @@ function initSettings(){
 			$("#venue_login2").val(result2[0]);
 			$("#venue_name1").val(result2[1]);
 			$("#venue_address1").val(result2[2]);
-			$("#venue_credit1").val(result2[3]);
+			$("#venue_city1").val(result2[3]);
+			$("#venue_state1").val(result2[4]);
+			$("#venue_zip1").val(result2[5]);
+			$("#venue_credit1").val(result2[6]);
 		}
 	};
 	xmlhttp.open("GET", "php/init_settings.php", true);
@@ -84,9 +94,12 @@ function settingsFunction(){
 	password3 = $("#password3").val();
 	name = $("#venue_name1").val();
 	address = $("#venue_address1").val();
+	city = $("#venue_city1").val();
+	state = $("#venue_state1").val();
+	zip = $("#venue_zip1").val();
 	credit = $("#venue_credit1").val();
 	
-	str = login + "," + password3 + "," + name + "," + address + "," + credit;
+	str = login + "," + password3 + "," + name + "," + address + "," + city + "," + state + "," + zip + "," + credit;
 	
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {

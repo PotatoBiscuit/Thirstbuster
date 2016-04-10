@@ -15,9 +15,10 @@ if ($conn->connect_error){
 	die("Connection failed: " . $conn->connect_error);
 }
 
-$queryString = "INSERT INTO `venue`(`address`, `password`, `name`, `credit`, `login_name`) VALUES ('"
-. $stringArray[3] . "','" . $stringArray[1] . "','"
-. $stringArray[2] . "','" . $stringArray[4] . "','"
+$queryString = "INSERT INTO `venue`(`address`, `city`, `state`, `zip`, `password`, `name`, `credit`, `login_name`) VALUES ('"
+. $stringArray[3] . "','" . $stringArray[4] . "','" . $stringArray[5] . "','" . $stringArray[6] . "','"
+. $stringArray[1] . "','"
+. $stringArray[2] . "','" . $stringArray[7] . "','"
 . $stringArray[0] . "')";
 
 $conn->query($queryString);
