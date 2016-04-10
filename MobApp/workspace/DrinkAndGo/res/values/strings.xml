@@ -18,5 +18,7 @@
     <string name="card_number">Credit Card Number</string>
 	<string name="password_error">Passwords do not match!</string>
 	<string name="input_error">All fields must be filled!</string>
+	<string name="search_venue">Search Venue</string>
+	<string name="search">Search</string>
 	
 </resources>

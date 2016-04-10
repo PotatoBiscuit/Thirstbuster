@@ -1,0 +1,21 @@
+package com.CS477.drinkandgo;
+
+public class Venue 
+{
+	private String primaryKey, name, address;
+
+	public String getPrimaryKey() 
+	{	return primaryKey;}
+
+	public void setPrimaryKey(String primaryKey) 
+	{	this.primaryKey = primaryKey;}
+
+	public String getName() 
+	{	return name;}
+
+	public void setName(String name) 
+	{	this.name = name;}
+
+	public String getAddress() 
+	{	return address;}
+}

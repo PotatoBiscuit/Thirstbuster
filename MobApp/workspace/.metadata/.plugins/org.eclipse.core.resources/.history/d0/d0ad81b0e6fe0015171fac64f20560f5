@@ -1,0 +1,14 @@
+package com.CS477.drinkandgo;
+
+import java.util.ArrayList;
+
+public class Venue 
+{
+	private final String name, zipCode, city, state;
+	private final ArrayList<Drink> menu;
+	
+	public Venue(String name, String zipCode, String city, String state)
+	{
+		
+	}
+}

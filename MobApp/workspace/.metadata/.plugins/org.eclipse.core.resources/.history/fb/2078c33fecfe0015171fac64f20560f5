@@ -1,0 +1,32 @@
+package com.CS477.drinkandgo;
+
+import static android.widget.RelativeLayout.*;
+
+import android.content.Context;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+public class DrinkLayout extends RelativeLayout
+{
+	public DrinkLayout(Context context, Drink drink, LayoutParams params) 
+	{	
+		super(context);
+		
+		TextView name = new TextView(context);
+		name.setText(drink.getName());
+		name.setId(1);
+		addView(name, params);
+		
+		TextView desc = new TextView(context);
+		desc.setText(drink.getDescription());
+		desc.setId(2);
+		addView(desc, params);
+		
+		TextView cost = new TextView(context);
+		cost.setText(Float.toString(drink.getCost()));
+		cost.setId(3);
+		addView(cost, params);
+		
+		params.addRule(BELOW, 1);
+	}
+}

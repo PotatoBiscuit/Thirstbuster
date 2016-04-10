@@ -5,5 +5,9 @@
 <fullyQualifiedTypeName name="com.CS477.drinkandgo.R.layout"/>
 <fullyQualifiedTypeName name="android.widget.Toast"/>
 <fullyQualifiedTypeName name="com.CS477.drinkandgo.R.string"/>
+<fullyQualifiedTypeName name="android.text.TextWatcher"/>
 <fullyQualifiedTypeName name="com.CS477.drinkandgo.R.id"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="android.widget.RelativeLayout.LayoutParams"/>
 </qualifiedTypeNameHistroy>

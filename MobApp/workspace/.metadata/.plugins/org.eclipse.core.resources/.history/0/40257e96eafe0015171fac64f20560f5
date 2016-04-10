@@ -1,0 +1,94 @@
+package com.CS477.drinkandgo.activies;
+
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.CS477.drinkandgo.Drink;
+import com.CS477.drinkandgo.R;
+import com.CS477.drinkandgo.Venue;
+
+public class VenueSearchActivity extends Activity 
+{
+	private static final Venue testVenues[] = 
+	{
+		new Venue("Bar", "86001", "Flagstaff", "AZ", 
+			new Drink("Beer", "This is beer. Must be over 21 to order", 2), 
+			new Drink("Coke", "This is a soda", 1), 
+			new Drink("Water", "This is water", 0.5f))
+	};
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) 
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_venue_search);
+		
+		EditText text = (EditText) findViewById(R.id.search_value);
+		text.addTextChangedListener(new VenueTextWatcher());
+		
+		LinearLayout venueList = (LinearLayout) findViewById(R.id.venue_list);
+	}
+	
+	private class VenueTextWatcher implements TextWatcher
+	{
+		@Override
+		public void beforeTextChanged(CharSequence s, int start, int count, int after) 
+		{
+			
+		}
+
+		@Override
+		public void onTextChanged(CharSequence s, int start, int before, int count) 
+		{
+			
+		}
+
+		@Override
+		public void afterTextChanged(Editable s) 
+		{
+			
+		}	
+	}
+	
+	private class DrinkLayout extends RelativeLayout
+	{
+		private DrinkLayout(Context context, Drink drink) 
+		{	
+			super(context);
+			
+			LayoutParams params = 
+			addRule(params);
+			
+			TextView name = new TextView(context);
+			name.setText(drink.getName());
+			name.setId(1);
+			addView(name);
+			
+			TextView desc = new TextView(context);
+			desc.setText(drink.getDescription());
+			desc.setId(2);
+			addView(desc);
+			
+			TextView cost = new TextView(context);
+			cost.setText(Float.toString(drink.getCost()));
+			cost.setId(3);
+			addView(cost);
+		}
+		
+		static Object[] createDrinkView(Context context, Drink drink)
+		{
+			Object[] objs = new Object[2];
+			objs[0] = new DrinkLayout(context, drink);
+			objs[1] = new LayoutParams
+					(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+			return objs;
+		}
+	}
+}
