@@ -232,6 +232,21 @@ function ViewRefresh(){
 	xmlhttp.send();
 }
 
+function viewOrderedDrinks(order_id){
+	$('#ViewOrderedDrinkModal').modal('toggle');
+	$('#ordered_drinks').html("");
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			var result1 = xmlhttp.responseText;
+			$('#ordered_drinks').append(result1);
+		}
+	};
+	
+	xmlhttp.open("GET", "php/view_ordered_drink.php?q=" + order_id, true);
+	xmlhttp.send();
+}
+
 function initOrder(){
 	$('#order_holder').html("");
 	var xmlhttp = new XMLHttpRequest();
@@ -243,6 +258,30 @@ function initOrder(){
 	};
 	
 	xmlhttp.open("GET", "php/init_order.php", true);
+	xmlhttp.send();
+}
+
+function deleteOrder(order_id){
+	var xmlhttp = new XMLHttpRequest();
+	
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			initOrder();
+		}
+	};
+	xmlhttp.open("GET", "php/delete_order.php?q=" + order_id, true);
+	xmlhttp.send();
+}
+
+function finishOrder(order_id){
+	var xmlhttp = new XMLHttpRequest();
+	
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			initOrder();
+		}
+	};
+	xmlhttp.open("GET", "php/finish_order.php?q=" + order_id, true);
 	xmlhttp.send();
 }
 

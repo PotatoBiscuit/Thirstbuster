@@ -17,7 +17,7 @@ if ($conn->connect_error){
 	die("Connection failed: " . $conn->connect_error);
 }
 
-$queryString = "SELECT * FROM `tab` WHERE venue_id = '" . $_SESSION["ID"] . "'";
+$queryString = "SELECT * FROM `tab` WHERE venue_id = '" . $_SESSION["ID"] . "' AND status <> 'Complete'";
 $result = $conn->query($queryString);
 
 $outputString = "<div class = 'row'><div class = 'col-md-12'>\n"
@@ -60,10 +60,16 @@ if ($result->num_rows != 0){
 		. "<button onclick = 'changeStatusPlus(" . $row["id"] . ")' type = 'button' class = 'btn btn-primary'>+</button></td></tr>\n"
 		. "<tr><td>Table</td> <td>" . $row["table_number"] . "</td></tr>\n"
 		. "<tr><td>Wait Time</td> <td>" . $elapsedTime . "</td></tr>\n"
-		. "<tr><td>Drinks</td> <td><button type = 'button' class = 'btn btn-primary'>View</button></td></tr>\n"
+		. "<tr><td>Drinks</td> <td><button onclick = 'viewOrderedDrinks(" . $row["id"] . ")' type = 'button' class = 'btn btn-primary'>View</button></td></tr>\n"
+		. "<tr><td>Action</td> <td><button onclick = 'deleteOrder(" . $row["id"] . ")' type = 'button' class = 'btn btn-primary'>Delete</button>\n"
+		. "<button onclick = 'finishOrder(" . $row["id"] . ")' type = 'button' class = 'btn btn-success'>Finish</button></td></tr>\n"
 		. "</table>\n"
 		. "</div>\n";
 	}
+}
+else{
+	echo "No results to display";
+	exit();
 }
 
 $outputString .= "</div>\n";
