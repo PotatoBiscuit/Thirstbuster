@@ -30,6 +30,7 @@ public class DrinkLayout extends LinearLayout
 		
 		LinearLayout layout = new LinearLayout(context);
 		layout.setOrientation(VERTICAL);
+		layout.setPadding(pad, 0, pad, 0);
 		layout.addView(name);
 		layout.addView(cost);
 		

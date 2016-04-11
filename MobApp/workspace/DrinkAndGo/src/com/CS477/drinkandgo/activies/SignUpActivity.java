@@ -11,7 +11,7 @@ import com.CS477.drinkandgo.R;
 public class SignUpActivity extends DrinkAndGoActivity 
 {
 	public SignUpActivity()
-	{	super(R.layout.activity_sign_up);}
+	{	super(R.layout.activity_sign_up, MainActivity.class);}
 	
 	public void performSignUp(View view)
 	{

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 
 import com.CS477.drinkandgo.Customer;
@@ -21,9 +22,16 @@ public abstract class DrinkAndGoActivity extends Activity
 	protected static Customer customer;
 	
 	private final int CONTENT_VIEW;
+	private final Class<?> prevActivity;
 	
 	protected DrinkAndGoActivity(int contentView)
-	{	this.CONTENT_VIEW = contentView;}
+	{	this(contentView, null);}
+	
+	protected DrinkAndGoActivity(int contentView, Class<?> cls)
+	{	
+		this.CONTENT_VIEW = contentView;
+		prevActivity = cls;
+	}
 	
 	@Override
     protected void onCreate(Bundle savedInstanceState) 
@@ -51,6 +59,9 @@ public abstract class DrinkAndGoActivity extends Activity
 	
 	protected Editor getEditor()
 	{	return getPrefs().edit();}
+	
+	public void goBack(View view)
+	{	startActivity(prevActivity);}
 	
 	public static LayoutParams makeDefaultParams()
 	{	return new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);}

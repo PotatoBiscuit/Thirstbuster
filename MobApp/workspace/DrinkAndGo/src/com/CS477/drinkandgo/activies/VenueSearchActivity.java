@@ -33,7 +33,7 @@ public class VenueSearchActivity extends DrinkAndGoActivity
 	};
 	
 	public VenueSearchActivity()
-	{	super(R.layout.activity_venue_search);}
+	{	super(R.layout.activity_venue_search, MainActivity.class);}
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 

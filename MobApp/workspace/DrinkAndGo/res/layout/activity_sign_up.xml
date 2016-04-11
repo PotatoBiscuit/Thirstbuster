@@ -10,12 +10,29 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.CS477.drinkandgo.activies.SignUpActivity" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/sign_up"
-        android:textSize="@dimen/title_size"
-        android:textStyle="bold" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/sign_up"
+            android:textSize="@dimen/title_size"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/backButton"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/back"
+            android:onClick="goBack" />
+
+    </RelativeLayout>
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -80,4 +97,5 @@
 	
 	    </LinearLayout>
 	</ScrollView>
+
 </LinearLayout>

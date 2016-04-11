@@ -14,7 +14,7 @@ public class MenuActivity extends DrinkAndGoActivity
 	private Venue venue;
 	
 	public MenuActivity()
-	{	super(R.layout.activity_menu);}
+	{	super(R.layout.activity_menu, VenueSearchActivity.class);}
 	
 	@Override
 	protected void onCreate(Bundle bundle)

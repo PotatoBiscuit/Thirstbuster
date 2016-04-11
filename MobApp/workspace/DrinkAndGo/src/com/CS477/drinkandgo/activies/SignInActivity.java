@@ -12,7 +12,7 @@ import com.CS477.drinkandgo.R;
 public class SignInActivity extends DrinkAndGoActivity 
 {
 	public SignInActivity()
-	{	super(R.layout.activity_sign_in);}
+	{	super(R.layout.activity_sign_in, MainActivity.class);}
 	
 	@Override
 	protected void onCreate(Bundle bundle)
