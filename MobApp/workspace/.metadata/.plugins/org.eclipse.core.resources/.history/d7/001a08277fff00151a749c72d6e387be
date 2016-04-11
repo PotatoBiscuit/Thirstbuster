@@ -1,0 +1,32 @@
+package com.CS477.drinkandgo;
+
+import android.content.Context;
+import android.graphics.Typeface;
+import android.view.Gravity;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+public class VenueLayout extends LinearLayout 
+{	
+	public VenueLayout(Context context, Venue venue) 
+	{
+		super(context);
+		
+		this.setOrientation(VERTICAL);
+		//LayoutParams params = new LayoutParams
+				//(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+		this.setGravity(Gravity.CENTER_HORIZONTAL);
+		
+		TextView name = new TextView(context);
+		name.setText(venue.getName());
+		name.setTypeface(Typeface.DEFAULT_BOLD);
+		name.setId(1);
+		
+		TextView desc = new TextView(context);
+		desc.setText(venue.getAddress());
+		desc.setId(2);
+		
+		addView(name);
+		addView(desc);
+	}
+}

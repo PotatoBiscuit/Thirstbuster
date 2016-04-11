@@ -1,39 +1,50 @@
 package com.CS477.drinkandgo.activies;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout.LayoutParams;
 
 import com.CS477.drinkandgo.Drink;
-import com.CS477.drinkandgo.DrinkLayout;
 import com.CS477.drinkandgo.R;
 import com.CS477.drinkandgo.Venue;
+import com.CS477.drinkandgo.VenueLayout;
 
-public class VenueSearchActivity extends Activity 
+public class VenueSearchActivity extends DrinkAndGoActivity 
 {
 	private static final Venue testVenues[] = 
 	{
-		new Venue("Bar", "86001", "Flagstaff", "AZ", 
+		new Venue("Bar1", "86001", "Flagstaff", "AZ", 
 			new Drink("Beer", "This is beer. Must be over 21 to order", 2), 
 			new Drink("Coke", "This is a soda", 1), 
-			new Drink("Water", "This is water", 0.5f))
+			new Drink("Water", "This is water", 0.5f)),
+			
+		new Venue("Bar2", "84583", "New York", "NY", 
+			new Drink("Beer", "This is beer. Must be over 21 to order", 2)),
+		
+		new Venue("Bar3", "89140", "Las Vegas", "NV", 
+			new Drink("Beer", "This is beer. Must be over 21 to order", 2), 
+			new Drink("Coke", "This is a soda", 1), 
+			new Drink("Water", "This is water", 0.5f),
+			new Drink("Wine", "This is wine. Must be over 21 to order", 4))
 	};
+	
+	public VenueSearchActivity()
+	{	super(R.layout.activity_venue_search);}
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_venue_search);
 		
 		EditText text = (EditText) findViewById(R.id.search_value);
 		text.addTextChangedListener(new VenueTextWatcher());
 		
 		LinearLayout venueList = (LinearLayout) findViewById(R.id.venue_list);
+		for(Venue venue : testVenues)
+			venueList.addView(new VenueLayout(this, venue));
 	}
 	
 	private class VenueTextWatcher implements TextWatcher
@@ -53,7 +64,12 @@ public class VenueSearchActivity extends Activity
 		@Override
 		public void afterTextChanged(Editable s) 
 		{
-			
+			LinearLayout venueList = (LinearLayout) findViewById(R.id.venue_list);
+			for(int i = 0, n = venueList.getChildCount(); i < n; ++i)
+			{
+				VenueLayout layout = (VenueLayout) venueList.getChildAt(i);
+				layout.setVisibility(layout.inSearch(s.toString()) ? View.VISIBLE : View.GONE);
+			}
 		}	
 	}
 }

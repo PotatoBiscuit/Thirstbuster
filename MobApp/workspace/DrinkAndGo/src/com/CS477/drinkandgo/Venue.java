@@ -1,6 +1,7 @@
 package com.CS477.drinkandgo;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Venue 
 {
@@ -21,6 +22,9 @@ public class Venue
 		for(Drink drink : drinks)
 			menu.add(drink);
 	}
+	
+	public String getAddress()
+	{	return String.format("%s, %s, %s", getCity(), getState(), getZipCode());}
 
 	public String getZipCode() 
 	{	return zipCode;}
@@ -45,9 +49,9 @@ public class Venue
 	
 	public boolean inSearch(String value)
 	{
-		return state.indexOf(value) != -1 ||
-				name.indexOf(value) != -1 ||
-				city.indexOf(value) != -1 ||
-				zipCode.indexOf(value) != -1;
+		return state.toLowerCase(Locale.US).indexOf(value.toLowerCase()) != -1 ||
+			name.toLowerCase(Locale.US).indexOf(value.toLowerCase()) != -1 ||
+			city.toLowerCase(Locale.US).indexOf(value.toLowerCase()) != -1 ||
+			zipCode.toLowerCase(Locale.US).indexOf(value.toLowerCase()) != -1;
 	}
 }

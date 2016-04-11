@@ -37,7 +37,7 @@ public class SignUpActivity extends DrinkAndGoActivity
 		}
 		else
 		{	
-			Editor editor = getPrefs();
+			Editor editor = getEditor();
 			editor.putString("username", username.getText().toString());
 			editor.putString("email", email.getText().toString());
 			editor.putString("cardNum", cardNum.getText().toString());

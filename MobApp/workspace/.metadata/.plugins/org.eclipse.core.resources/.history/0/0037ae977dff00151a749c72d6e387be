@@ -1,0 +1,36 @@
+package com.CS477.drinkandgo;
+
+import android.content.Context;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.CS477.drinkandgo.activies.DrinkAndGoActivity;
+
+public class VenueLayout extends LinearLayout 
+{	
+	private final LayoutParams params;
+	
+	public VenueLayout(Context context, Venue venue)
+	{	this(context, venue, (LayoutParams) DrinkAndGoActivity.makeDefaultParams());}
+	
+	public VenueLayout(Context context, Venue venue, LayoutParams params) 
+	{
+		super(context);
+		
+		this.params = params;
+		
+		TextView name = new TextView(context);
+		name.setText(venue.getName());
+		name.setId(1);
+		
+		TextView desc = new TextView(context);
+		desc.setText(venue.getAddress());
+		desc.setId(2);
+		
+		addView(name);
+		addView(desc);
+	}
+
+	public LayoutParams getParams() 
+	{	return params;}
+}

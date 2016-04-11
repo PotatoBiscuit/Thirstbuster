@@ -4,11 +4,20 @@ import android.content.Context;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.CS477.drinkandgo.activies.DrinkAndGoActivity;
+
 public class DrinkLayout extends RelativeLayout
 {
+	private final LayoutParams params;
+	
+	public DrinkLayout(Context context, Drink drink)
+	{	this(context, drink, (LayoutParams) DrinkAndGoActivity.makeDefaultParams());}
+	
 	public DrinkLayout(Context context, Drink drink, LayoutParams params) 
 	{	
 		super(context);
+		
+		this.params = params;
 		
 		TextView name = new TextView(context);
 		name.setText(drink.getName());
@@ -35,4 +44,7 @@ public class DrinkLayout extends RelativeLayout
 		params.addRule(BELOW, 2);
 		addView(cost, params);
 	}
+
+	public LayoutParams getParams() 
+	{	return params;}
 }
