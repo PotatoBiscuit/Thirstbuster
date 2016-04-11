@@ -10,13 +10,15 @@ public class VenueLayout extends LinearLayout
 {	
 	private final Venue venue;
 	
-	public VenueLayout(Context context, Venue venue) 
+	public VenueLayout(Context context, Venue venue, OnClickListener listener) 
 	{
 		super(context);
 		
 		this.venue = venue;
 		this.setOrientation(VERTICAL);
 		this.setGravity(Gravity.CENTER_HORIZONTAL);
+		this.setClickable(true);
+		this.setOnClickListener(listener);
 		
 		int pad = context.getResources().getDimensionPixelOffset(R.dimen.button_margin);
 		this.setPadding(pad, pad, pad, pad);

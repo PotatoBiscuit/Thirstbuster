@@ -1,50 +1,39 @@
 package com.CS477.drinkandgo;
 
 import android.content.Context;
-import android.widget.RelativeLayout;
+import android.graphics.Typeface;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.CS477.drinkandgo.activies.DrinkAndGoActivity;
-
-public class DrinkLayout extends RelativeLayout
+public class DrinkLayout extends LinearLayout
 {
-	private final LayoutParams params;
-	
-	public DrinkLayout(Context context, Drink drink)
-	{	this(context, drink, (LayoutParams) DrinkAndGoActivity.makeDefaultParams());}
-	
-	public DrinkLayout(Context context, Drink drink, LayoutParams params) 
+	public DrinkLayout(Context context, Drink drink) 
 	{	
 		super(context);
 		
-		this.params = params;
+		int pad = context.getResources().getDimensionPixelOffset(R.dimen.button_margin);
+		this.setPadding(pad, pad, pad, pad);
 		
 		TextView name = new TextView(context);
 		name.setText(drink.getName());
 		name.setId(1);
+		name.setTypeface(null, Typeface.BOLD);
 		
 		TextView desc = new TextView(context);
 		desc.setText(drink.getDescription());
 		desc.setId(2);	
 		
 		TextView cost = new TextView(context);
-		cost.setText(Float.toString(drink.getCost()));
+		cost.setText(String.format("$%2.2f", drink.getCost()));
 		cost.setId(3);
+		cost.setTypeface(null, Typeface.ITALIC);
 		
-		params.addRule(ALIGN_PARENT_TOP);
-		params.addRule(ABOVE, 2);
-		addView(name, params);
+		LinearLayout layout = new LinearLayout(context);
+		layout.setOrientation(VERTICAL);
+		layout.addView(name);
+		layout.addView(cost);
 		
-		params.addRule(ALIGN_PARENT_TOP, 0);
-		params.addRule(ABOVE, 3);
-		params.addRule(BELOW, 1);
-		addView(desc, params);
-		
-		params.addRule(ABOVE, 0);
-		params.addRule(BELOW, 2);
-		addView(cost, params);
+		addView(layout);
+		addView(desc);
 	}
-
-	public LayoutParams getParams() 
-	{	return params;}
 }

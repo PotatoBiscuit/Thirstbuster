@@ -3,11 +3,25 @@
 <fullyQualifiedTypeName name="android.content.Intent"/>
 <fullyQualifiedTypeName name="com.CS477.drinkandgo.MainActivity"/>
 <fullyQualifiedTypeName name="com.CS477.drinkandgo.R.layout"/>
-<fullyQualifiedTypeName name="android.widget.Toast"/>
 <fullyQualifiedTypeName name="com.CS477.drinkandgo.R.string"/>
 <fullyQualifiedTypeName name="android.text.TextWatcher"/>
-<fullyQualifiedTypeName name="com.CS477.drinkandgo.R.id"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="android.widget.RelativeLayout.LayoutParams"/>
+<fullyQualifiedTypeName name="com.CS477.drinkandgo.activies.DrinkAndGoActivity"/>
+<fullyQualifiedTypeName name="com.CS477.drinkandgo.R.style"/>
+<fullyQualifiedTypeName name="com.CS477.drinkandgo.R"/>
+<fullyQualifiedTypeName name="com.CS477.drinkandgo.R.dimen"/>
+<fullyQualifiedTypeName name="android.widget.Toast"/>
+<fullyQualifiedTypeName name="com.CS477.drinkandgo.R.attr"/>
+<fullyQualifiedTypeName name="android.R.style"/>
+<fullyQualifiedTypeName name="android.R.drawable"/>
+<fullyQualifiedTypeName name="android.content.DialogInterface.OnClickListener"/>
+<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="com.CS477.drinkandgo.R.id"/>
+<fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="android.R.attr"/>
+<fullyQualifiedTypeName name="android.graphics.Typeface"/>
+<fullyQualifiedTypeName name="android.view.ViewGroup.LayoutParams"/>
 </qualifiedTypeNameHistroy>

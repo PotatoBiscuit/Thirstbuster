@@ -1,0 +1,9 @@
+package com.CS477.drinkandgo.activies;
+
+import com.CS477.drinkandgo.R;
+
+public class MenuActivity extends DrinkAndGoActivity 
+{
+	public MenuActivity()
+	{	super(R.layout.activity_menu);}
+}

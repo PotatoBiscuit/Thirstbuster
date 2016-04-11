@@ -1,10 +1,16 @@
 package com.CS477.drinkandgo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class Venue 
+public class Venue implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2313617514560371505L;
+	
 	private final String name, zipCode, city, state;
 	private final ArrayList<Drink> menu;
 	
@@ -20,7 +26,10 @@ public class Venue
 		
 		this.menu = new ArrayList<Drink>(drinks.length);
 		for(Drink drink : drinks)
+		{
+			drink.setVenue(this);
 			menu.add(drink);
+		}
 	}
 	
 	public String getAddress()
