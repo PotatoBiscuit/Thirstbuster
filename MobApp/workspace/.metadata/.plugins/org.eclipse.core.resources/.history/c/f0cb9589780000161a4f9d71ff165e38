@@ -1,0 +1,14 @@
+package com.CS477.drinkandgo;
+
+import java.util.ArrayList;
+
+public class Cart extends ArrayList<Drink> 
+{
+	public float getTotal()
+	{
+		for(Drink drink : this)
+		{
+			
+		}
+	}
+}

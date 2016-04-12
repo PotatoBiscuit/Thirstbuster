@@ -1,7 +1,7 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -10,36 +10,67 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.CS477.drinkandgo.activies.MenuActivity" >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/title_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerInParent="true"
-            android:textSize="@dimen/title_size2"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/backButton"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:onClick="goBack"
-            android:text="@string/back" />
-
-    </RelativeLayout>
-
     <LinearLayout
-        android:id="@+id/menu_list"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:textSize="@dimen/title_size2"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/backButton"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:onClick="goBack"
+                android:text="@string/back" />
+        </RelativeLayout>
+
+        <ScrollView
+        	android:layout_width="fill_parent"
+       		android:layout_height="wrap_content">
+        		<LinearLayout
+            		android:id="@+id/menu_list"
+            		android:layout_width="wrap_content"
+            		android:layout_height="wrap_content"
+            		android:orientation="vertical" >
+        		</LinearLayout>
+        </ScrollView>
+
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:ems="5"
+        android:text="@string/cart" >
+
+    </TextView>
+
+    <Button
+        android:id="@+id/order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:onClick="gotoCart"
+        android:text="@string/order" />
     
-</LinearLayout>
+</RelativeLayout>

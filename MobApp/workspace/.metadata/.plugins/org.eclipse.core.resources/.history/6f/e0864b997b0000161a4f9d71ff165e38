@@ -1,0 +1,48 @@
+package com.CS477.drinkandgo;
+
+import java.io.IOException;
+import java.io.InvalidObjectException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Cart extends ArrayList<Drink>
+{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7085411106160924254L;
+
+	public float getTotal()
+	{
+		float total = 0;
+		for(Drink drink : this)
+			total += drink.getCost();
+		return total;
+	}
+	
+	private void writeObject(ObjectOutputStream stream) throws IOException 
+	{
+		Object[] array = toArray();
+        stream.defaultWriteObject();
+        stream.writeInt(array.length);
+        for (int i = 0; i < size(); i++) {
+            stream.writeObject(array[i]);
+        }
+    }
+
+    private void readObject(ObjectInputStream stream) throws IOException, ClassNotFoundException 
+    {
+        stream.defaultReadObject();
+        int cap = stream.readInt();
+        if (cap < size) {
+            throw new InvalidObjectException(
+                    "Capacity: " + cap + " < size: " + size);
+        }
+        array = (cap == 0 ? EmptyArray.OBJECT : new Object[cap]);
+        for (int i = 0; i < size; i++) {
+            array[i] = stream.readObject();
+        }
+    }
+}

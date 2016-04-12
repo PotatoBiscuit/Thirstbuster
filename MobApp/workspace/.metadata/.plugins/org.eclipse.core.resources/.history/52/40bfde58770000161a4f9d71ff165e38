@@ -1,0 +1,9 @@
+package com.CS477.drinkandgo;
+
+public class Cart {
+
+	public Cart() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -23,5 +23,8 @@
     <string name="select">Select</string>
     <string name="title_activity_menu">MenuActivity</string>
     <string name="back">Back</string>
+    <string name="cart">Cart</string>
+    <string name="title_activity_cart">CartActivity</string>
+    <string name="order">Order</string>
 
 </resources>

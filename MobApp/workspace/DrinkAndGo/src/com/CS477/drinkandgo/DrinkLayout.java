@@ -7,12 +7,18 @@ import android.widget.TextView;
 
 public class DrinkLayout extends LinearLayout
 {
-	public DrinkLayout(Context context, Drink drink) 
+	public DrinkLayout(Context context, Drink drink)
+	{	this(context, drink, null);}
+	
+	public DrinkLayout(Context context, Drink drink, OnClickListener listener) 
 	{	
 		super(context);
 		
 		int pad = context.getResources().getDimensionPixelOffset(R.dimen.button_margin);
 		this.setPadding(pad, pad, pad, pad);
+		
+		if(listener != null)
+			this.setOnClickListener(listener);
 		
 		TextView name = new TextView(context);
 		name.setText(drink.getName());

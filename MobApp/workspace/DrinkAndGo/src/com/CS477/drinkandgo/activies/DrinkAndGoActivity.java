@@ -46,10 +46,11 @@ public abstract class DrinkAndGoActivity extends Activity
 		finish();
 	}
 	
-	protected void startActivity(Class<?> cls, Serializable obj)
+	protected void startActivity(Class<?> cls, Serializable... objs)
 	{
 		Intent intent = new Intent(this, cls);
-		intent.putExtra(obj.getClass().getSimpleName(), obj);
+		for(Serializable obj : objs)
+			intent.putExtra(obj.getClass().getSimpleName(), obj);
 		startActivity(intent);
 		finish();
 	}

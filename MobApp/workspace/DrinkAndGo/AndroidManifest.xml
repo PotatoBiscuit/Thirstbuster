@@ -35,8 +35,12 @@
             android:label="@string/title_activity_venue_search" >
         </activity>
         <activity
-            android:name="com.CS477.drinkandgo.activies.MenuActivity"
+            android:name=".activies.MenuActivity"
             android:label="@string/title_activity_menu" >
+        </activity>
+        <activity
+            android:name="com.CS477.drinkandgo.activies.CartActivity"
+            android:label="@string/title_activity_cart" >
         </activity>
     </application>
 
