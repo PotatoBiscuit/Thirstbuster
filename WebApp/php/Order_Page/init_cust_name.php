@@ -17,7 +17,10 @@ if ($conn->connect_error){
 	die("Connection failed: " . $conn->connect_error);
 }
 
-$queryString = "SELECT * FROM `tab` WHERE venue_id = '" . $_SESSION["ID"] . "' AND status <> 'Complete' ORDER BY id ASC";
+$queryString = "SELECT tab.id, tab.table_number, tab.start_time, tab.status, customer.name FROM `tab`"
+. "INNER JOIN customer ON tab.customer_id = customer.id"
+. "WHERE tab.status <> 'Complete'"
+. "ORDER BY customer.name ASC";
 $result = $conn->query($queryString);
 
 $outputString = "<div class = 'row'><div class = 'col-md-3'>\n"
@@ -46,8 +49,6 @@ $outputString = "<div class = 'row'><div class = 'col-md-3'>\n"
 			. "<div class = 'row'>\n";
 if ($result->num_rows != 0){
 	while($row = $result->fetch_assoc()){
-		$result1 = $conn->query("SELECT * FROM customer WHERE id = '" . $row["customer_id"] . "'");
-		$row1 = $result1->fetch_assoc();
 		$currentTime = getdate();
 		$orderTime = explode(" ", $row["start_time"]);
 		$orderTime = explode(":", $orderTime[1]);
