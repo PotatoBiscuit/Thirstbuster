@@ -28,7 +28,7 @@ function viewOrderedDrinks(order_id){
 	xmlhttp.send();
 }
 
-function initOrder(){
+function initOrder(type_of_display){
 	$('#order_holder').html("");
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
@@ -38,8 +38,26 @@ function initOrder(){
 		}
 	};
 	
-	xmlhttp.open("GET", "php/Order_Page/init_order.php", true);
-	xmlhttp.send();
+	if(type_of_display == 1){
+		xmlhttp.open("GET", "php/Order_Page/init_order.php", true);
+		xmlhttp.send();
+	}
+	else if(type_of_display == 2){
+		xmlhttp.open("GET", "php/Order_Page/init_table_num.php", true);
+		xmlhttp.send();
+	}
+	else if(type_of_display == 3){
+		xmlhttp.open("GET", "php/Order_Page/init_cust_name.php", true);
+		xmlhttp.send();
+	}
+	else if(type_of_display == 4){
+		xmlhttp.open("GET", "php/Order_Page/init_drinks.php", true);
+		xmlhttp.send();
+	}
+	else{
+		xmlhttp.open("GET", "php/Order_Page/init_order.php", true);
+		xmlhttp.send();
+	}
 }
 
 function deleteOrder(order_id){
@@ -66,12 +84,12 @@ function finishOrder(order_id){
 	xmlhttp.send();
 }
 
-function changeStatusMinus(order_id){
+function changeStatusMinus(order_id, type_of_display){
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			var result1 = xmlhttp.responseText;
-			initOrder();
+			initOrder(type_of_display);
 		}
 	};
 	
@@ -79,57 +97,15 @@ function changeStatusMinus(order_id){
 	xmlhttp.send();
 }
 
-function changeStatusPlus(order_id){
+function changeStatusPlus(order_id, type_of_display){
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			var result1 = xmlhttp.responseText;
-			initOrder();
+			initOrder(type_of_display);
 		}
 	};
 	
 	xmlhttp.open("GET", "php/Order_Page/change_order_status_plus.php?q=" + order_id, true);
-	xmlhttp.send();
-}
-
-function initTableNum(){
-	$('#order_holder').html("");
-	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.onreadystatechange = function() {
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			var result1 = xmlhttp.responseText;
-			$('#order_holder').append(result1);
-		}
-	};
-	
-	xmlhttp.open("GET", "php/Order_Page/init_table_num.php", true);
-	xmlhttp.send();
-}
-
-function initCustName(){
-	$('#order_holder').html("");
-	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.onreadystatechange = function() {
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			var result1 = xmlhttp.responseText;
-			$('#order_holder').append(result1);
-		}
-	};
-	
-	xmlhttp.open("GET", "php/Order_Page/init_cust_name.php", true);
-	xmlhttp.send();
-}
-
-function initDrinks(){
-	$('#order_holder').html("");
-	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.onreadystatechange = function() {
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			var result1 = xmlhttp.responseText;
-			$('#order_holder').append(result1);
-		}
-	};
-	
-	xmlhttp.open("GET", "php/Order_Page/init_drinks.php", true);
 	xmlhttp.send();
 }

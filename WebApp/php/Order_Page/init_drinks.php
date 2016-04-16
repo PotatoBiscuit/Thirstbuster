@@ -17,11 +17,11 @@ if ($conn->connect_error){
 	die("Connection failed: " . $conn->connect_error);
 }
 
-$queryString = "SELECT drink.name, customer.name AS cust_name, tab.start_time, tab.id, tab.status, tab.table_number FROM drink"
-. "INNER JOIN tab_drinks ON drink.id = tab_drinks.drink_id"
-. "INNER JOIN tab ON tab_drinks.tab_id = tab.id"
-. "INNER JOIN customer ON tab.customer_id = customer.id"
-. "WHERE tab.status <> 'Complete'"
+$queryString = "SELECT drink.name, customer.name AS cust_name, tab.start_time, tab.id, tab.status, tab.table_number FROM drink "
+. "INNER JOIN tab_drinks ON drink.id = tab_drinks.drink_id "
+. "INNER JOIN tab ON tab_drinks.tab_id = tab.id "
+. "INNER JOIN customer ON tab.customer_id = customer.id "
+. "WHERE tab.status <> 'Complete' "
 . "ORDER BY drink.name ASC";
 $result = $conn->query($queryString);
 
@@ -32,16 +32,16 @@ $outputString = "<div class = 'row'><div class = 'col-md-3'>\n"
 			. "</div><div class = 'col-md-3'>"
 			. "<button type='button' class='btn btn-primary btn-lg' onclick = 'ViewInitialization()'>View Drinks</button>\n"
 			. "</div><div class = 'col-md-3'>"
-			. "<button type='button' class='btn btn-primary btn-lg' onclick = 'initOrder()'>Refresh Orders</button>\n"
+			. "<button type='button' class='btn btn-primary btn-lg' onclick = 'initOrder(4)'>Refresh Orders</button>\n"
 			. "</div><div class = 'col-md-3'>"
 			. "<div class='dropdown'>"
 		    . "<button class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Sort By..."
 		    . "<span class='caret'></span></button>"
 		    . "<ul class='dropdown-menu'>"
-			. "<li><a onclick='initOrder()' href='#'>Wait Time</a></li>"
-			. "<li><a onclick='initTableNum()' href='#'>Table Number</a></li>"
-			. "<li><a onclick='initCustName()' href='#'>Customer Name</a></li>"
-			. "<li><a onclick='initDrinks()' href='#'>Drinks</a></li>"
+			. "<li><a onclick='initOrder(1)' href='#'>Wait Time</a></li>"
+			. "<li><a onclick='initOrder(2)' href='#'>Table Number</a></li>"
+			. "<li><a onclick='initOrder(3)' href='#'>Customer Name</a></li>"
+			. "<li><a onclick='initOrder(4)' href='#'>Drinks</a></li>"
 			. "</ul>"
 			. "</div>"
 			. "</div></div>\n"
@@ -52,7 +52,6 @@ $outputString = "<div class = 'row'><div class = 'col-md-3'>\n"
 if ($result->num_rows != 0){
 	while($row = $result->fetch_assoc()){
 		
-		$row1 = $result1->fetch_assoc();
 		$currentTime = getdate();
 		$orderTime = explode(" ", $row["start_time"]);
 		$orderTime = explode(":", $orderTime[1]);
@@ -72,15 +71,12 @@ if ($result->num_rows != 0){
 		. ($currentTime["seconds"] - $orderTime[2]);
 		$outputString .= "<div class = 'col-md-4'>\n"
 		. "<table class = 'table'>\n"
-		. "<tr><td>Drink Name</td> <td>" . $row1["name"] . "</td></tr>\n"
-		. "<tr><td>Customer Name</td> <td>" . $row1["cust_name"] . "</td></tr>\n"
+		. "<tr><td>Drink Name</td> <td>" . $row["name"] . "</td></tr>\n"
+		. "<tr><td>Customer Name</td> <td>" . $row["cust_name"] . "</td></tr>\n"
 		. "<tr><td>Status</td>\n"
-		. "<td>" . $row["status"] . " <button onclick = 'changeStatusMinus(" . $row["id"] . ")' type = 'button' class = 'btn btn-default'>-</button>\n"
-		. "<button onclick = 'changeStatusPlus(" . $row["id"] . ")' type = 'button' class = 'btn btn-primary'>+</button></td></tr>\n"
+		. "<td>" . $row["status"] . "</td></tr>\n"
 		. "<tr><td>Table</td> <td>" . $row["table_number"] . "</td></tr>\n"
 		. "<tr><td>Wait Time</td> <td>" . $elapsedTime . "</td></tr>\n"
-		. "<tr><td>Action</td> <td><button onclick = 'deleteOrder(" . $row["id"] . ")' type = 'button' class = 'btn btn-primary'>Delete</button>\n"
-		. "<button onclick = 'finishOrder(" . $row["id"] . ")' type = 'button' class = 'btn btn-success'>Finish</button></td></tr>\n"
 		. "</table>\n"
 		. "</div>\n";
 	}
