@@ -78,7 +78,7 @@ $_SESSION["dbname"] = "eld66";
 				</div>
 				<div class = 'col-sm-4 col-md-2'>
 					<!-- Button trigger Refresh Orders -->
-					<button type='button' class='btn btn-primary btn-lg' onclick = 'initOrder(lastCalled);' onkeypress = 'initOrder(4)'>Refresh Orders</button>
+					<button type='button' class='btn btn-primary btn-lg' onclick = 'initOrder(lastCalled);' onkeypress = 'initOrder(lastCalled)'>Refresh Orders</button>
 				</div>
 				<div class = 'col-sm-6 col-md-2'>
 					<!-- Button trigger View Reports -->
