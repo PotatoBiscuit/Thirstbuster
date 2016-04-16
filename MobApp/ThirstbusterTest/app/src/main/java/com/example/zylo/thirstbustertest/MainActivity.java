@@ -90,6 +90,12 @@ public class MainActivity extends Activity {
         finish();
     }
 
+    public void toOrderNumber(View view){
+        Intent intent = new Intent(view.getContext(), OrderNumber.class);
+        view.getContext().startActivity(intent);
+        finish();
+    }
+
 
 
 }

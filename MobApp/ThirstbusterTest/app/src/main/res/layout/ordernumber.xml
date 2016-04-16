@@ -21,7 +21,8 @@
         android:id="@+id/backbutton"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="toVenue" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,5 +32,6 @@
         android:id="@+id/number"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:textSize="100sp" />
+        android:textSize="130sp"
+        android:textAlignment="center" />
 </RelativeLayout>
