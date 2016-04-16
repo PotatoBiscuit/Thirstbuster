@@ -1,0 +1,67 @@
+package com.CS477.drinkandgo.activies;
+
+import static org.xmlpull.v1.XmlPullParser.*;
+import static org.xmlpull.v1.XmlPullParser.END_TAG;
+import static org.xmlpull.v1.XmlPullParser.START_TAG;
+
+import org.xmlpull.v1.XmlPullParser;
+
+import android.os.Bundle;
+import android.util.Xml;
+import android.view.View;
+
+import com.CS477.drinkandgo.Customer;
+import com.CS477.drinkandgo.R;
+
+
+public class MainActivity extends DrinkAndGoActivity 
+{
+    public MainActivity()
+    {	super(R.layout.activity_main);}
+    
+    @Override
+    protected void onCreate(Bundle bundle)
+    {
+    	super.onCreate(bundle);
+    	try
+    	{
+    		XmlPullParser parser = Xml.newPullParser();
+    		parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
+    		parser.setInput(getAssets().open("eld66.xml"), null);
+    		int eventType = parser.getEventType();
+    		while(eventType != END_DOCUMENT)
+    		{
+    			if(eventType == START_TAG)
+    			{
+    				String tag = parser.getName();
+    				if(tag.equals("table"))
+    				{
+    					String tableID = parser.getAttributeValue(null, "name");
+    					if(tableID.equals("customer"))
+    					{
+    						String values[] = new String[5];
+    						int i = 0, curTag = parser.nextTag();
+    						while(curTag != END_TAG && !parser.getName().equals("table"))
+    						{
+    							if(curTag == TEXT)
+    								values[i++] = parser.getText();
+    							curTag = parser.next();
+    						}
+    						customers.add(new Customer(values));
+    					}
+    				}
+    			}
+    			eventType = parser.next();
+    		}
+    		System.out.println(customers);
+    		System.out.println(venues);
+    	}
+    	catch(Exception e){e.printStackTrace();}
+    }
+    
+    public void gotoSignIn(View view)
+    {	startActivity(SignInActivity.class);}
+    
+    public void gotoSignUp(View view)
+    {	startActivity(SignUpActivity.class);}
+}

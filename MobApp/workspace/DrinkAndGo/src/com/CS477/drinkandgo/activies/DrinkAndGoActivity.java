@@ -1,6 +1,7 @@
 package com.CS477.drinkandgo.activies;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,10 +12,16 @@ import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 
 import com.CS477.drinkandgo.Customer;
+import com.CS477.drinkandgo.Drink;
+import com.CS477.drinkandgo.Venue;
 
 public abstract class DrinkAndGoActivity extends Activity 
 {
 	protected static final String PREF_NAME = "drinkAndGo_preferences.txt";
+	
+	public static ArrayList<Venue> venues;
+	public static ArrayList<Customer> customers;
+	public static ArrayList<Drink> drinks;
 	
 	/**
 	 * Customer instance that represents this user.

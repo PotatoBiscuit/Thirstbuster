@@ -1,0 +1,69 @@
+package com.CS477.drinkandgo.activies;
+
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+import android.os.Bundle;
+import android.os.Message;
+import android.util.JsonReader;
+import android.view.View;
+
+import com.CS477.drinkandgo.R;
+
+
+public class MainActivity extends DrinkAndGoActivity 
+{
+    public MainActivity()
+    {	super(R.layout.activity_main);}
+    
+    @Override
+    protected void onCreate(Bundle bundle)
+    {
+    	super.onCreate(bundle);
+    	if(customers == null || venues == null)
+    	{
+    		customers = new ArrayList();
+    		venues = new ArrayList();
+    		try
+    		{
+    			JsonReader reader = new JsonReader(new InputStreamReader
+    							(getAssets().open("eld66.json"), "UTF-8"));
+ 
+    			readMessages(reader);
+    			reader.close();
+    		}
+    		catch(Exception e){e.printStackTrace();}
+    	}
+    }
+    
+    private void readMessages(JsonReader reader) throws IOException
+    {
+    	List messages = new ArrayList();
+    	reader.beginArray();
+    	while(reader.hasNext())
+    		messages.add(reader);
+    	reader.endArray();
+    	return messages;
+    }
+    
+    private Object readMessage(JsonReader reader) throws IOException
+    {
+    	reader.beginObject();
+    	while(reader.hasNext())
+    	{
+    		String name = reader.nextName();
+    		if(name.equals("credit"))
+    		{
+    			
+    		}
+    	}
+    }
+    
+    public void gotoSignIn(View view)
+    {	startActivity(SignInActivity.class);}
+    
+    public void gotoSignUp(View view)
+    {	startActivity(SignUpActivity.class);}
+}

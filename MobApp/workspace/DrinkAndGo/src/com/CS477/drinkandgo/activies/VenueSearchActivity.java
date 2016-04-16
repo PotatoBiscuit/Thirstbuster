@@ -8,29 +8,28 @@ import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
-import com.CS477.drinkandgo.Drink;
 import com.CS477.drinkandgo.R;
 import com.CS477.drinkandgo.Venue;
 import com.CS477.drinkandgo.VenueLayout;
 
 public class VenueSearchActivity extends DrinkAndGoActivity 
 {
-	private static final Venue testVenues[] = 
+	/*private static final Venue testVenues[] = 
 	{
-		new Venue("Bar1", "86001", "Flagstaff", "AZ", 
+		new Venue("Bar1", "123 Street", "86001", "Flagstaff", "AZ", 
 			new Drink("Beer", "This is beer. Must be over 21 to order", 2), 
 			new Drink("Coke", "This is a soda", 1), 
 			new Drink("Water", "This is water", 0.5f)),
 			
-		new Venue("Bar2", "84583", "New York", "NY", 
+		new Venue("Bar2", "Brooklyn Ave", "84583", "New York", "NY", 
 			new Drink("Beer", "This is beer. Must be over 21 to order", 2)),
 		
-		new Venue("Bar3", "89140", "Las Vegas", "NV", 
+		new Venue("Bar3", "Casino Blvd", "89140", "Las Vegas", "NV", 
 			new Drink("Beer", "This is beer. Must be over 21 to order", 2), 
 			new Drink("Coke", "This is a soda", 1), 
 			new Drink("Water", "This is water", 0.5f),
 			new Drink("Wine", "This is wine. Must be over 21 to order", 4))
-	};
+	};*/
 	
 	public VenueSearchActivity()
 	{	super(R.layout.activity_venue_search, MainActivity.class);}
@@ -44,7 +43,7 @@ public class VenueSearchActivity extends DrinkAndGoActivity
 		text.addTextChangedListener(new VenueTextWatcher());
 		
 		LinearLayout venueList = (LinearLayout) findViewById(R.id.venue_list);
-		for(Venue venue : testVenues)
+		for(Venue venue : venues)
 			venueList.addView(new VenueLayout(this, venue, new GotoMenu(venue)));
 	}
 	

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 3.4.9
+- http://www.phpmyadmin.net
+-
+- Host: tund.cefns.nau.edu
+- Generation Time: Apr 15, 2016 at 10:39 PM
+- Server version: 5.1.73
+- PHP Version: 5.3.3
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="eld66" collation="latin1_swedish_ci" charset="latin1">
+            <pma:table name="customer">
+                CREATE TABLE `customer` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `credit` varchar(16) NOT NULL DEFAULT '0',
+                  `name` varchar(100) NOT NULL,
+                  `username` varchar(50) NOT NULL,
+                  `password` varchar(50) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  UNIQUE KEY `id` (`id`),
+                  UNIQUE KEY `username` (`username`)
+                ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="drink">
+                CREATE TABLE `drink` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `venue_id` int(11) NOT NULL,
+                  `cost` decimal(8,2) NOT NULL,
+                  `name` varchar(100) NOT NULL,
+                  `type` varchar(100) NOT NULL,
+                  `description` text,
+                  PRIMARY KEY (`id`),
+                  UNIQUE KEY `id` (`id`),
+                  KEY `venue_id` (`venue_id`)
+                ) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="tab">
+                CREATE TABLE `tab` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `venue_id` int(11) NOT NULL,
+                  `customer_id` int(11) NOT NULL,
+                  `table_number` int(100) DEFAULT NULL,
+                  `start_time` datetime NOT NULL,
+                  `delivery_time` datetime DEFAULT NULL,
+                  `status` varchar(50) NOT NULL DEFAULT 'new',
+                  PRIMARY KEY (`id`),
+                  UNIQUE KEY `id` (`id`),
+                  KEY `customer_id` (`customer_id`)
+                ) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="tab_drinks">
+                CREATE TABLE `tab_drinks` (
+                  `tab_id` int(11) NOT NULL,
+                  `drink_id` int(11) NOT NULL,
+                  `special_instructions` varchar(255) DEFAULT NULL,
+                  KEY `order_id` (`tab_id`),
+                  KEY `drink_id` (`drink_id`)
+                ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="venue">
+                CREATE TABLE `venue` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `address` varchar(150) NOT NULL,
+                  `city` varchar(30) NOT NULL,
+                  `state` varchar(30) DEFAULT NULL,
+                  `zip` varchar(9) NOT NULL,
+                  `password` varchar(50) NOT NULL,
+                  `name` varchar(50) NOT NULL,
+                  `credit` varchar(16) DEFAULT NULL,
+                  `login_name` varchar(55) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  UNIQUE KEY `address` (`address`),
+                  UNIQUE KEY `login_name` (`login_name`),
+                  UNIQUE KEY `id` (`id`)
+                ) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'eld66'
+    -->
+    <database name="eld66">
+        <!-- Table customer -->
+        <table name="customer">
+            <column name="id">1</column>
+            <column name="credit">7645674876356524</column>
+            <column name="name">Johnny</column>
+            <column name="username">mrJoe</column>
+            <column name="password">1234</column>
+        </table>
+        <table name="customer">
+            <column name="id">2</column>
+            <column name="credit">7654567876545678</column>
+            <column name="name">Bob</column>
+            <column name="username">mrBob</column>
+            <column name="password">1234</column>
+        </table>
+        <!-- Table drink -->
+        <table name="drink">
+            <column name="id">1</column>
+            <column name="venue_id">9</column>
+            <column name="cost">200.00</column>
+            <column name="name">Bourbon</column>
+            <column name="type">Hard Liquor</column>
+            <column name="description">This drink is super addictive</column>
+        </table>
+        <table name="drink">
+            <column name="id">6</column>
+            <column name="venue_id">9</column>
+            <column name="cost">3.00</column>
+            <column name="name">Smirnoff</column>
+            <column name="type">Kind of Beer</column>
+            <column name="description">You wont get drunk</column>
+        </table>
+        <table name="drink">
+            <column name="id">4</column>
+            <column name="venue_id">9</column>
+            <column name="cost">2.00</column>
+            <column name="name">Vodka</column>
+            <column name="type">Hard Liquor</column>
+            <column name="description">Imported from Russia</column>
+        </table>
+        <table name="drink">
+            <column name="id">7</column>
+            <column name="venue_id">9</column>
+            <column name="cost">2.00</column>
+            <column name="name">Fireball</column>
+            <column name="type">Whisky</column>
+            <column name="description">Dont ask me how I know these names</column>
+        </table>
+        <table name="drink">
+            <column name="id">8</column>
+            <column name="venue_id">9</column>
+            <column name="cost">2.00</column>
+            <column name="name">Everclear</column>
+            <column name="type">Concentrated Liquor</column>
+            <column name="description">Dont drink this straight  just dont</column>
+        </table>
+        <!-- Table tab -->
+        <table name="tab">
+            <column name="id">7</column>
+            <column name="venue_id">9</column>
+            <column name="customer_id">1</column>
+            <column name="table_number">2</column>
+            <column name="start_time">2016-04-12 06:56:23</column>
+            <column name="delivery_time">NULL</column>
+            <column name="status">Ordered</column>
+        </table>
+        <table name="tab">
+            <column name="id">5</column>
+            <column name="venue_id">9</column>
+            <column name="customer_id">2</column>
+            <column name="table_number">23</column>
+            <column name="start_time">2016-04-12 06:10:23</column>
+            <column name="delivery_time">2016-04-15 21:56:03</column>
+            <column name="status">Complete</column>
+        </table>
+        <table name="tab">
+            <column name="id">6</column>
+            <column name="venue_id">9</column>
+            <column name="customer_id">2</column>
+            <column name="table_number">14</column>
+            <column name="start_time">2016-04-12 06:10:52</column>
+            <column name="delivery_time">NULL</column>
+            <column name="status">Ordered</column>
+        </table>
+        <!-- Table tab_drinks -->
+        <table name="tab_drinks">
+            <column name="tab_id">7</column>
+            <column name="drink_id">8</column>
+            <column name="special_instructions">Put it in a mug</column>
+        </table>
+        <table name="tab_drinks">
+            <column name="tab_id">7</column>
+            <column name="drink_id">6</column>
+            <column name="special_instructions">Throw it at me!</column>
+        </table>
+        <table name="tab_drinks">
+            <column name="tab_id">5</column>
+            <column name="drink_id">6</column>
+            <column name="special_instructions">Please say hello to me Im lonely</column>
+        </table>
+        <table name="tab_drinks">
+            <column name="tab_id">5</column>
+            <column name="drink_id">8</column>
+            <column name="special_instructions">I dont know why Im doing this</column>
+        </table>
+        <!-- Table venue -->
+        <table name="venue">
+            <column name="id">9</column>
+            <column name="address">8765 W Fuller Ln</column>
+            <column name="city">Flagstaff</column>
+            <column name="state">AZ</column>
+            <column name="zip">87465</column>
+            <column name="password">1234</column>
+            <column name="name">Pie Inn</column>
+            <column name="credit">8764764387635467</column>
+            <column name="login_name">Noodle</column>
+        </table>
+        <table name="venue">
+            <column name="id">10</column>
+            <column name="address">7897 N Fuller Ln</column>
+            <column name="city">Flagstaff</column>
+            <column name="state">AZ</column>
+            <column name="zip">76453</column>
+            <column name="password">1234</column>
+            <column name="name">Pie Inn2</column>
+            <column name="credit">7645365245364645</column>
+            <column name="login_name">pie</column>
+        </table>
+        <table name="venue">
+            <column name="id">11</column>
+            <column name="address">8765 S Butler Ln</column>
+            <column name="city">Flagstaff</column>
+            <column name="state">AZ</column>
+            <column name="zip">76453</column>
+            <column name="password">12345</column>
+            <column name="name">Pie Inn3</column>
+            <column name="credit">2435645365476547</column>
+            <column name="login_name">pie1</column>
+        </table>
+    </database>
+</pma_xml_export>
