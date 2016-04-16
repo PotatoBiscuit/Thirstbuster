@@ -23,15 +23,17 @@ $queryString = "SELECT tab.id, tab.table_number, tab.start_time, tab.status, cus
 . "ORDER BY customer.name ASC ";
 $result = $conn->query($queryString);
 
-$outputString = "<div class = 'row'><div class = 'col-md-3'>\n"
+$outputString = "<div class = 'row'><div class = 'col-md-2'>\n"
 			. "<!-- Button trigger settings modal -->\n"
 			. "<button onclick = 'initSettings()' type='button' class='btn btn-primary btn-lg'>Settings</button>\n"
 			. "<!-- Button trigger view modal -->\n"
-			. "</div><div class = 'col-md-3'>"
+			. "</div><div class = 'col-md-2'>"
 			. "<button type='button' class='btn btn-primary btn-lg' onclick = 'ViewInitialization()'>View Drinks</button>\n"
-			. "</div><div class = 'col-md-3'>"
+			. "</div><div class = 'col-md-2'>"
 			. "<button type='button' class='btn btn-primary btn-lg' onclick = 'initOrder(3)'>Refresh Orders</button>\n"
-			. "</div><div class = 'col-md-3'>"
+			. "</div><div class = 'col-md-2'>"
+			. "<button type='button' class='btn btn-primary btn-lg' onclick = 'initReports()'>View Reports</button>\n"
+			. "</div><div class = 'col-md-2'>"
 			. "<div class='dropdown'>"
 		    . "<button class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Sort By..."
 		    . "<span class='caret'></span></button>"

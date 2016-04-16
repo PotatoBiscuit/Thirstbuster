@@ -37,6 +37,7 @@
 		<script src="js/login_modal.js"></script>
 		<script src="js/settings_modal.js"></script>
 		<script src="js/drinks_modal.js"></script>
+		<script src="js/reports_modal.js"></script>
 
     </head>
     <body>
@@ -255,7 +256,7 @@
 			<div class="modal-content">
 			  <div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">Add Drinks</h4>
+				<h4 class="modal-title">Edit Drinks</h4>
 			  </div>
 			  <div class="modal-body">
 					<div class="form-group">
@@ -295,6 +296,29 @@
 				<h4 class="modal-title">Drinks</h4>
 			  </div>
 			  <div id = "ordered_drinks" class="modal-body">
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+			  </div>
+			</div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		
+		<div id = "ViewReportsModal" class="modal fade" tabindex="-1" role="dialog">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Reports</h4>
+			  </div>
+			  <div id = "reports_body" class="modal-body">
+					<button class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Select Report
+					<span class='caret'></span></button>
+					<ul class='dropdown-menu'>
+					<li><a onclick='initOrder(1)' href='#'>Total Drinks Sold</a></li>
+					<li><a onclick='initOrder(2)' href='#'>Ave. Wait Time</a></li>
+					<li><a onclick='initOrder(3)' href='#'>Total Sales</a></li>
+					</ul>
 			  </div>
 			  <div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
