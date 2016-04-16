@@ -5,11 +5,6 @@ $q = $_REQUEST["q"];
 $stringArray = explode(",", $q);
 
 /*establish connection with the mySQL database*/
-$_SESSION["servername"] = "tund.cefns.nau.edu";
-$_SESSION["username"] = "eld66";
-$_SESSION["password"] = "cs477rocks";
-$_SESSION["dbname"] = "eld66";
-
 $servername = $_SESSION["servername"];
 $username = $_SESSION["username"];
 $password = $_SESSION["password"];
@@ -37,5 +32,6 @@ else {
 
 $row = $result->fetch_assoc();
 $_SESSION['ID'] = $row["id"];
+$_SESSION['LoginID'] = $row["login_name"];
 echo 'yes';
 ?>

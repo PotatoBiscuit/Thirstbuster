@@ -37,6 +37,18 @@ filler{
 	margin-top: 10px;
 }
 
-#order_holder {
+#order_header {
     margin: 60px auto;
+}
+
+#order_header > div.row > div {
+    text-align: center;
+}
+
+#order_holder {
+    margin: 15px auto;
+}
+
+#order_holder > div.row > div {
+    text-align: center;
 }
