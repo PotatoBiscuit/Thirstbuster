@@ -2,18 +2,19 @@
 session_start();
 
 if(!isset($_SESSION["ID"])){
-	echo 'uh-oh';
+	echo 'Error in init_drinks.php, no session ID';
 	exit();
 }
 
 /*establish connection with the mySQL database*/
-$servername = "tund";
-$username = "eld66";
-$password = "cs477rocks";
-$dbname = "eld66";
+$servername = $_SESSION["servername"];
+$username = $_SESSION["username"];
+$password = $_SESSION["password"];
+$dbname = $_SESSION["dbname"];
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error){
+	echo 'Error in connecting to database';
 	die("Connection failed: " . $conn->connect_error);
 }
 
@@ -25,7 +26,7 @@ $queryString = "SELECT drink.name, customer.name AS cust_name, tab.start_time, t
 . "ORDER BY drink.name ASC";
 $result = $conn->query($queryString);
 
-$outputString = "<div class = 'row'><div class = 'col-md-2'>\n"
+$outputString = "<div class = 'row'><div class='col-md-1'></div><div class = 'col-md-2'>\n"
 			. "<!-- Button trigger settings modal -->\n"
 			. "<button onclick = 'initSettings()' type='button' class='btn btn-primary btn-lg'>Settings</button>\n"
 			. "<!-- Button trigger view modal -->\n"
@@ -37,7 +38,7 @@ $outputString = "<div class = 'row'><div class = 'col-md-2'>\n"
 			. "<button type='button' class='btn btn-primary btn-lg' onclick = 'initReports()'>View Reports</button>\n"
 			. "</div><div class = 'col-md-2'>"
 			. "<div class='dropdown'>"
-		    . "<button class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Sort By..."
+		    . "<button class='btn btn-primary btn-lg dropdown-toggle' type='button' data-toggle='dropdown'>Sort By..."
 		    . "<span class='caret'></span></button>"
 		    . "<ul class='dropdown-menu'>"
 			. "<li><a onclick='initOrder(1)' href='#'>Wait Time</a></li>"

@@ -37,8 +37,6 @@ filler{
 	margin-top: 10px;
 }
 
-.container-fluid {
-	position: absolute;
-	top: 60px;
-	width: 100%;
+#order_holder {
+    margin: 60px auto;
 }

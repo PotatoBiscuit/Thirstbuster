@@ -1,13 +1,14 @@
 <?php
 
 /*establish connection with the mySQL database*/
-$servername = "tund";
-$username = "eld66";
-$password = "cs477rocks";
-$dbname = "eld66";
+$servername = $_SESSION["servername"];
+$username = $_SESSION["username"];
+$password = $_SESSION["password"];
+$dbname = $_SESSION["dbname"];
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error){
+	echo 'Error in connecting to database';
 	die("Connection failed: " . $conn->connect_error);
 }
 
@@ -16,7 +17,7 @@ $q = $_REQUEST["q"];
 $queryString = "SELECT * FROM `drink` WHERE id = '" . $q . "'";
 $result = $conn->query($queryString);
 if ($result->num_rows == 0 || $result->num_rows > 1){
-	echo 'oh-no';
+	echo 'Error with init_edit_drink.php, no rows found';
 	exit();
 }
 

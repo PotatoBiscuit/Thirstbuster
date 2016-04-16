@@ -5,13 +5,19 @@ $q = $_REQUEST["q"];
 $stringArray = explode(",", $q);
 
 /*establish connection with the mySQL database*/
-$servername = "tund";
-$username = "eld66";
-$password = "cs477rocks";
-$dbname = "eld66";
+$_SESSION["servername"] = "tund.cefns.nau.edu";
+$_SESSION["username"] = "eld66";
+$_SESSION["password"] = "cs477rocks";
+$_SESSION["dbname"] = "eld66";
+
+$servername = $_SESSION["servername"];
+$username = $_SESSION["username"];
+$password = $_SESSION["password"];
+$dbname = $_SESSION["dbname"];
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error){
+	echo 'Error in connecting to database';
 	die("Connection failed: " . $conn->connect_error);
 }
 
