@@ -24,15 +24,9 @@ $queryString = "SELECT * FROM tab "
 
 $result = $conn->query($queryString);
 $num_drinks_sold = $result->num_rows;
+$outputString = "<b>Number of Drinks Sold: </b>" . $num_drinks_sold;
 
-$outputString = "<button class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Select Report"
-. "<span class='caret'></span></button>"
-. "<ul class='dropdown-menu'>"
-. "<li><a onclick='initDisplay(1)' href='#'>Total Drinks Sold</a></li>"
-. "<li><a onclick='initDisplay(2)' href='#'>Ave. Wait Time</a></li>"
-. "<li><a onclick='initDisplay(3)' href='#'>Total Sales</a></li>"
-. "</ul><br><br>"
-. "<b>Number of Drinks Sold: </b>" . $num_drinks_sold;
+
 
 $list_of_drinks = array();
 
@@ -68,14 +62,25 @@ for($i = 0; $i < count($list_of_drinks); $i++){
 	}
 }
 
-$outputString .= "<br><br><table>";
+$outputString .= "<br><br><table><tr><th>Drink</th><th>Count</th></tr>";
 
 for ($i = 0; $i < count($drinkCount); $i++){
 	$outputString .= "<tr><td><b>" . $drinkCount[$i][1] . "</b></td><td>" . $drinkCount[$i][2] . "</td></tr>";
 }
-$outputString .= "</table>";
+$outputString .= "</table><br /><script type='text/javascript'>"
+. "var chart = AmCharts.makeChart( \"chartdiv\", {"
+. "\"type\":\"pie\",\"theme\":\"none\",\"dataProvider\":[{";
 
+for ($i = 0; $i < count($drinkCount); $i++) {
+	$outputString .= "\"drink\":\"" . $drinkCount[$i][1] . "\",\"count\":\"" . $drinkCount[$i][2] . "\"}";
+	if(($i + 1 ) != count($drinkCount)) {
+		$outputString .= ",{";
+	}
+}
 
+$outputString .= "],\"valueField\":\"count\",\"titleField\":\"drink\",\"balloon\":{\"fixedPosition\":true},\"export\": {\"enabled\":true}});"
+. "</script><div id='chartdiv'>"
+. "</div>";
 
 echo $outputString;
 ?>

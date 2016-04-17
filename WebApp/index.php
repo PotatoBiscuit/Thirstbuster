@@ -48,6 +48,10 @@ $_SESSION["dbname"] = "eld66";
 		<script src="js/settings_modal.js"></script>
 		<script src="js/drinks_modal.js"></script>
 		<script src="js/reports_modal.js"></script>
+		<script src="js/amcharts/amcharts.js"></script>
+		<script src="js/amcharts/pie.js"></script>
+		<script src="js/amcharts/serial.js"></script>
+		<script src="js/amcharts/themes/none.js"></script>
 		<script src="js/main.js"></script>
 
     </head>
@@ -90,10 +94,9 @@ $_SESSION["dbname"] = "eld66";
 							Sort By...<span class='caret'></span>
 						</button>
 						<ul class='dropdown-menu'>
-							<li><a onclick='initOrder(1); lastCalled = 1;' href='#'>Wait Time</a></li>
-							<li><a onclick='initOrder(2); lastCalled = 2;' href='#'>Table Number</a></li>
-							<li><a onclick='initOrder(3); lastCalled = 3;' href='#'>Customer Name</a></li>
-							<li><a onclick='initOrder(4); lastCalled = 4;' href='#'>Drinks</a></li>
+							<li><a onclick='initOrder(1); lastCalled = 1; return false;' onkeypress='initOrder(1); lastCalled = 1; return false;' href='#'>Wait Time</a></li>
+							<li><a onclick='initOrder(2); lastCalled = 2; return false;' onkeypress='initOrder(2); lastCalled = 2; return false;' href='#'>Table Number</a></li>
+							<li><a onclick='initOrder(3); lastCalled = 3; return false;' onkeypress='initOrder(3); lastCalled = 3; return false;' href='#'>Customer Name</a></li>
 						</ul>
 					</div>
 				</div>
@@ -361,15 +364,16 @@ $_SESSION["dbname"] = "eld66";
 				<h4 class="modal-title">Reports</h4>
 			  </div>
 			  <div id = "reports_body" class="modal-body">
-					<button id="select-report" class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Select Report
-					<span class='caret'></span></button>
-					<ul class='dropdown-menu'>
-					<li><a onclick='initDisplay(1)' href='#'>Total Drinks Sold</a></li>
-					<li><a onclick='initDisplay(2)' href='#'>Ave. Wait Time</a></li>
-					<li><a onclick='initDisplay(3)' href='#'>Total Sales</a></li>
-					</ul>
+					
 			  </div>
 			  <div class="modal-footer">
+			  	<button id="select-report" class='btn btn-primary dropdown-toggle' style='float: left;' type='button' data-toggle='dropdown'>Select Report
+					<span class='caret'></span></button>
+					<ul class='dropdown-menu'>
+					<li><a onclick='initDisplay(1); return false;' onkeypress='initDisplay(1); return false;' href='#'>Total Drinks Sold</a></li>
+					<li><a onclick='initDisplay(2); return false;' onkeypress='initDisplay(2); return false;' href='#'>Wait Time</a></li>
+					<li><a onclick='initDisplay(3); return false;' onkeypress='initDisplay(3); return false;' href='#'>Total Sales</a></li>
+					</ul>
 				<button id="viewReports-cancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 			  </div>
 			</div><!-- /.modal-content -->

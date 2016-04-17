@@ -12,5 +12,11 @@ function initDisplay(display_choice){
 	if(display_choice == 1){
 		xmlhttp.open("GET", "php/Reports_Modal/num_drinks.php", true);
 		xmlhttp.send();
+	} else if(display_choice == 2){
+		xmlhttp.open("GET", "php/Reports_Modal/wait_time.php", true);
+		xmlhttp.send();
+	} else if(display_choice == 3){
+		xmlhttp.open("GET", "php/Reports_Modal/total_sales.php", true);
+		xmlhttp.send();
 	}
 }
