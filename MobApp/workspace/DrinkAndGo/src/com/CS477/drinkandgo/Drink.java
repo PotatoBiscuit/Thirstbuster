@@ -3,6 +3,9 @@ package com.CS477.drinkandgo;
 import java.io.Serializable;
 import java.util.Locale;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Drink implements Serializable
 {
 	/**
@@ -25,8 +28,11 @@ public class Drink implements Serializable
 	public Drink(String id, String venueID, String name, String description, String cost)
 	{	this(id, venueID, name, description, Float.parseFloat(cost));}
 	
-	public Drink(String values[])
-	{	this(values[0], values[1], values[3], values[5], values[2]);}
+	public Drink(JSONObject obj) throws JSONException
+	{	
+		this(obj.getString("id"), obj.getString("venue_id"),obj.getString("name"),
+		obj.getString("description"),obj.getString("cost"));
+	}
 
 	public String getName() 
 	{	return name;}

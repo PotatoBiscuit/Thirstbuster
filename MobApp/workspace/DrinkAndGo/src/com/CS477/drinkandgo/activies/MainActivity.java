@@ -1,18 +1,26 @@
 package com.CS477.drinkandgo.activies;
 
-import static org.xmlpull.v1.XmlPullParser.END_DOCUMENT;
-import static org.xmlpull.v1.XmlPullParser.START_TAG;
-
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.Xml;
 import android.view.View;
+import android.widget.Toast;
 
 import com.CS477.drinkandgo.Customer;
 import com.CS477.drinkandgo.Drink;
@@ -20,6 +28,7 @@ import com.CS477.drinkandgo.R;
 import com.CS477.drinkandgo.Venue;
 
 
+@SuppressWarnings("deprecation")
 public class MainActivity extends DrinkAndGoActivity 
 {
     public MainActivity()
@@ -36,7 +45,8 @@ public class MainActivity extends DrinkAndGoActivity
     			customers = new ArrayList<Customer>();
     			venues = new ArrayList<Venue>();
     			drinks = new ArrayList<Drink>();
-    			parseXml();
+    			parseJson();
+    			//new PHPTask().execute();
     		}
     	}
     	catch(Exception e)
@@ -45,83 +55,89 @@ public class MainActivity extends DrinkAndGoActivity
     	}
     }
     
-    private void parseXml() throws XmlPullParserException, IOException
+    public void gotoSignIn(View view)
+	{	startActivity(SignInActivity.class);}
+
+	public void gotoSignUp(View view)
+	{	startActivity(SignUpActivity.class);}
+
+	private void parseJson() throws JSONException, IOException
     {
-    	XmlPullParser parser = Xml.newPullParser();
-		parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
-		parser.setInput(getAssets().open("eld66.xml"), null);
-		int eventType = parser.getEventType();
-		while(eventType != END_DOCUMENT)
-		{
-			if(eventType == START_TAG)
-			{
-				String tag = parser.getName();
-				if(tag != null)
-				{
-					if(tag.equals("table") || tag.equals("venue"))
-					{
-						String name = parser.getAttributeValue(null, "name");
-						if(name.equals("customer"))
-						{
-							String values[] = new String[5];
-							int i = 0;
-							parser.next();
-							while(i < 5)
-							{
-								if(parser.getEventType() == START_TAG)
-								{
-									parser.next();
-									values[i++] = new String(parser.getText());
-								}
-								parser.next();
-							}
-							customers.add(new Customer(values));
-						}
-						else if(name.equals("venue"))
-						{
-							String values[] = new String[9];
-							int i = 0;
-							parser.next();
-							while(i < 9)
-							{
-								if(parser.getEventType() == START_TAG)
-								{
-									parser.next();
-									values[i++] = new String(parser.getText());
-								}
-								parser.next();
-							}
-							venues.add(new Venue(values));
-						}
-						else if(name.equals("drink"))
-						{
-							String values[] = new String[6];
-							int i = 0;
-							parser.next();
-							while(i < 6)
-							{
-								if(parser.getEventType() == START_TAG)
-								{
-									parser.next();
-									values[i++] = new String(parser.getText());
-								}
-								parser.next();
-							}
-							drinks.add(new Drink(values));
-						}
-					}
-				}
-			}
-			eventType = parser.next();
-		}
+		InputStream in = getAssets().open("database.json");
+		int size = in.available();
+		byte[] bytes = new byte[size];
+		in.read(bytes);
+		in.close();
+		
+		JSONObject reader = new JSONObject(new String(bytes, "UTF-8"));
+		
+		//get customers
+		JSONArray array = reader.getJSONArray("customers").getJSONArray(0);
+		for(int i = 0, n = array.length(); i < n; ++i)
+			customers.add(new Customer(array.getJSONObject(i)));
+		
+		//get venues
+		array = reader.getJSONArray("venues").getJSONArray(0);
+		for(int i = 0, n = array.length(); i < n; ++i)
+			venues.add(new Venue(array.getJSONObject(i)));
+		
+		//get drinks
+		array = reader.getJSONArray("drinks").getJSONArray(0);
+		for(int i = 0, n = array.length(); i < n; ++i)
+			drinks.add(new Drink(array.getJSONObject(i)));
+		
 		Log.i("Customers", customers.toString());
 		Log.i("Venues", venues.toString());
 		Log.i("Drinks", drinks.toString());
     }
     
-    public void gotoSignIn(View view)
-    {	startActivity(SignInActivity.class);}
-    
-    public void gotoSignUp(View view)
-    {	startActivity(SignUpActivity.class);}
+	private class PHPTask extends AsyncTask<String, Void, String>
+    {
+		@Override
+		protected String doInBackground(String... params) 
+		{
+			int tries = 3;
+			while(tries-- > 0)
+			{
+				HttpClient client = new DefaultHttpClient();
+				HttpGet httpGet = new HttpGet(LINK);
+				httpGet.setHeader("Content-Type", "application/json");
+	    		HttpResponse httpResponse;
+		    	try
+		    	{
+		    		httpResponse = client.execute(httpGet);
+		    		
+		    		Log.i("Http Response", httpResponse.getStatusLine().toString());
+		    		HttpEntity entity = httpResponse.getEntity();
+		    		if(entity != null)
+		    		{
+			    		BufferedReader in = new BufferedReader(new InputStreamReader
+			    									(entity.getContent()));
+			    		
+			    		StringBuilder sb = new StringBuilder("");
+			    		String line = "";
+			    		while((line = in.readLine()) != null)
+			    			sb.append(line);
+			    		in.close();
+			    		return sb.toString();
+		    		}
+		    		else return "Entity could not be found.";
+		    	}
+		    	catch(ClientProtocolException p)
+		    	{	return p.getCause().getLocalizedMessage();}
+		    	catch(Exception e)
+		    	{	return e.getLocalizedMessage();}
+			}
+			
+			return "Failed to connect to database";
+		}
+		
+		@Override
+		protected void onPostExecute(String result)
+		{
+			result = result == null ? "Failure" : result;
+			Log.w("PHPTask", result);
+			Toast.makeText(MainActivity.this, result, Toast.LENGTH_LONG).show();
+		}
+    }
 }

@@ -1,0 +1,183 @@
+package com.CS477.drinkandgo.activies;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
+
+import com.CS477.drinkandgo.Customer;
+import com.CS477.drinkandgo.Drink;
+import com.CS477.drinkandgo.R;
+import com.CS477.drinkandgo.Venue;
+
+
+@SuppressWarnings("deprecation")
+public class MainActivity extends DrinkAndGoActivity 
+{
+    public MainActivity()
+    {	super(R.layout.activity_main);}
+    
+    @Override
+    protected void onCreate(Bundle bundle)
+    {
+    	super.onCreate(bundle);
+    	try
+    	{	
+    		if(customers == null || venues == null || drinks == null)
+    		{
+    			customers = new ArrayList<Customer>();
+    			venues = new ArrayList<Venue>();
+    			drinks = new ArrayList<Drink>();
+    			//parseXml();
+    			new PHPTask().execute();
+    		}
+    	}
+    	catch(Exception e)
+    	{
+    		e.printStackTrace();
+    	}
+    }
+    
+//    private void parseXml() throws XmlPullParserException, IOException
+//    {
+//    	XmlPullParser parser = Xml.newPullParser();
+//		parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
+//		parser.setInput(getAssets().open("eld66.xml"), null);
+//		int eventType = parser.getEventType();
+//		while(eventType != END_DOCUMENT)
+//		{
+//			if(eventType == START_TAG)
+//			{
+//				String tag = parser.getName();
+//				if(tag != null)
+//				{
+//					if(tag.equals("table") || tag.equals("venue"))
+//					{
+//						String name = parser.getAttributeValue(null, "name");
+//						if(name.equals("customer"))
+//						{
+//							String values[] = new String[5];
+//							int i = 0;
+//							parser.next();
+//							while(i < 5)
+//							{
+//								if(parser.getEventType() == START_TAG)
+//								{
+//									parser.next();
+//									values[i++] = new String(parser.getText());
+//								}
+//								parser.next();
+//							}
+//							customers.add(new Customer(values));
+//						}
+//						else if(name.equals("venue"))
+//						{
+//							String values[] = new String[9];
+//							int i = 0;
+//							parser.next();
+//							while(i < 9)
+//							{
+//								if(parser.getEventType() == START_TAG)
+//								{
+//									parser.next();
+//									values[i++] = new String(parser.getText());
+//								}
+//								parser.next();
+//							}
+//							venues.add(new Venue(values));
+//						}
+//						else if(name.equals("drink"))
+//						{
+//							String values[] = new String[6];
+//							int i = 0;
+//							parser.next();
+//							while(i < 6)
+//							{
+//								if(parser.getEventType() == START_TAG)
+//								{
+//									parser.next();
+//									values[i++] = new String(parser.getText());
+//								}
+//								parser.next();
+//							}
+//							drinks.add(new Drink(values));
+//						}
+//					}
+//				}
+//			}
+//			eventType = parser.next();
+//		}
+//		Log.i("Customers", customers.toString());
+//		Log.i("Venues", venues.toString());
+//		Log.i("Drinks", drinks.toString());
+//    }
+    
+	private class PHPTask extends AsyncTask<String, Void, String>
+    {
+		@Override
+		protected String doInBackground(String... params) 
+		{
+			int tries = 3;
+			while(tries-- > 0)
+			{
+				HttpClient client = new DefaultHttpClient();
+				HttpPost httpPost = new HttpPost(LINK);
+				httpPost.setHeader("Content-Type", "application/json");
+				httpPost.setHeader("Accept", "application/json");
+	    		HttpResponse httpResponse;
+		    	try
+		    	{
+		    		httpResponse = client.execute(httpPost);
+		    		
+		    		Log.i("Http Response", httpResponse.getStatusLine().toString());
+		    		HttpEntity entity = httpResponse.getEntity();
+		    		if(entity != null)
+		    		{
+			    		BufferedReader in = new BufferedReader(new InputStreamReader
+			    									(entity.getContent()));
+			    		
+			    		StringBuilder sb = new StringBuilder("");
+			    		String line = "";
+			    		while((line = in.readLine()) != null)
+			    			sb.append(line);
+			    		in.close();
+			    		return sb.toString();
+		    		}
+		    		else return "Entity could not be found.";
+		    	}
+		    	catch(ClientProtocolException p)
+		    	{	return p.getCause().getLocalizedMessage();}
+		    	catch(Exception e)
+		    	{	return e.getLocalizedMessage();}
+			}
+			
+			return "Failed to connect to database";
+		}
+		
+		@Override
+		protected void onPostExecute(String result)
+		{
+			result = result == null ? "Failure" : result;
+			Log.w("PHPTask", result);
+			Toast.makeText(MainActivity.this, result, Toast.LENGTH_LONG).show();
+		}
+    }
+    
+    public void gotoSignIn(View view)
+    {	startActivity(SignInActivity.class);}
+    
+    public void gotoSignUp(View view)
+    {	startActivity(SignUpActivity.class);}
+}

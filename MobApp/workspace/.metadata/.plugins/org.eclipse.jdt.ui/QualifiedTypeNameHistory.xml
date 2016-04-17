@@ -10,7 +10,6 @@
 <fullyQualifiedTypeName name="com.CS477.drinkandgo.R.style"/>
 <fullyQualifiedTypeName name="com.CS477.drinkandgo.R"/>
 <fullyQualifiedTypeName name="com.CS477.drinkandgo.R.dimen"/>
-<fullyQualifiedTypeName name="android.widget.Toast"/>
 <fullyQualifiedTypeName name="com.CS477.drinkandgo.R.attr"/>
 <fullyQualifiedTypeName name="android.R.style"/>
 <fullyQualifiedTypeName name="android.R.drawable"/>
@@ -28,4 +27,5 @@
 <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
 <fullyQualifiedTypeName name="android.util.Xml"/>
 <fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="android.widget.Toast"/>
 </qualifiedTypeNameHistroy>

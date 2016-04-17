@@ -1,0 +1,23 @@
+{
+	"customers":
+	[{"id":"1","credit":"7645674876356524","name":"Johnny","username":"mrJoe","password":"1234"},
+	{"id":"2","credit":"7654567876545678","name":"Bob","username":"mrBob","password":"1234"}]
+}
+{
+	"drinks":
+	[{"id":"1","venue_id":"9","cost":"200.00","name":"Bourbon","type":"Hard Liquor","description":"This drink is super addictive"},
+	{"id":"6","venue_id":"9","cost":"3.00","name":"Smirnoff","type":"Kind of Beer","description":"You wont get drunk"},
+	{"id":"4","venue_id":"9","cost":"2.00","name":"Vodka","type":"Hard Liquor","description":"Imported from Russia"},
+	{"id":"7","venue_id":"9","cost":"2.00","name":"Fireball","type":"Whisky","description":"Dont ask me how I know these names"},
+	{"id":"8","venue_id":"9","cost":"2.00","name":"Everclear","type":"Concentrated Liquor","description":"Dont drink this straight just dont"}]
+}
+{
+	"tabs":
+	[{"id":"7","venue_id":"9","customer_id":"1","table_number":"2","start_time":"2016-04-12 06:56:23","delivery_time":null,"status":"Ordered"},{"id":"5","venue_id":"9","customer_id":"2","table_number":"23","start_time":"2016-04-12 06:10:23","delivery_time":"2016-04-15 21:56:03","status":"Complete"},{"id":"6","venue_id":"9","customer_id":"2","table_number":"14","start_time":"2016-04-12 06:10:52","delivery_time":null,"status":"Ordered"}]}{"tab_drinks":[{"tab_id":"7","drink_id":"8","special_instructions":"Put it in a mug"},{"tab_id":"7","drink_id":"6","special_instructions":"Throw it at me!"},{"tab_id":"5","drink_id":"6","special_instructions":"Please say hello to me Im lonely"},
+	{"tab_id":"5","drink_id":"8","special_instructions":"I dont know why Im doing this"}]
+}
+{
+	"venues":
+	[{"id":"9","address":"8765 W Fuller Ln","city":"Flagstaff","state":"AZ","zip":"87465","password":"1234","name":"Pie Inn","credit":"8764764387635467","login_name":"Noodle"},{"id":"10","address":"7897 N Fuller Ln","city":"Flagstaff","state":"AZ","zip":"76453","password":"1234","name":"Pie Inn2","credit":"7645365245364645","login_name":"pie"},
+	{"id":"11","address":"8765 S Butler Ln","city":"Flagstaff","state":"AZ","zip":"76453","password":"12345","name":"Pie Inn3","credit":"2435645365476547","login_name":"pie1"}]
+}

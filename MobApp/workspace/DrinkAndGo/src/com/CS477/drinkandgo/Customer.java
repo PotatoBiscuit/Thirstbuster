@@ -1,5 +1,8 @@
 package com.CS477.drinkandgo;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Customer 
 {
 	private final String name, username, password, credit;
@@ -15,8 +18,11 @@ public class Customer
 		this.credit = credit;
 	}
 	
-	public Customer(String values[])
-	{	this(values[2], values[3], values[4], values[1]);}
+	public Customer(JSONObject obj) throws JSONException
+	{	
+		this(obj.getString("name"), obj.getString("username"), 
+		obj.getString("password"), obj.getString("credit"));
+	}
 
 	public String getName() 
 	{	return name;}

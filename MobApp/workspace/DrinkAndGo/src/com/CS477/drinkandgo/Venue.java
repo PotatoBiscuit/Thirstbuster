@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.annotation.SuppressLint;
 
 import com.CS477.drinkandgo.activies.DrinkAndGoActivity;
@@ -31,8 +34,11 @@ public class Venue implements Serializable
 		this.state = state;
 	}
 	
-	public Venue(String values[])
-	{	this(values[0], values[6], values[1], values[2], values[3], values[4]);}
+	public Venue(JSONObject obj) throws JSONException
+	{	
+		this(obj.getString("id"), obj.getString("name"), obj.getString("address"),
+			obj.getString("city"), obj.getString("state"), obj.getString("zip"));
+	}
 	
 	public String getAddress()
 	{	return String.format("%s\n%s, %s, %s", getStreet(), getCity(), getState(), getZipCode());}
