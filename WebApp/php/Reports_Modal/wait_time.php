@@ -52,6 +52,7 @@ $outputString = "";
 
 $outputString .= "<script type='text/javascript'>"
 . "var chartData = getChartData();"
+. "console.log(chartData);"
 . "var chart = AmCharts.makeChart(\"chartdiv\", {"
 . "\"type\":\"serial\",\"theme\":\"none\",\"marginRight\":80,\"dataProvider\":chartData";
 /*
@@ -66,14 +67,18 @@ $outputString .= ",\"valueAxes\":[{\"position\":\"left\",\"title\":\"items in or
 . "\"graphs\":[{\"id\":\"g1\",\"fillAlphas\":0.4,\"valueField\":\"items\",\"balloonText\":\"<div style='margin:5px; font-size:19px;'>Items:<b>[[value]]</b></div>\""
 . "}],\"chartScrollbar\":{\"graph\":\"g1\",\"scrollbarHeight\":50,\"backgroundAlpha\":0,\"selectedBackgroundAlpha\":0.1,\"selectedBackgroundColor\":\"#888888\","
 . "\"graphFillAlpha\":0,\"graphLineAlpha\":0.5,\"selectedGraphFillAlpha\":0,\"selectedGraphLineAlpha\":1,\"autoGridCount\":true,\"color\":\"#AAAAAA\"},"
-. "\"chartCursor\":{\"categoryBalloonDateFormat\":\"JJ:NN, DD MMMM\",\"cursorPosition\":\"mouse\"},\"categoryField\":\"date\",\"categoryAxis\":{\"minPeriod\":\"SS\","
-. "\"parseDates\":true},\"export\":{\"enabled\":true,\"dateFormat\":\"YYYY-MM-DD HH:NN:SS\"}});";
+. "\"chartCursor\":{\"categoryBalloonDateFormat\":\"HH:NN:SS\",\"cursorPosition\":\"mouse\"},\"categoryField\":\"date\",\"categoryAxis\":{\"minPeriod\":\"ss\","
+. "\"parseDates\":true},\"export\":{\"enabled\":true,\"dateFormat\":\"HH:NN:SS\"}});";
 
 $outputString .= "function getChartData() {"
 . "var chartData = [];";
-for ($i = 0; $i < count($lengths); $i++) {
-	$outputString .= "var startDate = convertDateTime";
+for ($i = 0; $i < count($start_times); $i++) {
+	$outputString .= "var startDate = convertDateTime(\"" . $start_times[$i] . "\");"
+	. "var endDate = convertDateTime(\"" . $lengths[$start_times[$i]][1] . "\");"
+	. "var length = getTimeDifference(startDate, endDate);"
+	. "chartData.push({date: length, items: ". $lengths[$start_times[$i]][0] . "});";
 }
+$outputString .= "return chartData;}";
 
 $outputString .= "</script><div id='chartdiv'></div>";
 

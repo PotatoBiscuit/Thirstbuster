@@ -3,8 +3,8 @@ window.setInterval(function() {
 	initOrder(lastCalled);
 }, 15000);
 
-function convertDateTime(dateTime){
-    dateTime = myArr[0][0].split(" ");
+function convertDateTime(original){
+    dateTime = original.split(" ");
 
     var date = dateTime[0].split("-");
     var yyyy = date[0];
@@ -20,7 +20,15 @@ function convertDateTime(dateTime){
 }
 
 function getTimeDifference(start, end) {
-	
+	var timeStart = start.getTime();
+	var timeEnd = end.getTime();
+	var hourDiff = timeEnd - timeStart;
+	var secDiff = Math.floor((hourDiff / 1000) % 60); //in s
+	var minDiff = Math.floor((hourDiff / 60 / 1000) % 60); //in minutes
+	var hDiff = Math.floor((hourDiff / 3600 / 1000) % 24); //in hours
+	console.log("January 1, 2016 " + hDiff + ":" + minDiff + ":" + secDiff);
+	var difference = new Date("January 1, 2016 " + hDiff + ":" + minDiff + ":" + secDiff);
+	return difference;
 }
 
 // ***********************************************************************
