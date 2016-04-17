@@ -21,11 +21,16 @@
 <fullyQualifiedTypeName name="android.view.ViewGroup.LayoutParams"/>
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="com.CS477.drinkandgo.R.layout"/>
-<fullyQualifiedTypeName name="com.CS477.drinkandgo.R.id"/>
 <fullyQualifiedTypeName name="android.widget.TextView"/>
 <fullyQualifiedTypeName name="android.content.Intent"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
 <fullyQualifiedTypeName name="android.util.Xml"/>
-<fullyQualifiedTypeName name="android.util.Log"/>
 <fullyQualifiedTypeName name="android.widget.Toast"/>
+<fullyQualifiedTypeName name="com.CS477.drinkandgo.R.id"/>
+<fullyQualifiedTypeName name="com.CS477.drinkandgo.activities.DrinkAndGoActivity"/>
+<fullyQualifiedTypeName name="com.android.volley.toolbox.Volley"/>
+<fullyQualifiedTypeName name="com.android.volley.Response.Listener"/>
+<fullyQualifiedTypeName name="org.json.JSONException"/>
+<fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="android.content.SharedPreferences.Editor"/>
 </qualifiedTypeNameHistroy>

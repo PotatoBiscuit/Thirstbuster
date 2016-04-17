@@ -9,7 +9,7 @@ import org.json.JSONObject;
 
 import android.annotation.SuppressLint;
 
-import com.CS477.drinkandgo.activies.DrinkAndGoActivity;
+import com.CS477.drinkandgo.activities.DrinkAndGoActivity;
 
 public class Venue implements Serializable
 {

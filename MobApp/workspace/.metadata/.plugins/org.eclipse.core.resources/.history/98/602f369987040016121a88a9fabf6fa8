@@ -1,0 +1,17 @@
+package com.CS477.drinkandgo.requests;
+
+import org.json.JSONObject;
+
+import com.CS477.drinkandgo.activities.DrinkAndGoActivity;
+import com.android.volley.Response.ErrorListener;
+import com.android.volley.Response.Listener;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+public class GetDatabaseRequest extends JsonObjectRequest 
+{
+	public GetDatabaseRequest(Listener<JSONObject> listener, ErrorListener errorListener) 
+	{
+		super(Method.GET, DrinkAndGoActivity.DATABASE_URL, 
+		new JSONObject(), listener, errorListener);
+	}
+}

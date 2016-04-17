@@ -1,7 +1,0 @@
-package com.CS477.drinkandgo;
-
-import android.app.Activity;
-
-public abstract class DrinkAndGoActivity extends Activity {
-
-}

@@ -13,11 +13,12 @@
     <string name="submit">Submit</string>
     <string name="title_activity_venue_search">VenueSearchActivity</string>
     <string name="name">Name</string>
-    <string name="email">Email</string>
     <string name="confirm_password">Re-enter Password</string>
     <string name="card_number">Credit Card Number</string>
     <string name="password_error">Passwords do not match!</string>
     <string name="input_error">All fields must be filled!</string>
+    <string name="username_error">Username or password is incorrect!</string>
+    <string name="username_not_unique">Username is already taken!</string>
     <string name="search_venue">Search Venue</string>
     <string name="search">Search</string>
     <string name="select">Select</string>

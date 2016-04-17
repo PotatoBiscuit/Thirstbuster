@@ -6,9 +6,7 @@ import org.json.JSONObject;
 public class Customer 
 {
 	private final String name, username, password, credit;
-	
-	public Customer(String name, String username, String password)
-	{	this(name, username, password, "0");}
+	private String id;
 	
 	public Customer(String name, String username, String password, String credit)
 	{
@@ -23,6 +21,12 @@ public class Customer
 		this(obj.getString("name"), obj.getString("username"), 
 		obj.getString("password"), obj.getString("credit"));
 	}
+	
+	public void setId(String id)
+	{	this.id = id;}
+	
+	public String getId()
+	{	return id;}
 
 	public String getName() 
 	{	return name;}

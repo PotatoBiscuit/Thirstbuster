@@ -18,7 +18,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".activies.MainActivity"
+            android:name="com.CS477.drinkandgo.activities.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,23 +27,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activies.SignInActivity"
+            android:name="com.CS477.drinkandgo.activities.SignInActivity"
             android:label="@string/title_activity_sign_in" >
         </activity>
         <activity
-            android:name=".activies.SignUpActivity"
+            android:name="com.CS477.drinkandgo.activities.SignUpActivity"
             android:label="@string/title_activity_sign_up" >
         </activity>
         <activity
-            android:name=".activies.VenueSearchActivity"
+            android:name="com.CS477.drinkandgo.activities.VenueSearchActivity"
             android:label="@string/title_activity_venue_search" >
         </activity>
         <activity
-            android:name=".activies.MenuActivity"
+            android:name="com.CS477.drinkandgo.activities.MenuActivity"
             android:label="@string/title_activity_menu" >
         </activity>
         <activity
-            android:name="com.CS477.drinkandgo.activies.CartActivity"
+            android:name="com.CS477.drinkandgo.activities.CartActivity"
             android:label="@string/title_activity_cart" >
         </activity>
     </application>
