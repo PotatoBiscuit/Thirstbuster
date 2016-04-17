@@ -109,3 +109,49 @@ function changeStatusPlus(order_id, type_of_display){
 	xmlhttp.open("GET", "php/Order_Page/change_order_status_plus.php?q=" + order_id, true);
 	xmlhttp.send();
 }
+function refreshOrderedDrinks(order_id){
+	$('#ordered_drinks').html("");
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			var result1 = xmlhttp.responseText;
+			$('#ordered_drinks').append(result1);
+		}
+	};
+	
+	xmlhttp.open("GET", "php/Order_Page/view_ordered_drink.php?q=" + order_id, true);
+	xmlhttp.send();
+}
+function changeDrinkStatusMinus(tab_id, drink_id, order_id){
+	
+}
+
+function changeDrinkStatusPlus(tab_id, drink_id, order_id){
+	
+}
+
+function deleteOrderedDrink(tab_id, drink_id, order_id, row_id){
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			refreshOrderedDrinks(order_id);
+		}
+	};
+	
+	str = tab_id + "," + drink_id + "," + row_id;
+	xmlhttp.open("GET", "php/Order_Page/delete_ordered_drink.php?q=" + str, true);
+	xmlhttp.send();
+}
+
+function finishOrderedDrink(tab_id, drink_id, order_id, row_id){
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			refreshOrderedDrinks(order_id);
+		}
+	};
+	
+	str = tab_id + "," + drink_id + "," + row_id;
+	xmlhttp.open("GET", "php/Order_Page/finish_ordered_drink.php?q=" + str, true);
+	xmlhttp.send();
+}

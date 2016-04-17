@@ -2,18 +2,19 @@
 session_start();
 
 if(!isset($_SESSION["ID"])){
-	echo 'uh-oh';
+	echo 'Error in num_drinks.php, no session ID';
 	exit();
 }
 
 /*establish connection with the mySQL database*/
-$servername = "tund";
-$username = "eld66";
-$password = "cs477rocks";
-$dbname = "eld66";
+$servername = $_SESSION["servername"];
+$username = $_SESSION["username"];
+$password = $_SESSION["password"];
+$dbname = $_SESSION["dbname"];
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error){
+	echo 'Error in connecting to database';
 	die("Connection failed: " . $conn->connect_error);
 }
 
@@ -23,15 +24,9 @@ $queryString = "SELECT * FROM tab "
 
 $result = $conn->query($queryString);
 $num_drinks_sold = $result->num_rows;
+$outputString = "<b>Number of Drinks Sold: </b>" . $num_drinks_sold;
 
-$outputString = "<button class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Select Report"
-. "<span class='caret'></span></button>"
-. "<ul class='dropdown-menu'>"
-. "<li><a onclick='initDisplay(1)' href='#'>Total Drinks Sold</a></li>"
-. "<li><a onclick='initDisplay(2)' href='#'>Ave. Wait Time</a></li>"
-. "<li><a onclick='initDisplay(3)' href='#'>Total Sales</a></li>"
-. "</ul><br><br>"
-. "<b>Number of Drinks Sold: </b>" . $num_drinks_sold;
+
 
 $list_of_drinks = array();
 
@@ -45,7 +40,7 @@ else {
 	}
 }
 
-$queryString = "SELECT id, name FROM drink";
+$queryString = "SELECT id, name, cost FROM drink";
 $result = $conn->query($queryString);
 
 $drinkCount = array();
@@ -55,7 +50,7 @@ if ($result->num_rows == 0){
 }
 else{
 	while($row = $result->fetch_assoc()){
-		array_push($drinkCount, array($row["id"], $row["name"], 0));
+		array_push($drinkCount, array($row["id"], $row["name"], 0, $row["cost"]));
 	}
 }
 
@@ -67,14 +62,29 @@ for($i = 0; $i < count($list_of_drinks); $i++){
 	}
 }
 
-$outputString .= "<br><br><table>";
+$totalCost = 0;
+$outputString .= "<br><br><table><tr><th>Drink</th><th>Count</th><th>Cost of Drink</th></tr>";
 
 for ($i = 0; $i < count($drinkCount); $i++){
-	$outputString .= "<tr><td><b>" . $drinkCount[$i][1] . "</b></td><td>" . $drinkCount[$i][2] . "</td></tr>";
+	$outputString .= "<tr><td><b>" . $drinkCount[$i][1] . "</b></td><td>" . $drinkCount[$i][2] . "</td><td>" . $drinkCount[$i][3] . "</tr>";
+	$singleCost = floatval($drinkCount[$i][3]);
+	$singleCount = intval($drinkCount[$i][2]);
+	$totalCost += $singleCost * $singleCount;
 }
-$outputString .= "</table>";
+$outputString .= "</table><b>Total Income: </b>$". number_format($totalCost, 2) . "<br /><script type='text/javascript'>"
+. "var chart = AmCharts.makeChart( \"chartdiv\", {"
+. "\"type\":\"pie\",\"theme\":\"none\",\"dataProvider\":[{";
 
+for ($i = 0; $i < count($drinkCount); $i++) {
+	$outputString .= "\"drink\":\"" . $drinkCount[$i][1] . "\",\"count\":\"" . $drinkCount[$i][2] . "\"}";
+	if(($i + 1 ) != count($drinkCount)) {
+		$outputString .= ",{";
+	}
+}
 
+$outputString .= "],\"valueField\":\"count\",\"titleField\":\"drink\",\"balloon\":{\"fixedPosition\":true},\"export\": {\"enabled\":true}});"
+. "</script><div id='chartdiv'>"
+. "</div>";
 
 echo $outputString;
 ?>

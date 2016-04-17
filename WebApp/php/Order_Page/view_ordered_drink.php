@@ -2,20 +2,21 @@
 session_start();
 
 if(!isset($_SESSION["ID"])){
-	echo 'uh-oh';
+	echo 'Error in view_ordered_drink.php, no session ID';
 	exit();
 }
 
 $q = $_REQUEST["q"];
 
 /*establish connection with the mySQL database*/
-$servername = "tund";
-$username = "eld66";
-$password = "cs477rocks";
-$dbname = "eld66";
+$servername = $_SESSION["servername"];
+$username = $_SESSION["username"];
+$password = $_SESSION["password"];
+$dbname = $_SESSION["dbname"];
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error){
+	echo 'Error in connecting to database';
 	die("Connection failed: " . $conn->connect_error);
 }
 
@@ -28,7 +29,8 @@ if ($result->num_rows == 0){
 }
 else{
 	$str = "<table class = 'table'>\n"
-	. "<tr><th>Name</th><th>Cost</th><th>Special Instructions</th></tr>";
+	. "<tr><th>Name</th><th>Cost</th><th>Special Instructions</th><th>Drink Status</th><th>Action</th></tr>";
+	$i = 1;
 	while($row = $result->fetch_assoc()){
 		$result1 = $conn->query("SELECT * FROM drink WHERE id = '" . $row["drink_id"] . "'");
 		if($result1->num_rows == 0){
@@ -39,8 +41,12 @@ else{
 		$str .= "<tr>\n<td>"
 		. $row1["name"] . "</td><td>"
 		. $row1["cost"] . "</td><td>"
-		. $row["special_instructions"] . "</td>\n"
-		."</tr>\n";
+		. $row["special_instructions"] . "</td><td>"
+		. $row["drink_status"] . "</td><td>"
+		. "<button onclick = 'deleteOrderedDrink(" . $row["tab_id"] . ", " . $row["drink_id"] . "," . $q . "," . $i . ")' onkeypress = 'deleteOrderedDrink(" . $row["tab_id"] . ", " . $row["drink_id"] . "," . $q . "," . $i . ")' type = 'button' class = 'btn btn-primary'>Delete</button>\n"
+		. "<button onclick = 'finishOrderedDrink(" . $row["tab_id"] . ", " . $row["drink_id"] . "," . $q . "," . $i . ")' onkeypress = 'finishOrderedDrink(" . $row["tab_id"] . ", " . $row["drink_id"] . "," . $q . "," . $i . ")' type = 'button' class = 'btn btn-success'>Finish</button></td>"
+		. "</tr>\n";
+		$i = $i + 1;
 	}
 	$str .= "</table>\n";
 }

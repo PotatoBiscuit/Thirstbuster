@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/relativelayout">
 
     <TextView
         android:layout_width="wrap_content"
@@ -19,7 +20,8 @@
         android:id="@+id/backbutton"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="toVenue" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -28,5 +30,7 @@
         android:text="NUMBER"
         android:id="@+id/number"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textSize="130sp"
+        android:textAlignment="center" />
 </RelativeLayout>

@@ -26,7 +26,8 @@
         android:id="@+id/button"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="toConfirmation" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -35,7 +36,8 @@
         android:text="LastOrder"
         android:id="@+id/lastorder"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="toOrderNumber" />
 
     <EditText
         android:layout_width="wrap_content"

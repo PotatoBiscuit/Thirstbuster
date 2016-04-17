@@ -5,13 +5,14 @@ $q = $_REQUEST["q"];
 $stringArray = explode(",", $q);
 
 /*establish connection with the mySQL database*/
-$servername = "tund";
-$username = "eld66";
-$password = "cs477rocks";
-$dbname = "eld66";
+$servername = $_SESSION["servername"];
+$username = $_SESSION["username"];
+$password = $_SESSION["password"];
+$dbname = $_SESSION["dbname"];
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error){
+	echo 'Error in connecting to database';
 	die("Connection failed: " . $conn->connect_error);
 }
 
@@ -26,4 +27,5 @@ $conn->query($queryString);
 $result = $conn->query("SELECT * FROM `venue` WHERE login_name = '" . $stringArray[0] . "' AND password = '" . $stringArray[1] . "'");
 $row = $result->fetch_assoc();
 $_SESSION['ID'] = $row["id"];
+$_SESSION['LoginID'] = $row["login_name"];
 ?>

@@ -2,7 +2,7 @@
 session_start();
 
 if(!isset($_SESSION["ID"])){
-	echo 'uh-oh';
+	echo 'Error with edit_drink.php, no session ID';
 	exit();
 }
 
@@ -10,13 +10,14 @@ $q = $_REQUEST["q"];
 $stringArray = explode(",", $q);
 
 /*establish connection with the mySQL database*/
-$servername = "tund";
-$username = "eld66";
-$password = "cs477rocks";
-$dbname = "eld66";
+$servername = $_SESSION["servername"];
+$username = $_SESSION["username"];
+$password = $_SESSION["password"];
+$dbname = $_SESSION["dbname"];
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error){
+	echo 'Error in connecting to database';
 	die("Connection failed: " . $conn->connect_error);
 }
 
