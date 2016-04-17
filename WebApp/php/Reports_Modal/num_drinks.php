@@ -40,7 +40,7 @@ else {
 	}
 }
 
-$queryString = "SELECT id, name FROM drink";
+$queryString = "SELECT id, name, cost FROM drink";
 $result = $conn->query($queryString);
 
 $drinkCount = array();
@@ -50,7 +50,7 @@ if ($result->num_rows == 0){
 }
 else{
 	while($row = $result->fetch_assoc()){
-		array_push($drinkCount, array($row["id"], $row["name"], 0));
+		array_push($drinkCount, array($row["id"], $row["name"], 0, $row["cost"]));
 	}
 }
 
@@ -62,12 +62,16 @@ for($i = 0; $i < count($list_of_drinks); $i++){
 	}
 }
 
-$outputString .= "<br><br><table><tr><th>Drink</th><th>Count</th></tr>";
+$totalCost = 0;
+$outputString .= "<br><br><table><tr><th>Drink</th><th>Count</th><th>Cost of Drink</th></tr>";
 
 for ($i = 0; $i < count($drinkCount); $i++){
-	$outputString .= "<tr><td><b>" . $drinkCount[$i][1] . "</b></td><td>" . $drinkCount[$i][2] . "</td></tr>";
+	$outputString .= "<tr><td><b>" . $drinkCount[$i][1] . "</b></td><td>" . $drinkCount[$i][2] . "</td><td>" . $drinkCount[$i][3] . "</tr>";
+	$singleCost = floatval($drinkCount[$i][3]);
+	$singleCount = intval($drinkCount[$i][2]);
+	$totalCost += $singleCost * $singleCount;
 }
-$outputString .= "</table><br /><script type='text/javascript'>"
+$outputString .= "</table><b>Total Income: </b>$". number_format($totalCost, 2) . "<br /><script type='text/javascript'>"
 . "var chart = AmCharts.makeChart( \"chartdiv\", {"
 . "\"type\":\"pie\",\"theme\":\"none\",\"dataProvider\":[{";
 

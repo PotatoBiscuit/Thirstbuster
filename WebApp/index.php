@@ -372,7 +372,6 @@ $_SESSION["dbname"] = "eld66";
 					<ul class='dropdown-menu'>
 					<li><a onclick='initDisplay(1); return false;' onkeypress='initDisplay(1); return false;' href='#'>Total Drinks Sold</a></li>
 					<li><a onclick='initDisplay(2); return false;' onkeypress='initDisplay(2); return false;' href='#'>Wait Time</a></li>
-					<li><a onclick='initDisplay(3); return false;' onkeypress='initDisplay(3); return false;' href='#'>Total Sales</a></li>
 					</ul>
 				<button id="viewReports-cancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 			  </div>
