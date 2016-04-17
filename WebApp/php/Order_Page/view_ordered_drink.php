@@ -30,6 +30,7 @@ if ($result->num_rows == 0){
 else{
 	$str = "<table class = 'table'>\n"
 	. "<tr><th>Name</th><th>Cost</th><th>Special Instructions</th><th>Drink Status</th><th>Action</th></tr>";
+	$i = 1;
 	while($row = $result->fetch_assoc()){
 		$result1 = $conn->query("SELECT * FROM drink WHERE id = '" . $row["drink_id"] . "'");
 		if($result1->num_rows == 0){
@@ -41,13 +42,11 @@ else{
 		. $row1["name"] . "</td><td>"
 		. $row1["cost"] . "</td><td>"
 		. $row["special_instructions"] . "</td><td>"
-		. $row["drink_status"]
-		. "<button onclick = 'changeDrinkStatusMinus(" . $row["tab_id"] . ", " . $row["drink_id"] . ")' onkeypress = 'changeDrinkStatusMinus(" . $row["tab_id"] . ", " . $row["drink_id"] . ")' type = 'button' class = 'btn btn-default'>-</button>\n"
-		. "<button onclick = 'changeDrinkStatusPlus(" . $row["tab_id"] . ", " . $row["drink_id"] . ")' onkeypress = 'changeDrinkStatusPlus(" . $row["tab_id"] . ", " . $row["drink_id"] . ")' type = 'button' class = 'btn btn-primary'>+</button>"
-		. "</td><td>"
-		. "<button onclick = 'deleteOrderedDrink(" . $row["tab_id"] . ", " . $row["drink_id"] . ")' onkeypress = 'deleteOrderedDrink(" . $row["tab_id"] . ", " . $row["drink_id"] . ")' type = 'button' class = 'btn btn-primary'>Delete</button>\n"
-		. "<button onclick = 'finishOrderedDrink(" . $row["tab_id"] . ", " . $row["drink_id"] . ")' onkeypress = 'finishOrderedDrink(" . $row["tab_id"] . ", " . $row["drink_id"] . ")' type = 'button' class = 'btn btn-success'>Finish</button></td>"
+		. $row["drink_status"] . "</td><td>"
+		. "<button onclick = 'deleteOrderedDrink(" . $row["tab_id"] . ", " . $row["drink_id"] . "," . $q . "," . $i . ")' onkeypress = 'deleteOrderedDrink(" . $row["tab_id"] . ", " . $row["drink_id"] . "," . $q . "," . $i . ")' type = 'button' class = 'btn btn-primary'>Delete</button>\n"
+		. "<button onclick = 'finishOrderedDrink(" . $row["tab_id"] . ", " . $row["drink_id"] . "," . $q . "," . $i . ")' onkeypress = 'finishOrderedDrink(" . $row["tab_id"] . ", " . $row["drink_id"] . "," . $q . "," . $i . ")' type = 'button' class = 'btn btn-success'>Finish</button></td>"
 		. "</tr>\n";
+		$i = $i + 1;
 	}
 	$str .= "</table>\n";
 }
