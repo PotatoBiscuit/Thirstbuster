@@ -43,9 +43,15 @@ if ($result->num_rows != 0){
 		$elapsedTime = ($currentTime["hours"] - $orderTime[0]) . ":"
 		. ($currentTime["minutes"] - $orderTime[1]) . ":"
 		. ($currentTime["seconds"] - $orderTime[2]);
+		if($row["table_number"] == 0){
+			$table_number = "Self-serve";
+		}
+		else{
+			$table_number = $row["table_number"];
+		}
 		$outputString .= "<div class = 'col-md-4'>\n"
 		. "<table class = 'table'>\n"
-		. "<tr><td>Table</td> <td>" . $row["table_number"] . "</td></tr>\n"
+		. "<tr><td>Table</td> <td>" . $table_number . "</td></tr>\n"
 		. "<tr><td>Customer Name</td> <td>" . $row1["name"] . "</td></tr>\n"
 		. "<tr><td>Status</td>\n"
 		. "<td>" . $row["status"] . " <button onclick = 'changeStatusMinus(" . $row["id"] . ", 2)' onkeypress = 'changeStatusMinus(" . $row["id"] . ", 2)' type = 'button' class = 'btn btn-default'>-</button>\n"

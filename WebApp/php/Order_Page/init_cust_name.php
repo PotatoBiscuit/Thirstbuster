@@ -44,13 +44,19 @@ if ($result->num_rows != 0){
 		$elapsedTime = ($currentTime["hours"] - $orderTime[0]) . ":"
 		. ($currentTime["minutes"] - $orderTime[1]) . ":"
 		. ($currentTime["seconds"] - $orderTime[2]);
+		if($row["table_number"] == 0){
+			$table_number = "Self-serve";
+		}
+		else{
+			$table_number = $row["table_number"];
+		}
 		$outputString .= "<div class = 'col-md-4'>\n"
 		. "<table class = 'table'>\n"
 		. "<tr><td>Customer Name</td> <td>" . $row["name"] . "</td></tr>\n"
 		. "<tr><td>Status</td>\n"
 		. "<td>" . $row["status"] . " <button onclick = 'changeStatusMinus(" . $row["id"] . ", 3)' onkeypress = 'changeStatusMinus(" . $row["id"] . ", 3)' type = 'button' class = 'btn btn-default'>-</button>\n"
 		. "<button onclick = 'changeStatusPlus(" . $row["id"] . ", 3)' onkeypress = 'changeStatusPlus(" . $row["id"] . ", 3)' type = 'button' class = 'btn btn-primary'>+</button></td></tr>\n"
-		. "<tr><td>Table</td> <td>" . $row["table_number"] . "</td></tr>\n"
+		. "<tr><td>Table</td> <td>" . $table_number . "</td></tr>\n"
 		. "<tr><td>Wait Time</td> <td>" . $elapsedTime . "</td></tr>\n"
 		. "<tr><td>Drinks</td> <td><button onclick = 'viewOrderedDrinks(" . $row["id"] . ")' onkeypress = 'viewOrderedDrinks(" . $row["id"] . ")' type = 'button' class = 'btn btn-primary'>View</button></td></tr>\n"
 		. "<tr><td>Action</td> <td><button onclick = 'deleteOrder(" . $row["id"] . ")' onkeypress = 'deleteOrder(" . $row["id"] . ")' type = 'button' class = 'btn btn-primary'>Delete</button>\n"
