@@ -1,0 +1,28 @@
+package com.CS477.drinkandgo.activities;
+
+import android.os.Bundle;
+
+import com.CS477.drinkandgo.R;
+import com.CS477.drinkandgo.requests.GetDrinksRequest;
+import com.android.volley.Response.Listener;
+import com.android.volley.toolbox.Volley;
+
+public class ServerActivity extends DrinkAndGoActivity 
+{
+	public ServerActivity()
+	{	super(R.layout.activity_server);}
+	
+	@Override
+	protected void onCreate(Bundle bundle)
+	{
+		super.onCreate(bundle);
+		
+		Volley.newRequestQueue(this).add(new GetDrinksRequest
+				(this, venues.get(0), new DrinksListener()));
+	}
+	
+	private class DrinksListener implements Listener<String>
+	{
+		
+	}
+}

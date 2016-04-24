@@ -8,6 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.CS477.drinkandgo.R;
+import com.CS477.drinkandgo.Venue;
 
 public class SignInActivity extends DrinkAndGoActivity 
 {
@@ -52,10 +53,23 @@ public class SignInActivity extends DrinkAndGoActivity
 			
 			startActivity(VenueSearchActivity.class);
 		}
-		else
+		else 
 		{
-			Toast.makeText(this, getString(R.string.username_error), 
-			Toast.LENGTH_SHORT).show();
+			Venue venue = validVenue(userStr, passStr);
+			if(venue == null)
+			{
+				Toast.makeText(this, getString(R.string.username_error), 
+						Toast.LENGTH_SHORT).show();
+			}
+			else
+			{
+				editor.putString("username", userStr);
+				editor.putString("password", passStr);
+			
+				editor.apply();
+			
+				startActivity(ServerActivity.class, venue);
+			}
 		}
 	}
 }

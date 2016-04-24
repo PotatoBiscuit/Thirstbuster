@@ -24,11 +24,15 @@ public class VenueSearchActivity extends DrinkAndGoActivity
 		
 		EditText text = (EditText) findViewById(R.id.search_value);
 		text.addTextChangedListener(new VenueTextWatcher());
+		text.clearFocus();
 		
 		LinearLayout venueList = (LinearLayout) findViewById(R.id.venue_list);
 		for(Venue venue : venues)
 			venueList.addView(new VenueLayout(this, venue, new GotoMenu(venue)));
 	}
+	
+	public void gotoFavorites(View view)
+	{	startActivity(FavoritesActivity.class);}
 	
 	private class VenueTextWatcher implements TextWatcher
 	{

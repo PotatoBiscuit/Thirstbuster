@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -8,40 +8,78 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:focusableInTouchMode="true"
     tools:context="com.CS477.drinkandgo.activities.CartActivity" >
 
-    <TextView
-        android:id="@+id/cart"
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/cart"
+            android:textSize="@dimen/title_size2"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/backButton"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:onClick="goBack"
+            android:text="@string/back" />
+
+        <Button
+            android:id="@+id/order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:onClick="orderDrinks"
+            android:text="@string/order" />
+
+    </RelativeLayout>
+
+    <RadioGroup
+        android:id="@+id/service_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/cart"
-        android:textSize="@dimen/title_size2"
-        android:textStyle="bold" />
+        android:orientation="horizontal" >
 
-    <Button
-        android:id="@+id/backButton"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:onClick="goBack"
-        android:text="@string/back" />
+        <RadioButton
+            android:id="@+id/table_service_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/table"
+            android:onClick="setService" />
 
-    <Button
-        android:id="@+id/order"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:text="@string/order" />
+        <RadioButton
+            android:id="@+id/self_service_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/self"
+            android:onClick="setService" />
+    </RadioGroup>
 
-    <LinearLayout
+    <EditText
+        android:id="@+id/table_num_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/cart"
+        android:ems="10"
+        android:hint="@string/enter_table_num"
+        android:inputType="number"
+        android:visibility="gone" >
+
+    </EditText>
+
+    <LinearLayout
+        android:id="@+id/cart_items"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/title_margin"
         android:gravity="center_horizontal"
         android:orientation="vertical" >
@@ -51,6 +89,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:textSize="@dimen/title_size2"
             android:textStyle="bold" />
 
         <ScrollView
@@ -64,10 +103,8 @@
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_horizontal"
                 android:orientation="vertical" >
-
             </LinearLayout>
         </ScrollView>
-
     </LinearLayout>
-		
-</RelativeLayout>
+
+</LinearLayout>

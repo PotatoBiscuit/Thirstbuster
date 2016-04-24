@@ -1,0 +1,18 @@
+package com.CS477.drinkandgo.requests;
+
+import android.content.Context;
+
+import com.CS477.drinkandgo.activities.DrinkAndGoActivity;
+import com.CS477.drinkandgo.listeners.DrinkAndGoErrorListener;
+import com.android.volley.Response.Listener;
+import com.android.volley.toolbox.StringRequest;
+
+public class OrderDrinksRequest extends StringRequest 
+{
+	public OrderDrinksRequest(Context context, Listener<String> listener) 
+	{
+		super(Method.POST, DrinkAndGoActivity.ORDER_URL, 
+		listener, new DrinkAndGoErrorListener(context));
+	}
+
+}

@@ -1,0 +1,13 @@
+package com.CS477.drinkandgo.activities;
+
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
+import com.CS477.drinkandgo.R;
+
+public class FavoritesActivity extends DrinkAndGoActivity 
+{
+	public FavoritesActivity(Bundle savedInstanceState) 
+	{	super(R.layout.activity_favorites);}
+}

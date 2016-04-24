@@ -1,0 +1,50 @@
+package com.CS477.drinkandgo.activities;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.LinearLayout;
+
+import com.CS477.drinkandgo.Drink;
+import com.CS477.drinkandgo.DrinkLayout;
+import com.CS477.drinkandgo.R;
+import com.CS477.drinkandgo.Venue;
+import com.android.volley.Response.Listener;
+
+public class FavoritesActivity extends DrinkAndGoActivity 
+{
+	private Venue venue;
+	public FavoritesActivity() 
+	{	super(R.layout.activity_favorites, VenueSearchActivity.class);}
+	
+	@Override
+	protected void onCreate(Bundle bundle)
+	{
+		super.onCreate(bundle);
+		
+		venue = (Venue) getIntent().getSerializableExtra("Venue");
+	}
+	
+	private class FavoritesLIstener implements Listener<JSONObject>
+	{
+		@Override
+		public void onResponse(JSONObject obj) 
+		{
+			LinearLayout layout = (LinearLayout) findViewById(R.id.favorites_list);
+			try
+			{
+				JSONArray array = obj.getJSONArray("drinks").getJSONArray(0);
+				for(int i = 0, n = array.length(); i < n; ++i)
+				{
+					layout.addView(new DrinkLayout(FavoritesActivity.this, 
+							new Drink(array.getJSONObject(i))));
+				}
+			}
+			catch(JSONException j)
+			{	Log.e(j.getLocalizedMessage());}
+		}	
+	}
+}

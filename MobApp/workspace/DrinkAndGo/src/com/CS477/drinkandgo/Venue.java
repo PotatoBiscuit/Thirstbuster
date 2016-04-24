@@ -7,8 +7,6 @@ import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.annotation.SuppressLint;
-
 import com.CS477.drinkandgo.activities.DrinkAndGoActivity;
 
 public class Venue implements Serializable
@@ -17,11 +15,9 @@ public class Venue implements Serializable
 	 * 
 	 */
 	private static final long serialVersionUID = -2313617514560371505L;
-	public static final Locale locale = Locale.getDefault();
 	
 	private final String id, name, street, zipCode, city, state;
-	
-	private float credit;
+	private String credit, loginName, password;
 	
 	public Venue(String id, String name, String street, String city, 
 			String state, String zipCode)
@@ -38,6 +34,10 @@ public class Venue implements Serializable
 	{	
 		this(obj.getString("id"), obj.getString("name"), obj.getString("address"),
 			obj.getString("city"), obj.getString("state"), obj.getString("zip"));
+		
+		credit = obj.getString("credit");
+		loginName = obj.getString("login_name");
+		password = obj.getString("password");
 	}
 	
 	public String getAddress()
@@ -58,11 +58,17 @@ public class Venue implements Serializable
 	public String getName() 
 	{	return name;}
 
-	public float getCredit() 
+	public String getCredit() 
 	{	return credit;}
-
-	public void addCredit(float credit) 
-	{	this.credit += credit;}
+	
+	public String getId()
+	{	return id;}
+	
+	public String getLogin()
+	{	return loginName;}
+	
+	public String getPassword()
+	{	return password;}
 	
 	public ArrayList<Drink> getMenu()
 	{
@@ -75,14 +81,13 @@ public class Venue implements Serializable
 		return rval;
 	}
 	
-	@SuppressLint("DefaultLocale")
 	public boolean inSearch(String value)
 	{
-		return street.toLowerCase(locale).indexOf(value.toLowerCase()) != -1 ||
-			state.toLowerCase(locale).indexOf(value.toLowerCase()) != -1 ||
-			name.toLowerCase(locale).indexOf(value.toLowerCase()) != -1 ||
-			city.toLowerCase(locale).indexOf(value.toLowerCase()) != -1 ||
-			zipCode.toLowerCase(locale).indexOf(value.toLowerCase()) != -1;
+		return street.toLowerCase(Locale.US).indexOf(value.toLowerCase(Locale.US)) != -1 ||
+			state.toLowerCase(Locale.US).indexOf(value.toLowerCase(Locale.US)) != -1 ||
+			name.toLowerCase(Locale.US).indexOf(value.toLowerCase(Locale.US)) != -1 ||
+			city.toLowerCase(Locale.US).indexOf(value.toLowerCase(Locale.US)) != -1 ||
+			zipCode.toLowerCase(Locale.US).indexOf(value.toLowerCase(Locale.US)) != -1;
 	}
 	
 	@Override

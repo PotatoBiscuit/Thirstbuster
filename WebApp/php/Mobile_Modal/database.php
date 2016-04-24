@@ -1,7 +1,6 @@
 <?php
-
-	$cxn = mysql_connect('localhost', 'toa5', '') or die(mysql_error());
-	mysql_selectdb('toa5', $cxn) or die(mysql_error());
+	require 'connect.php';
+	$cxn = connect();
 	
 	$database = array();
 	

@@ -6,3 +6,16 @@
 1460888820118	Move compilation unit
 1460888830158	Delete element
 1460889686590	Move method
+1460943271662	Rename field 'editText2'
+1460943297953	Rename field 'editText1'
+1460946547939	Move compilation unit
+1460946551455	Move compilation unit
+1460946618543	Delete element
+1460946631610	Delete element
+1460946682733	Move compilation unit
+1461112466808	Move compilation unit
+1461113787668	Encapsulate field 'tableNum'
+1461113791553	Encapsulate field 'venueID'
+1461113794164	Encapsulate field 'status'
+1461113797467	Encapsulate field 'customerID'
+1461113800246	Encapsulate field 'id'

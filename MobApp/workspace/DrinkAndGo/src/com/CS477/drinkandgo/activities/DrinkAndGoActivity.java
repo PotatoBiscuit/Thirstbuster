@@ -2,6 +2,7 @@ package com.CS477.drinkandgo.activities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Map;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,6 +31,9 @@ public abstract class DrinkAndGoActivity extends Activity
 	public static final String DATABASE_URL = "http://thirstbuster.net23.net/database.php";
 	public static final String ORDER_URL = "http://thirstbuster.net23.net/order_drinks.php";
 	public static final String SIGN_UP_URL = "http://thirstbuster.net23.net/sign_up.php";
+	public static final String STATUS_URL = "http://thirstbuster.net23.net/status.php";
+	public static final String DRINKS_URL = "http://thirstbuster.net23.net/pending_drinks.php";
+	public static final String FAVORITES_URL = "http://thirstbuster.net23.net/favorites.php";
 	
 	public static ArrayList<Venue> venues;
 	public static ArrayList<Customer> customers;
@@ -69,6 +73,15 @@ public abstract class DrinkAndGoActivity extends Activity
 		finish();
 	}
 	
+	protected void startActivity(Class<?> cls, Map<String, Serializable> map)
+	{
+		Intent intent = new Intent(this, cls);
+		for(Map.Entry<String, Serializable> entry : map.entrySet())
+			intent.putExtra(entry.getKey(), entry.getValue());
+		startActivity(intent);
+		finish();
+	}
+	
 	protected SharedPreferences getPrefs()
 	{	return getSharedPreferences(PREF_NAME, 0);}
 	
@@ -92,6 +105,19 @@ public abstract class DrinkAndGoActivity extends Activity
 			{return true;}
 		}
 		return false;
+	}
+	
+	protected Venue validVenue(String username, String password)
+	{
+		for(Venue venue : venues)
+		{
+			if(username.equals(venue.getLogin()) 
+			&& password.equals(venue.getPassword()))
+			{
+				return venue;
+			}
+		}
+		return null;
 	}
 	
 	protected boolean uniqueUsername(String username)

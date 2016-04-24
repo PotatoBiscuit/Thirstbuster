@@ -1,6 +1,8 @@
 package com.CS477.drinkandgo.activities;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
@@ -32,6 +34,10 @@ public class MenuActivity extends DrinkAndGoActivity
 
 		venue = (Venue) getIntent().getSerializableExtra("Venue");
 		
+		TextView view = (TextView) findViewById(R.id.menu_search);
+		view.addTextChangedListener(new MenuTextWatcher());
+		view.clearFocus();
+		
 		TextView text = (TextView) findViewById(R.id.title_text);
 		text.setText(String.format("%s's Menu", venue.getName()));
 		
@@ -62,5 +68,32 @@ public class MenuActivity extends DrinkAndGoActivity
 			TextView cartText = (TextView) findViewById(R.id.cart);
 			cartText.setText(String.format("Cart (%d)", cart.size()));
 		}
+	}
+	
+	private class MenuTextWatcher implements TextWatcher
+	{
+		@Override
+		public void beforeTextChanged(CharSequence s, int start, int count, int after) 
+		{}
+
+		@Override
+		public void onTextChanged(CharSequence s, int start, int before,int count) 
+		{}
+
+		@Override
+		public void afterTextChanged(Editable s) 
+		{
+			LinearLayout menuList = (LinearLayout) findViewById(R.id.menu_list);
+			boolean showSelect = false;
+			for(int i = 0, n = menuList.getChildCount(); i < n; ++i)
+			{
+				DrinkLayout layout = (DrinkLayout) menuList.getChildAt(i);
+				layout.setVisibility(layout.inSearch(s.toString()) ? View.VISIBLE : View.GONE);
+				
+				if(!showSelect)
+					showSelect = layout.getVisibility() == View.VISIBLE;
+			}
+		}
+		
 	}
 }

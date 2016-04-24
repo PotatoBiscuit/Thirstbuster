@@ -8,32 +8,46 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:focusableInTouchMode="true"
     tools:context="com.CS477.drinkandgo.activities.VenueSearchActivity" >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/title_search_venue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@id/backButton"
-            android:ems="10"
-            android:text="@string/search_venue"
-            android:textSize="@dimen/title_size2"
-            android:textStyle="bold" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" >
 
         <Button
             android:id="@+id/backButton"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:text="@string/back"
-            android:onClick="goBack" />
+            android:onClick="goBack"
+            android:text="@string/back" />
+
+        <Button
+            android:id="@+id/favorites_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/favorites"
+            android:onClick="gotoFavorites" />
+        
+        <TextView
+            android:id="@+id/title_search_venue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_toEndOf="@id/backButton"
+            android:layout_toStartOf="@id/favorites_view"
+            android:ems="10"
+            android:gravity="center_horizontal"
+            android:text="@string/search_venue"
+            android:textSize="@dimen/title_size2"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 

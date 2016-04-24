@@ -1,0 +1,43 @@
+package com.CS477.drinkandgo;
+
+import android.content.Context;
+import android.graphics.Typeface;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+public class TabLayout extends LinearLayout 
+{	
+	public TabLayout(Context context, Tab tab) 
+	{
+		super(context);
+		
+		int pad = context.getResources().getDimensionPixelOffset(R.dimen.button_margin);
+		this.setPadding(pad, pad, pad, pad);
+		
+		this.setBackground(context.getDrawable(android.R.drawable.btn_default));
+		
+		TextView name = new TextView(context);
+		name.setText(String.format("Order Number: %s", tab.getId()));
+		name.setId(1);
+		name.setTypeface(null, Typeface.BOLD);
+		
+		TextView desc = new TextView(context);
+		desc.setText(String.format("Table Number: %s", tab.getTableNum()));
+		desc.setId(2);	
+		
+		TextView cost = new TextView(context);
+		cost.setText(String.format("Status: %s", tab.getStatus()));
+		cost.setId(3);
+		cost.setTypeface(null, Typeface.ITALIC);
+		
+		LinearLayout layout = new LinearLayout(context);
+		layout.setOrientation(VERTICAL);
+		layout.setPadding(pad, 0, pad, 0);
+		layout.addView(name);
+		layout.addView(cost);
+		
+		addView(layout);
+		addView(desc);
+	}
+
+}

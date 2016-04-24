@@ -20,6 +20,7 @@ public class Customer
 	{	
 		this(obj.getString("name"), obj.getString("username"), 
 		obj.getString("password"), obj.getString("credit"));
+		setId(obj.getString("id"));
 	}
 	
 	public void setId(String id)

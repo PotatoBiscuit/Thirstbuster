@@ -1,0 +1,19 @@
+package com.CS477.drinkandgo;
+
+import android.os.Bundle;
+
+import com.CS477.drinkandgo.activities.DrinkAndGoActivity;
+
+public class ServerActivity extends DrinkAndGoActivity 
+{
+	public ServerActivity()
+	{	super(R.layout.activity_server);}
+	
+	@Override
+	protected void onCreate(Bundle bundle)
+	{
+		super.onCreate(bundle);
+		
+		LienarLayout layout = findViewById(R.id.drinkList);
+	}
+}

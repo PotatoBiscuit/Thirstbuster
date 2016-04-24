@@ -27,5 +27,18 @@
     <string name="cart">Cart</string>
     <string name="title_activity_cart">CartActivity</string>
     <string name="order">Order</string>
+    <string name="self">Self-Service</string>
+    <string name="table">Table-Service</string>
+    <string name="table_num">Table Number</string>
+    <string name="enter_table_num">Enter Table Number</string>
+    <string name="title_activity_order">OrderActivity</string>
+    <string name="order_number">Order Number</string>
+    <string name="status">Status</string>
+    <string name="home">Return</string>
+    <string name="new_order">New</string>
+    <string name="favorites">Favorites</string>
+    <string name="title_activity_favorites">FavoritesActivity</string>
+    <string name="title_activity_server">ServerActivity</string>
+    <string name="served">Drinks to be served.</string>
 
 </resources>

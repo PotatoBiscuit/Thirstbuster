@@ -1,0 +1,9 @@
+package com.CS477.drinkandgo;
+
+import com.CS477.drinkandgo.activities.DrinkAndGoActivity;
+
+public class ServerActivity extends DrinkAndGoActivity 
+{
+	public ServerActivity()
+	{	super(R.layout.activity_server);}
+}

@@ -1,0 +1,44 @@
+package com.CS477.drinkandgo.activities;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.widget.GridLayout;
+import android.widget.TextView;
+
+import com.CS477.drinkandgo.R;
+
+public class FavoritesActivity extends DrinkAndGoActivity 
+{
+	public FavoritesActivity() 
+	{	super(R.layout.activity_favorites, VenueSearchActivity.class);}
+	
+	@Override
+	protected void onCreate(Bundle bundle)
+	{
+		super.onCreate(bundle);
+		
+		SharedPreferences prefs = getPrefs();
+		GridLayout layout = (GridLayout) findViewById(R.id.favorites_list);
+		try
+		{
+			JSONObject obj = new JSONObject(prefs.getString("favorites", ""));
+			String venueName = obj.getString("Venue");
+			TextView venueView = new TextView(this);
+			venueView.setText(venueName);
+			layout.addView(venueView);
+			
+			int i = 0;
+			while(true)
+			{
+				TextView view = new TextView(this);
+				view.setText(obj.getString("drink_name"+i));
+				layout.addView(view);
+				++i;
+			}
+		}
+		catch(JSONException j){}
+	}
+}
