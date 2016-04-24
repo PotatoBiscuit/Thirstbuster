@@ -21,28 +21,18 @@ $_SESSION["dbname"] = "eld66";
         <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" type="text/css" href="css/main.css">
-        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">-->
-        <!--<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>-->
-        <!--<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
 
         <!-- JavaScript -->
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <!--<script type="text/javascript" src="js/materialize.min.js"></script>-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>-->
 		<script src="js/bootstrap.js"></script>
         <script>
 		
             $(document).ready(function () {
-                //$('.parallax').parallax();
 				$('#myModal').modal({backdrop: 'static', keyboard: false});
             });
 
-            //$(document).on('scroll', function (e) {
-            //    $('.navbar').css('opacity', ($(document).scrollTop() / 500));
-           // });
         </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 		<script src="js/order_page.js"></script>
 		<script src="js/login_modal.js"></script>
 		<script src="js/settings_modal.js"></script>
