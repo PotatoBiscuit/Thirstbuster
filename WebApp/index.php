@@ -65,6 +65,7 @@ $_SESSION["dbname"] = "eld66";
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
+					<a href="#" class="navbar-brand"><img src="logo/drinkandgo.png" alt = "Logo" style = "width:25px;height:25px;"></a>
                     <a href="#" class="navbar-brand">Drink And Go</a>
                 </div>
             </div>
