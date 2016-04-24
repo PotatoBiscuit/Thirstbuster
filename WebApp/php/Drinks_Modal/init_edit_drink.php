@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 /*establish connection with the mySQL database*/
 $servername = $_SESSION["servername"];
 $username = $_SESSION["username"];
