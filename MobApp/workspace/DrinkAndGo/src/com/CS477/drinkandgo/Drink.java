@@ -58,7 +58,7 @@ public class Drink implements Serializable
 	
 	public boolean inSearch(String value)
 	{
-		return name.toLowerCase(Locale.US).equals(value.toLowerCase(Locale.US))
-		|| description.toLowerCase(Locale.US).equals(value.toLowerCase(Locale.US));
+		return name.toLowerCase(Locale.US).indexOf(value.toLowerCase(Locale.US)) != -1
+		|| description.toLowerCase(Locale.US).indexOf(value.toLowerCase(Locale.US)) != -1;
 	}
 }

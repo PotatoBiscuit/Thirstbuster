@@ -22,7 +22,6 @@
 <fullyQualifiedTypeName name="android.content.Intent"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
 <fullyQualifiedTypeName name="android.util.Xml"/>
-<fullyQualifiedTypeName name="com.CS477.drinkandgo.R.drawable"/>
 <fullyQualifiedTypeName name="android.widget.Toast"/>
 <fullyQualifiedTypeName name="android.content.SharedPreferences.Editor"/>
 <fullyQualifiedTypeName name="com.CS477.drinkandgo.R.layout"/>
@@ -42,4 +41,5 @@
 <fullyQualifiedTypeName name="android.util.Log"/>
 <fullyQualifiedTypeName name="com.android.volley.toolbox.Volley"/>
 <fullyQualifiedTypeName name="com.android.volley.Request.Method"/>
+<fullyQualifiedTypeName name="com.CS477.drinkandgo.R.drawable"/>
 </qualifiedTypeNameHistroy>

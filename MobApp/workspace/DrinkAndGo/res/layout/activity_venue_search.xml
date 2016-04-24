@@ -22,6 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:onClick="goBack"
             android:text="@string/back" />
@@ -31,6 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:text="@string/favorites"
             android:onClick="gotoFavorites" />
@@ -42,7 +44,9 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_toEndOf="@id/backButton"
+            android:layout_toRightOf="@id/backButton"
             android:layout_toStartOf="@id/favorites_view"
+            android:layout_toLeftOf="@id/favorites_view"
             android:ems="10"
             android:gravity="center_horizontal"
             android:text="@string/search_venue"
@@ -53,7 +57,7 @@
 
     <EditText
         android:id="@+id/search_value"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/search" />
