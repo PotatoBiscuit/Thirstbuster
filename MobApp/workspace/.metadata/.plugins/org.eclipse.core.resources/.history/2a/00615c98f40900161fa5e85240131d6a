@@ -28,18 +28,12 @@ public abstract class DrinkAndGoActivity extends Activity
 {
 	protected static final String PREF_NAME = "drinkAndGo_preferences.txt";
 	
-	public static final String DATABASE_URL = 
-			"https://www.cefns.nau.edu/~eld66/WebApp/php/Mobile_Modal/database.php";
-	public static final String ORDER_URL = 
-			"https://www.cefns.nau.edu/~eld66/WebApp/php/Mobile_Modal/order_drinks.php";
-	public static final String SIGN_UP_URL = 
-			"https://www.cefns.nau.edu/~eld66/WebApp/php/Mobile_Modal/sign_up.php";
-	public static final String STATUS_URL = 
-			"https://www.cefns.nau.edu/~eld66/WebApp/php/Mobile_Modal/status.php";
-	public static final String DRINKS_URL = 
-			"https://www.cefns.nau.edu/~eld66/WebApp/php/Mobile_Modal/pending_drinks.php";
-	public static final String FAVORITES_URL = 
-			"https://www.cefns.nau.edu/~eld66/WebApp/php/Mobile_Modal/favorites.php";
+	public static final String DATABASE_URL = "http://thirstbuster.net23.net/database.php";
+	public static final String ORDER_URL = "http://thirstbuster.net23.net/order_drinks.php";
+	public static final String SIGN_UP_URL = "http://thirstbuster.net23.net/sign_up.php";
+	public static final String STATUS_URL = "http://thirstbuster.net23.net/status.php";
+	public static final String DRINKS_URL = "http://thirstbuster.net23.net/pending_drinks.php";
+	public static final String FAVORITES_URL = "http://thirstbuster.net23.net/favorites.php";
 	
 	public static ArrayList<Venue> venues;
 	public static ArrayList<Customer> customers;
