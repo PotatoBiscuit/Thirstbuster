@@ -24,7 +24,7 @@ $queryString = "SELECT * FROM tab "
 
 $result = $conn->query($queryString);
 $num_drinks_sold = $result->num_rows;
-$outputString = "<b>Number of Drinks Sold: </b>" . $num_drinks_sold;
+$outputString = "<center><h3>Number of Drinks Sold: </h3><h2>" . $num_drinks_sold . "</h2></center>";
 
 
 
