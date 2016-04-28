@@ -7,7 +7,6 @@ if(!isset($_SESSION["ID"])){
 }
 
 $q = $_REQUEST["q"];
-$stringArray = explode(",", $q);
 
 /*establish connection with the mySQL database*/
 $servername = $_SESSION["servername"];
@@ -21,7 +20,7 @@ if ($conn->connect_error){
 	die("Connection failed: " . $conn->connect_error);
 }
 
-$queryString = "UPDATE tab_drinks SET drink_status = 'Complete' WHERE tab_id = '"
-. $stringArray[0] . "' AND drink_id = '" . $stringArray[1] . "' AND drink_status <> 'Complete' LIMIT 1";
+$queryString = "UPDATE tab_drinks SET drink_status = 'Complete' WHERE tab_drink_id = '"
+. $q . "' AND drink_status <> 'Complete'";
 $result = $conn->query($queryString);
 ?>

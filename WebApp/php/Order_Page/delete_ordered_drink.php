@@ -7,7 +7,6 @@ if(!isset($_SESSION["ID"])){
 }
 
 $q = $_REQUEST["q"];
-$stringArray = explode(",", $q);
 
 /*establish connection with the mySQL database*/
 $servername = $_SESSION["servername"];
@@ -21,6 +20,6 @@ if ($conn->connect_error){
 	die("Connection failed: " . $conn->connect_error);
 }
 
-$queryString = "DELETE FROM tab_drinks WHERE tab_id = '" . $stringArray[0] . "' AND drink_id = '" . $stringArray[1] . "' LIMIT 1";
+$queryString = "DELETE FROM tab_drinks WHERE tab_drink_id = '" . $q . "'";
 $result = $conn->query($queryString);
 ?>
