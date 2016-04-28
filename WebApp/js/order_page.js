@@ -155,3 +155,7 @@ function finishOrderedDrink(tab_id, drink_id, order_id, row_id){
 	xmlhttp.open("GET", "php/Order_Page/finish_ordered_drink.php?q=" + str, true);
 	xmlhttp.send();
 }
+
+function logout(){
+	location.reload();
+}

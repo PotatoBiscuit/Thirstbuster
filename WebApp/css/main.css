@@ -63,3 +63,23 @@ filler{
     height: 275px;
     font-size: 11px;
 }
+
+#order_table{
+	border-style: solid;
+	border-width: 1px;
+	border-color: #d9d9d9;
+}
+.thead-inverse{
+	background:#262626;
+	color: white;
+	
+}
+.table-success{
+	background-color: rgba(0,255,0,.5);
+}
+.table-caution{
+	background-color: rgba(255,255,0,.5);
+}
+.table-danger{
+	background-color: rgba(255,0,0,.5);
+}

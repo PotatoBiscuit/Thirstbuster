@@ -49,37 +49,32 @@ $_SESSION["dbname"] = "eld66";
         <nav role="navigation" class="navbar navbar-default navbar-transparent navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
 					<a href="#" class="navbar-brand"><img src="logo/drinkandgo.png" alt = "Logo" style = "width:25px;height:25px;"></a>
                     <a href="#" class="navbar-brand">Drink And Go</a>
                 </div>
+				<ul class = "nav navbar-nav">
+				<li><a href="#" onclick = 'initSettings()'>Settings</a></li>
+				<li><a href="#" onclick = 'ViewInitialization()'>Drink Menu</a></li>
+				<li><a href="#" onclick = 'initReports()'>View Reports</a></li>
+				</ul>
+				<ul class = "nav navbar-nav navbar-right">
+				<li><a href="#" onclick = 'logout()'>Logout <span class = "glyphicon glyphicon-log-out"></span></a></li>
+				</ul>
             </div>
         </nav>
 
         <div id="order_header" class='container'>
+				
 			<div class = 'row'>
-				<div class = 'col-md-offset-1 col-md-2 col-sm-4'>
-					<!-- Button trigger settings modal -->
-					<button onclick = 'initSettings()' onkeypress = 'initSettings()' type='button' class='btn btn-primary btn-lg'>Settings</button>
-				</div>
-				<div class = 'col-sm-4 col-md-2'>
-					<!-- Button trigger view modal -->
-					<button type='button' class='btn btn-primary btn-lg' onclick = 'ViewInitialization()' onkeypress = 'ViewInitialization()'>View Drinks</button>
-				</div>
-				<div class = 'col-sm-4 col-md-2'>
+				<div class = 'col-md-4'>
 					<!-- Button trigger Refresh Orders -->
 					<button type='button' class='btn btn-primary btn-lg' onclick = 'initOrder(lastCalled);' onkeypress = 'initOrder(lastCalled)'>Refresh Orders</button>
 				</div>
-				<div class = 'col-sm-6 col-md-2'>
-					<!-- Button trigger View Reports -->
-					<button type='button' class='btn btn-primary btn-lg' onclick = 'initReports()' onkeypress = 'initReports()'>View Reports</button>
+				<div class = 'col-md-4'>
+					<h2>Orders</h2>
+					
 				</div>
-				<div class = 'col-sm-6 col-md-2'>
+				<div class = 'col-md-4'>
 					<div class='dropdown'>
 						<button class='btn btn-primary btn-lg dropdown-toggle' type='button' data-toggle='dropdown'>
 							Sort By...<span class='caret'></span>
@@ -92,12 +87,7 @@ $_SESSION["dbname"] = "eld66";
 					</div>
 				</div>
 			</div>
-			<div class = 'row'>
-				<div class = 'col-md-12'>
-					<h2>Orders</h2>
-					<hr />
-				</div>
-			</div>
+			<hr />
 		</div>
 
         <!--<div id="index-banner" class="parallax-container" style = "position: absolute;">
