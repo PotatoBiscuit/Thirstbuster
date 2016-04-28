@@ -37,6 +37,7 @@ $_SESSION["dbname"] = "eld66";
 		<script src="js/login_modal.js"></script>
 		<script src="js/settings_modal.js"></script>
 		<script src="js/drinks_modal.js"></script>
+		<script src="js/receipts_modal.js"></script>
 		<script src="js/reports_modal.js"></script>
 		<script src="js/amcharts/amcharts.js"></script>
 		<script src="js/amcharts/pie.js"></script>
@@ -56,6 +57,7 @@ $_SESSION["dbname"] = "eld66";
 				<li><a href="#" onclick = 'initSettings()'>Settings</a></li>
 				<li><a href="#" onclick = 'ViewInitialization()'>Drink Menu</a></li>
 				<li><a href="#" onclick = 'initReports()'>View Reports</a></li>
+				<li><a href="#" onclick = 'initReceipts()'>View Receipts</a></li>
 				</ul>
 				<ul class = "nav navbar-nav navbar-right">
 				<li><a href="#" onclick = 'logout()'>Logout <span class = "glyphicon glyphicon-log-out"></span></a></li>
@@ -356,6 +358,23 @@ $_SESSION["dbname"] = "eld66";
 					<li><a onclick='initDisplay(3); return false;' onkeypress='initDisplay(3); return false;' href='#'>Wait Time</a></li>
 					</ul>
 				<button id="viewReports-cancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+			  </div>
+			</div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		
+		<div id = "ViewReceiptsModal" class="modal fade" tabindex="-1" role="dialog">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button id="viewReports-close" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Receipts</h4>
+			  </div>
+			  <div id = "reports_body" class="modal-body">
+					I will fill this out soon, don't worry.
+			  </div>
+			  <div class="modal-footer">
+				<button id="viewReceipts-cancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 			  </div>
 			</div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->

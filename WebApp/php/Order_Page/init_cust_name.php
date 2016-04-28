@@ -70,12 +70,28 @@ if ($result->num_rows != 0){
 		else{
 			$table_number = $row["table_number"];
 		}
+		
+		if($row["status"] == "Ordered"){
+			$percentage = "0%";
+		}
+		else if($row["status"] == "Filling"){
+			$percentage = "50%";
+		}
+		else if($row["status"] == "Delivering"){
+			$percentage = "100%";
+		}
+		else{
+			$percentage = "0%";
+		}
+		
 		$outputString .= "<div class = 'col-md-4'>\n"
 		. "<table id = 'order_table' class = 'table table-striped'>\n"
 		. "<thead class='thead-inverse'><tr><td>Customer Name</td> <td>" . $row["name"] . "</td></tr></thead>\n"
 		. "<tbody><tr id = 'order_rows'><td>Status</td>\n"
 		. "<td>" . $row["status"] . " <button onclick = 'changeStatusMinus(" . $row["id"] . ", 3)' onkeypress = 'changeStatusMinus(" . $row["id"] . ", 3)' type = 'button' class = 'btn btn-default'>-</button>\n"
-		. "<button onclick = 'changeStatusPlus(" . $row["id"] . ", 3)' onkeypress = 'changeStatusPlus(" . $row["id"] . ", 3)' type = 'button' class = 'btn btn-primary'>+</button></td></tr>\n"
+		. "<button onclick = 'changeStatusPlus(" . $row["id"] . ", 3)' onkeypress = 'changeStatusPlus(" . $row["id"] . ", 3)' type = 'button' class = 'btn btn-primary'>+</button>"
+		. "<br><br><div class = 'progress'><div class = 'progress-bar' role = 'progressbar' aria-valuemin='0' aria-valuemax='100' style='width:" . $percentage . "'>"
+		. "</div></div></td></tr>\n"
 		. "<tr id = 'order_rows'><td>Table</td> <td>" . $table_number . "</td></tr>\n"
 		. "<tr id = 'order_rows'><td class = '" . $warningState . "'>Wait Time</td> <td class = '" . $warningState . "'>" . $elapsedTime . "</td></tr>\n"
 		. "<tr id = 'order_rows'><td>Drinks</td> <td><button onclick = 'viewOrderedDrinks(" . $row["id"] . ")' onkeypress = 'viewOrderedDrinks(" . $row["id"] . ")' type = 'button' class = 'btn btn-primary'>View</button></td></tr>\n"
