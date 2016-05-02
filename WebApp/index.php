@@ -357,6 +357,7 @@ $_SESSION["dbname"] = "eld66";
 					<li><a onclick='initDisplay(2); return false;' onkeypress='initDisplay(2); return false;' href='#'>Total Drinks Sold</a></li>
 					<li><a onclick='initDisplay(3); return false;' onkeypress='initDisplay(3); return false;' href='#'>Wait Time</a></li>
 					</ul>
+				</button>
 				<button id="viewReports-cancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 			  </div>
 			</div><!-- /.modal-content -->
@@ -370,10 +371,22 @@ $_SESSION["dbname"] = "eld66";
 				<button id="viewReports-close" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title">Receipts</h4>
 			  </div>
-			  <div id = "reports_body" class="modal-body">
-					I will fill this out soon, don't worry.
+			  <div id = "receipts_body" class="modal-body">
+				<div class="form-group">
+					  <label for="keyword">Keyword: </label>
+					  <input id = "keyword" type="text" class="form-control">
+				</div>
+				<div class="form-group">
+				  <label for="search_type">Sort By: </label>
+				  <select class="form-control" id="search_type">
+					<option value = "Recency">Recency</option>
+					<option value = "Customer">Customer Name</option>
+					<option value = "Table">Table Number</option>
+				  </select>
+				</div>
+				<button id="search-button" onclick = "searchFunction();" onkeypress = "searchFunction();" type="submit" class="btn btn-primary" >Search</button>
 			  </div>
-			  <div class="modal-footer">
+			  <div id = "receipt-footer" class="modal-footer">
 				<button id="viewReceipts-cancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 			  </div>
 			</div><!-- /.modal-content -->

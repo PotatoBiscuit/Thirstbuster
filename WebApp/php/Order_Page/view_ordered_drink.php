@@ -44,7 +44,7 @@ else{
 		. $row["special_instructions"] . "</td><td>"
 		. $row["drink_status"] . "</td><td>"
 		. "<button onclick = 'deleteOrderedDrink(" . $row["tab_drink_id"] . "," . $q . ")' onkeypress = 'deleteOrderedDrink(" . $row["tab_drink_id"] . "," . $q . ")' type = 'button' class = 'btn btn-primary'>Delete</button>\n"
-		. "<button onclick = 'finishOrderedDrink(" . $row["tab_drink_id"] . "," . $q . ")' onkeypress = 'finishOrderedDrink(" . $row["tab_drink_id"] . "," . $q . ")' type = 'button' class = 'btn btn-success'>Finish</button></td>"
+		. "<button onclick = 'finishOrderedDrink(" . $row["tab_drink_id"] . "," . $q . ")' onkeypress = 'finishOrderedDrink(" . $row["tab_drink_id"] . "," . $q . ")' type = 'button' class = 'btn btn-success'>Fill</button></td>"
 		. "</tr>\n";
 		$i = $i + 1;
 	}

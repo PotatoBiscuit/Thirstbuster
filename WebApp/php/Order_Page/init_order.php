@@ -18,7 +18,7 @@ if ($conn->connect_error){
 	die("Connection failed: " . $conn->connect_error);
 }
 
-$queryString = "SELECT * FROM `tab` WHERE venue_id = '" . $_SESSION["ID"] . "' AND status <> 'Complete' ORDER BY start_time DESC";
+$queryString = "SELECT * FROM `tab` WHERE venue_id = '" . $_SESSION["ID"] . "' AND status <> 'Complete' ORDER BY start_time ASC";
 $result = $conn->query($queryString);
 $outputString = "";
 

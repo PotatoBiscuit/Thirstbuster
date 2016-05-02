@@ -20,7 +20,7 @@ if ($conn->connect_error){
 	die("Connection failed: " . $conn->connect_error);
 }
 
-$queryString = "UPDATE tab_drinks SET drink_status = 'Complete' WHERE tab_drink_id = '"
-. $q . "' AND drink_status <> 'Complete'";
+$queryString = "UPDATE tab_drinks SET drink_status = 'Filled' WHERE tab_drink_id = '"
+. $q . "' AND drink_status <> 'Filled'";
 $result = $conn->query($queryString);
 ?>
