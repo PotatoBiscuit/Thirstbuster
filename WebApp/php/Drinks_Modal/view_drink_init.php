@@ -36,8 +36,8 @@ else {
 		. $row["type"] . "</td><td>"
 		. $row["cost"] . "</td><td>"
 		. $row["description"] . "</td><td>\n"
-		. "<button onclick = 'delDrink(" . $row["id"] . ")' type = 'submit' class = 'btn btn-primary'>Delete</button>\n" . "</td><td>\n"
-		. "<button onclick = 'initEditDrink(" . $row["id"] . ")' type = 'submit' class = 'btn btn-default'>Edit</button>\n" . "</td>\n"
+		. "<button onclick = 'delDrink(" . $row["id"] . ")' type = 'submit' class = 'btn btn-danger'>Delete</button>\n" . "</td><td>\n"
+		. "<button onclick = 'initEditDrink(" . $row["id"] . ")' type = 'submit' class = 'btn btn-primary'>Edit</button>\n" . "</td>\n"
 		."</tr>\n";
 	}
 	$str .= "</table>\n";

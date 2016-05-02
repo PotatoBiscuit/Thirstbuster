@@ -20,7 +20,8 @@ if ($conn->connect_error){
 
 $queryString = "SELECT start_time, delivery_time FROM tab "
 . "INNER JOIN tab_drinks ON tab.id = tab_drinks.tab_id "
-. "WHERE tab.status = 'Complete'";
+. "WHERE tab.status = 'Complete' "
+. "AND tab.venue_id = '" . $_SESSION["ID"] . "'";
 
 $result = $conn->query($queryString);
 
@@ -29,6 +30,7 @@ $lengths = array();
 $waitSeconds = 0;
 $num_orders = $result->num_rows;
 if ($result->num_rows == 0){
+	$outputString = "No Wait Times";
 	echo $outputString;
 	exit();
 }

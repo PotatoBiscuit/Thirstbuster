@@ -19,13 +19,13 @@ if ($conn->connect_error){
 
 $result = $conn->query("SELECT * FROM `venue` WHERE login_name = '" . $stringArray[0] . "'");
 if ($result->num_rows == 0){
-	echo 'Error with logging in';
+	echo 'no';
 	exit();
 }
 else {
 	$result = $conn->query("SELECT * FROM `venue` WHERE login_name = '" . $stringArray[0] . "' AND password = '" . $stringArray[1] . "'");
 	if ($result->num_rows == 0){
-		echo 'Error with Logging in';
+		echo 'no1';
 		exit();
 	}
 }

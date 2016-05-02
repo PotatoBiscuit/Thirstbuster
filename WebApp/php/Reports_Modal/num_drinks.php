@@ -20,7 +20,8 @@ if ($conn->connect_error){
 
 $queryString = "SELECT * FROM tab "
 . "INNER JOIN tab_drinks ON tab.id = tab_drinks.tab_id "
-. "WHERE tab.status = 'Complete'";
+. "WHERE tab.status = 'Complete' "
+. "AND tab.venue_id = '" . $_SESSION["ID"] . "'";
 
 $result = $conn->query($queryString);
 $num_drinks_sold = $result->num_rows;

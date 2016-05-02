@@ -44,7 +44,16 @@ function settingsFunction(){
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			var result1 = xmlhttp.responseText;
-			alert(result1);
+			if(result1 != "Info updated successfully"){
+				$('#error_div').html("");
+				$('#error_div').append(result1);
+				$("#error_div").show().delay(3000).fadeOut();
+			}
+			else{
+				$('#success_div').html("");
+				$('#success_div').append("Settings Changed");
+				$("#success_div").show().delay(3000).fadeOut();
+			}
 			$('#SettingsModal').modal('toggle');
 		}
 	};

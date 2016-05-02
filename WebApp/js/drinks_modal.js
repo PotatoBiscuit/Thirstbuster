@@ -12,10 +12,14 @@ function addFunction(){
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			var result1 = xmlhttp.responseText;
 			if (result1 == 'no'){
-				alert("Invalid Password");
+				$('#error_div').html("");
+				$('#error_div').append("Invalid Password");
+				$("#error_div").show().delay(3000).fadeOut();
 			}
 			else{
-				alert(result1);
+				$('#success_div').html("");
+				$('#success_div').append(result1);
+				$("#success_div").show().delay(3000).fadeOut();
 				$('#AddDrinkModal').modal('toggle');
 				ViewInitialization();
 				

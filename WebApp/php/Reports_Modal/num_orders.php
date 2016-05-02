@@ -18,7 +18,7 @@ if ($conn->connect_error){
 	die("Connection failed: " . $conn->connect_error);
 }
 
-$queryString = "SELECT * FROM tab WHERE status = 'Complete'";
+$queryString = "SELECT * FROM tab WHERE status = 'Complete' AND venue_id = '" . $_SESSION["ID"] . "'";
 $result = $conn->query($queryString);
 $num_orders_finished = $result->num_rows;
 

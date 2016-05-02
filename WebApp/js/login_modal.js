@@ -10,14 +10,21 @@ function loginFunction(){
 			var result1 = xmlhttp.responseText;
 			if(result1 == 'no' || result1 == 'no1'){
 				if(result1 == 'no'){
-					alert("Your username is not valid");
+					$('#error_div').html("");
+					$('#error_div').append("Username not valid");
+					$("#error_div").show().delay(3000).fadeOut();
 				}
 				else{
-					alert("Your password is incorrect");
+					$('#error_div').html("");
+					$('#error_div').append("Password is incorrect");
+					$("#error_div").show().delay(3000).fadeOut();
 				}
 			}
 			else{
 				$('#myModal').modal('toggle');
+				$('#success_div').html("");
+				$('#success_div').append("Login Success");
+				$("#success_div").show().delay(3000).fadeOut();
 				initOrder();
 			}
 		}
@@ -52,6 +59,9 @@ function addVenueFunction(){
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			$('#RegisterModal').modal('toggle');
+			$('#success_div').html("");
+			$('#success_div').append("Registration Success");
+			$("#success_div").show().delay(3000).fadeOut();
 			initOrder();
 		}
 	};

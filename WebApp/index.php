@@ -65,6 +65,14 @@ $_SESSION["dbname"] = "eld66";
             </div>
         </nav>
 
+		<div id = "success_div">
+			
+		</div>
+		
+		<div id = "error_div">
+			
+		</div>
+		
         <div id="order_header" class='container'>
 				
 			<div class = 'row'>

@@ -65,6 +65,9 @@ function deleteOrder(order_id){
 	
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			$('#success_div').html("");
+			$('#success_div').append("Order Deleted");
+			$("#success_div").show().delay(3000).fadeOut();
 			initOrder();
 		}
 	};
@@ -77,6 +80,9 @@ function finishOrder(order_id){
 	
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			$('#success_div').html("");
+			$('#success_div').append("Order Finished");
+			$("#success_div").show().delay(3000).fadeOut();
 			initOrder();
 		}
 	};
