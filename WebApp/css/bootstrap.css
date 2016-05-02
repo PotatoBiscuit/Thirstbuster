@@ -9,14 +9,6 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
-@font-face {
-    font-family: Slim-Joe;
-    src: url(../fonts/Slim-Joe.otf);
-}
-@font-face{
-    font-family: Big-John;
-    src:url(../fonts/Big-John.otf);
-}
 body {
   margin: 0;
 }
@@ -67,10 +59,10 @@ strong {
 dfn {
   font-style: italic;
 }
-/*h1 {
+h1 {
   margin: .67em 0;
   font-size: 2em;
-}*/
+}
 mark {
   color: #000;
   background: #ff0;
@@ -4176,8 +4168,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar {
   position: relative;
-  
-  max-height: 40px;
+  min-height: 50px;
   margin-bottom: 20px;
   border: 1px solid transparent;
 }
@@ -4505,13 +4496,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #A0A0A0;
+  background-color: #f8f8f8;
   border-color: #e7e7e7;
 }
-
 .navbar-default .navbar-brand {
-    font-family: Slim-Joe;
-    color: #777;
+  color: #777;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {

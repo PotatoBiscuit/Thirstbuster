@@ -65,6 +65,9 @@ function deleteOrder(order_id){
 	
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			$('#success_div').html("");
+			$('#success_div').append("Order Deleted");
+			$("#success_div").show().delay(3000).fadeOut();
 			initOrder();
 		}
 	};
@@ -77,6 +80,9 @@ function finishOrder(order_id){
 	
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			$('#success_div').html("");
+			$('#success_div').append("Order Finished");
+			$("#success_div").show().delay(3000).fadeOut();
 			initOrder();
 		}
 	};
@@ -130,7 +136,7 @@ function changeDrinkStatusPlus(tab_id, drink_id, order_id){
 	
 }
 
-function deleteOrderedDrink(tab_id, drink_id, order_id, row_id){
+function deleteOrderedDrink(ordered_drink_id, order_id){
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -138,12 +144,11 @@ function deleteOrderedDrink(tab_id, drink_id, order_id, row_id){
 		}
 	};
 	
-	str = tab_id + "," + drink_id + "," + row_id;
-	xmlhttp.open("GET", "php/Order_Page/delete_ordered_drink.php?q=" + str, true);
+	xmlhttp.open("GET", "php/Order_Page/delete_ordered_drink.php?q=" + ordered_drink_id, true);
 	xmlhttp.send();
 }
 
-function finishOrderedDrink(tab_id, drink_id, order_id, row_id){
+function finishOrderedDrink(ordered_drink_id, order_id){
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -151,7 +156,10 @@ function finishOrderedDrink(tab_id, drink_id, order_id, row_id){
 		}
 	};
 	
-	str = tab_id + "," + drink_id + "," + row_id;
-	xmlhttp.open("GET", "php/Order_Page/finish_ordered_drink.php?q=" + str, true);
+	xmlhttp.open("GET", "php/Order_Page/finish_ordered_drink.php?q=" + ordered_drink_id, true);
 	xmlhttp.send();
+}
+
+function logout(){
+	location.reload();
 }

@@ -20,11 +20,12 @@ if ($conn->connect_error){
 
 $queryString = "SELECT * FROM tab "
 . "INNER JOIN tab_drinks ON tab.id = tab_drinks.tab_id "
-. "WHERE tab.status = 'Complete'";
+. "WHERE tab.status = 'Complete' "
+. "AND tab.venue_id = '" . $_SESSION["ID"] . "'";
 
 $result = $conn->query($queryString);
 $num_drinks_sold = $result->num_rows;
-$outputString = "<b>Number of Drinks Sold: </b>" . $num_drinks_sold;
+$outputString = "<center><h3>Number of Drinks Sold: </h3><h2>" . $num_drinks_sold . "</h2></center>";
 
 
 
@@ -40,7 +41,7 @@ else {
 	}
 }
 
-$queryString = "SELECT id, name, cost FROM drink";
+$queryString = "SELECT id, name, cost FROM drink WHERE venue_id = '" . $_SESSION["ID"] . "'";
 $result = $conn->query($queryString);
 
 $drinkCount = array();

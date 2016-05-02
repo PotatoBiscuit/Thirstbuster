@@ -2,11 +2,9 @@
 session_start();
 
 if(!isset($_SESSION["ID"])){
-	echo 'Error in delete_order.php, no session ID';
+	echo 'Error in num_drinks.php, no session ID';
 	exit();
 }
-
-$q = $_REQUEST["q"];
 
 /*establish connection with the mySQL database*/
 $servername = $_SESSION["servername"];
@@ -20,7 +18,11 @@ if ($conn->connect_error){
 	die("Connection failed: " . $conn->connect_error);
 }
 
-$queryString = "UPDATE tab_drinks SET drink_status = 'Filled' WHERE tab_drink_id = '"
-. $q . "' AND drink_status <> 'Filled'";
+$queryString = "SELECT * FROM tab WHERE status = 'Complete' AND venue_id = '" . $_SESSION["ID"] . "'";
 $result = $conn->query($queryString);
+$num_orders_finished = $result->num_rows;
+
+echo "<center><h3>Number of Completed Orders: </h3><h2>" . $num_orders_finished . "</h2></center>";
+
 ?>
+

@@ -37,6 +37,7 @@ $_SESSION["dbname"] = "eld66";
 		<script src="js/login_modal.js"></script>
 		<script src="js/settings_modal.js"></script>
 		<script src="js/drinks_modal.js"></script>
+		<script src="js/receipts_modal.js"></script>
 		<script src="js/reports_modal.js"></script>
 		<script src="js/amcharts/amcharts.js"></script>
 		<script src="js/amcharts/pie.js"></script>
@@ -49,37 +50,41 @@ $_SESSION["dbname"] = "eld66";
         <nav role="navigation" class="navbar navbar-default navbar-transparent navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
 					<a href="#" class="navbar-brand"><img src="logo/drinkandgo.png" alt = "Logo" style = "width:25px;height:25px;"></a>
                     <a href="#" class="navbar-brand">Drink And Go</a>
                 </div>
+				<ul class = "nav navbar-nav">
+				<li><a href="#" onclick = 'initSettings()'>Settings</a></li>
+				<li><a href="#" onclick = 'ViewInitialization()'>Drink Menu</a></li>
+				<li><a href="#" onclick = 'initReports()'>View Reports</a></li>
+				<li><a href="#" onclick = 'initReceipts()'>View Receipts</a></li>
+				</ul>
+				<ul class = "nav navbar-nav navbar-right">
+				<li><a href="#" onclick = 'logout()'>Logout <span class = "glyphicon glyphicon-log-out"></span></a></li>
+				</ul>
             </div>
         </nav>
 
+		<div id = "success_div">
+			
+		</div>
+		
+		<div id = "error_div">
+			
+		</div>
+		
         <div id="order_header" class='container'>
+				
 			<div class = 'row'>
-				<div class = 'col-md-offset-1 col-md-2 col-sm-4'>
-					<!-- Button trigger settings modal -->
-					<button onclick = 'initSettings()' onkeypress = 'initSettings()' type='button' class='btn btn-primary btn-lg'>Settings</button>
-				</div>
-				<div class = 'col-sm-4 col-md-2'>
-					<!-- Button trigger view modal -->
-					<button type='button' class='btn btn-primary btn-lg' onclick = 'ViewInitialization()' onkeypress = 'ViewInitialization()'>View Drinks</button>
-				</div>
-				<div class = 'col-sm-4 col-md-2'>
+				<div class = 'col-md-4'>
 					<!-- Button trigger Refresh Orders -->
 					<button type='button' class='btn btn-primary btn-lg' onclick = 'initOrder(lastCalled);' onkeypress = 'initOrder(lastCalled)'>Refresh Orders</button>
 				</div>
-				<div class = 'col-sm-6 col-md-2'>
-					<!-- Button trigger View Reports -->
-					<button type='button' class='btn btn-primary btn-lg' onclick = 'initReports()' onkeypress = 'initReports()'>View Reports</button>
+				<div class = 'col-md-4'>
+					<h2>Orders</h2>
+					
 				</div>
-				<div class = 'col-sm-6 col-md-2'>
+				<div class = 'col-md-4'>
 					<div class='dropdown'>
 						<button class='btn btn-primary btn-lg dropdown-toggle' type='button' data-toggle='dropdown'>
 							Sort By...<span class='caret'></span>
@@ -92,12 +97,7 @@ $_SESSION["dbname"] = "eld66";
 					</div>
 				</div>
 			</div>
-			<div class = 'row'>
-				<div class = 'col-md-12'>
-					<h2>Orders</h2>
-					<hr />
-				</div>
-			</div>
+			<hr />
 		</div>
 
         <!--<div id="index-banner" class="parallax-container" style = "position: absolute;">
@@ -361,10 +361,41 @@ $_SESSION["dbname"] = "eld66";
 			  	<button id="select-report" class='btn btn-primary dropdown-toggle' style='float: left;' type='button' data-toggle='dropdown'>Select Report
 					<span class='caret'></span></button>
 					<ul class='dropdown-menu'>
-					<li><a onclick='initDisplay(1); return false;' onkeypress='initDisplay(1); return false;' href='#'>Total Drinks Sold</a></li>
-					<li><a onclick='initDisplay(2); return false;' onkeypress='initDisplay(2); return false;' href='#'>Wait Time</a></li>
+					<li><a onclick='initDisplay(1); return false;' onkeypress='initDisplay(1); return false;' href='#'>Total Orders</a></li>
+					<li><a onclick='initDisplay(2); return false;' onkeypress='initDisplay(2); return false;' href='#'>Total Drinks Sold</a></li>
+					<li><a onclick='initDisplay(3); return false;' onkeypress='initDisplay(3); return false;' href='#'>Wait Time</a></li>
 					</ul>
+				</button>
 				<button id="viewReports-cancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+			  </div>
+			</div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		
+		<div id = "ViewReceiptsModal" class="modal fade" tabindex="-1" role="dialog">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button id="viewReports-close" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Receipts</h4>
+			  </div>
+			  <div id = "receipts_body" class="modal-body">
+				<div class="form-group">
+					  <label for="keyword">Keyword: </label>
+					  <input id = "keyword" type="text" class="form-control">
+				</div>
+				<div class="form-group">
+				  <label for="search_type">Sort By: </label>
+				  <select class="form-control" id="search_type">
+					<option value = "Recency">Recency</option>
+					<option value = "Customer">Customer Name</option>
+					<option value = "Table">Table Number</option>
+				  </select>
+				</div>
+				<button id="search-button" onclick = "searchFunction();" onkeypress = "searchFunction();" type="submit" class="btn btn-primary" >Search</button>
+			  </div>
+			  <div id = "receipt-footer" class="modal-footer">
+				<button id="viewReceipts-cancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 			  </div>
 			</div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->

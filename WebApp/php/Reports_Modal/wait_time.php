@@ -20,20 +20,32 @@ if ($conn->connect_error){
 
 $queryString = "SELECT start_time, delivery_time FROM tab "
 . "INNER JOIN tab_drinks ON tab.id = tab_drinks.tab_id "
-. "WHERE tab.status = 'Complete'";
+. "WHERE tab.status = 'Complete' "
+. "AND tab.venue_id = '" . $_SESSION["ID"] . "'";
 
 $result = $conn->query($queryString);
 
 $start_times = array();
 $lengths = array();
-
+$waitSeconds = 0;
+$num_orders = $result->num_rows;
 if ($result->num_rows == 0){
+	$outputString = "No Wait Times";
 	echo $outputString;
 	exit();
 }
 else {
 	while($row = $result->fetch_assoc()){
-
+		$orderTime = explode(" ", $row["start_time"]);
+		$orderTime = explode(":", $orderTime[1]);
+		$deliveryTime = explode(" ", $row["delivery_time"]);
+		$deliveryTime = explode(":", $deliveryTime[1]);
+		
+		$orderSeconds = $orderTime[0] * 3600 + $orderTime[1] * 60 + $orderTime[2];
+		$deliverySeconds = $deliveryTime[0] * 3600 + $deliveryTime[1] * 60 + $deliveryTime[2];
+		
+		$waitSeconds = $waitSeconds + $deliverySeconds - $orderSeconds;
+		
 		if(!in_array($row["start_time"], $start_times)) {
 			array_push($start_times, $row["start_time"]);
 		}
@@ -47,8 +59,9 @@ else {
 
 	}
 }
+$waitSeconds = $waitSeconds / $num_orders;
 
-$outputString = "";
+$outputString = "<center><h3>Average Wait Time:</h3><h2>" . gmdate("H:i:s", $waitSeconds) . "</h2></center>";
 
 $outputString .= "<script type='text/javascript'>"
 . "var chartData = getChartData();"
