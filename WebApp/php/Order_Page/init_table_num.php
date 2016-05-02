@@ -85,7 +85,7 @@ if ($result->num_rows != 0){
 		
 		$outputString .= "<div class = 'col-md-4'>\n"
 		. "<table id = 'order_table' class = 'table table-striped'>\n"
-		. "<thead class='thead-inverse'><tr id = 'order_rows'><td>Table</td> <td>" . $table_number . "</td></tr></thead>\n"
+		. "<thead class='thead-inverse'><tr id = 'order_rows'><td><b>Table</b></td> <td><b>" . $table_number . "</b></td></tr></thead>\n"
 		. "<tbody><tr><td>Customer Name</td> <td>" . $row1["name"] . "</td></tr>\n"
 		. "<tr><td>Status</td>\n"
 		. "<td>" . $row["status"] . " <button onclick = 'changeStatusMinus(" . $row["id"] . ", 2)' onkeypress = 'changeStatusMinus(" . $row["id"] . ", 2)' type = 'button' class = 'btn btn-default'>-</button>\n"

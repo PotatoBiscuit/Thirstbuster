@@ -19,7 +19,7 @@ if ($conn->connect_error){
 	die("Connection failed: " . $conn->connect_error);
 }
 
-$queryString = "SELECT tab.id, tab.delivery_time, customer.name, tab.status FROM tab INNER JOIN customer ON tab.customer_id = customer.id WHERE status = 'Complete' ORDER BY delivery_time DESC LIMIT 5";
+$queryString = "SELECT tab.id, tab.delivery_time, customer.name, tab.status FROM tab INNER JOIN customer ON tab.customer_id = customer.id WHERE status = 'Complete' AND tab.venue_id = '" . $_SESSION["ID"] . "' ORDER BY delivery_time DESC LIMIT 5";
 $result = $conn->query($queryString);
 
 if ($result->num_rows == 0){

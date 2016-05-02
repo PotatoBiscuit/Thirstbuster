@@ -7,6 +7,9 @@ if(!isset($_SESSION["ID"])){
 }
 
 $q = $_REQUEST["q"];
+if($q == "Self-serve"){
+	$q = 0;
+}
 
 /*establish connection with the mySQL database*/
 $servername = $_SESSION["servername"];
@@ -21,7 +24,7 @@ if ($conn->connect_error){
 }
 
 $queryString = "SELECT tab.id, tab.delivery_time, customer.name, tab.status, tab.table_number FROM tab INNER JOIN customer ON tab.customer_id = customer.id WHERE status = 'Complete' "
-. "AND tab.table_number LIKE '%" . $q . "%' ORDER BY tab.table_number ASC LIMIT 5";
+. "AND tab.venue_id = '" . $_SESSION["ID"] . "' AND tab.table_number LIKE '%" . $q . "%' ORDER BY tab.table_number ASC LIMIT 5";
 $result = $conn->query($queryString);
 
 if ($result->num_rows == 0){

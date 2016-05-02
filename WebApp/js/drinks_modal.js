@@ -47,12 +47,31 @@ function ViewInitialization(){
 	xmlhttp.send();
 }
 
+function ViewInitRefresh(){
+	$('#view_modal_body').html("");
+	
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			var result1 = xmlhttp.responseText;
+			$('#view_modal_body').append(result1);
+		}
+	};
+	
+	xmlhttp.open("GET", "php/Drinks_Modal/view_drink_init.php", true);
+	xmlhttp.send();
+}
+
 function delDrink(drink_id){
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			var result1 = xmlhttp.responseText;
-			$('#ViewDrinkModal').modal('toggle');
+			$('#success_div').html("");
+			$('#success_div').append("Drink Deleted");
+			$("#success_div").show().delay(3000).fadeOut();
+			$('#AddDrinkModal').modal('toggle');
+			ViewInitRefresh();
 		}
 	};
 	
@@ -94,10 +113,18 @@ function EditDrink(drink_id){
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			var result1 = xmlhttp.responseText;
-			alert(result1);
+			if(result1 != "Drink Correctly Changed"){
+				$('#error_div').html("");
+				$('#error_div').append("Incorrect Password");
+				$("#error_div").show().delay(3000).fadeOut();
+			}
+			else{
+				$('#success_div').html("");
+				$('#success_div').append("Drink Edited");
+				$("#success_div").show().delay(3000).fadeOut();
+			}
 			$('#EditDrinkModal').modal('toggle');
-			moveToViewDrinks();
-			ViewRefresh();
+			ViewInitialization();
 		}
 	};
 	

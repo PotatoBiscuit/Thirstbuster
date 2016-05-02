@@ -21,7 +21,7 @@ if ($conn->connect_error){
 }
 
 $queryString = "SELECT tab.id, tab.delivery_time, customer.name, tab.status FROM tab INNER JOIN customer ON tab.customer_id = customer.id WHERE status = 'Complete' "
-. "AND customer.name LIKE '%" . $q . "%' ORDER BY customer.name ASC LIMIT 5";
+. "AND tab.venue_id = '" . $_SESSION["ID"] . "' AND customer.name LIKE '%" . $q . "%' ORDER BY customer.name ASC LIMIT 5";
 $result = $conn->query($queryString);
 
 if ($result->num_rows == 0){

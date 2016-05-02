@@ -41,7 +41,7 @@ else {
 	}
 }
 
-$queryString = "SELECT id, name, cost FROM drink";
+$queryString = "SELECT id, name, cost FROM drink WHERE venue_id = '" . $_SESSION["ID"] . "'";
 $result = $conn->query($queryString);
 
 $drinkCount = array();
