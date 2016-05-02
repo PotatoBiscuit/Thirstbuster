@@ -61,6 +61,10 @@ public class SignUpActivity extends DrinkAndGoActivity
 	private TextView get(int contentID)
 	{	return (TextView) findViewById(contentID);}
 	
+	@Override
+	public void onUpdateDatabaseComplete()
+	{	startActivity(VenueSearchActivity.class);}
+	
 	private class SignUpListener implements Listener<String>
 	{
 		@Override
@@ -77,7 +81,7 @@ public class SignUpActivity extends DrinkAndGoActivity
 					editor.putString("username", obj.getString("username"));
 					editor.putString("password", obj.getString("password"));
 					editor.apply();
-					startActivity(VenueSearchActivity.class);
+					updateData();
 				}
 				else
 				{

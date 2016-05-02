@@ -156,10 +156,8 @@ public abstract class DrinkAndGoActivity extends Activity
 	public static LayoutParams makeDefaultParams()
 	{	return new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);}
 	
-	protected void onUpdateDatabaseComplete(){}
-	
-	private final GetDatabaseListener listener = new GetDatabaseListener();
-	private class GetDatabaseListener implements Listener<JSONObject> 
+	private static final GetDatabaseListener listener = new GetDatabaseListener();
+	private static class GetDatabaseListener implements Listener<JSONObject> 
 	{
 		@Override
 		public void onResponse(JSONObject obj) 
@@ -181,7 +179,6 @@ public abstract class DrinkAndGoActivity extends Activity
 				for(int i = 0, n = array.length(); i < n; ++i)
 					drinks.add(new Drink(array.getJSONObject(i)));
 				
-				onUpdateDatabaseComplete();
 				Log.i("Customers", customers.toString());
 				Log.i("Venues", venues.toString());
 				Log.i("Drinks", drinks.toString());
@@ -189,5 +186,6 @@ public abstract class DrinkAndGoActivity extends Activity
 			catch(JSONException e)
 			{	Log.e("JSON Error", e.getLocalizedMessage());}
 		}
+
 	}
 }
