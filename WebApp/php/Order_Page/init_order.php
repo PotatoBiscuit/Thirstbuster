@@ -41,10 +41,10 @@ if ($result->num_rows != 0){
 			$currentTime["hours"] = $currentTime["hours"] + 24;
 		}
 		
-		if($currentTime["hours"] - $orderTime[0] >= 1){
+		if($currentTime["minutes"] - $orderTime[1] >= 10 || $currentTime["hours"] - $orderTime[0] >= 1){
 			$warningState = "table-danger";
 		}
-		else if($currentTime["minutes"] - $orderTime[1] >= 30){
+		else if($currentTime["minutes"] - $orderTime[1] >= 5){
 			$warningState = "table-caution";
 		}
 		else{
