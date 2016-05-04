@@ -37,6 +37,7 @@ function backToLogin(){
 }
 
 function addVenueFunction(){
+	
 	login = $("#venue_login1").val();
 	password2 = $("#password2").val();
 	name = $("#venue_name").val();
@@ -46,6 +47,7 @@ function addVenueFunction(){
 	zip = $("#venue_zip").val();
 	credit = $("#venue_credit").val();
 	
+
 	str = login + "," + password2 + "," + name + "," + address + "," + city + "," + state + "," + zip + "," + credit;
 	
 	var xmlhttp = new XMLHttpRequest();
@@ -58,6 +60,15 @@ function addVenueFunction(){
 	xmlhttp.open("GET", "php/register.php?q=" + str, true);
 	xmlhttp.send();
 }
+
+$('#form').validator().on('submit', function (e) {
+  if (e.isDefaultPrevented()) {
+    // handle the invalid form...
+  } else {
+    addVenueFunction();
+  }
+})
+
 
 function initSettings(){
 	$('#SettingsModal').modal('toggle');
