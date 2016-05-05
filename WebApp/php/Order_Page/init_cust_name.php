@@ -20,7 +20,7 @@ if ($conn->connect_error){
 
 $queryString = "SELECT tab.id, tab.table_number, tab.start_time, tab.status, customer.name FROM `tab` "
 . "INNER JOIN customer ON tab.customer_id = customer.id "
-. "WHERE tab.status <> 'Complete' "
+. "WHERE tab.status <> 'Complete' AND tab.venue_id = '" . $_SESSION["ID"] . "' "
 . "ORDER BY customer.name ASC ";
 $result = $conn->query($queryString);
 $outputString = "";

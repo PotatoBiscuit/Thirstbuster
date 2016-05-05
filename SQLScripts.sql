@@ -16,18 +16,18 @@ INSERT INTO `customer`(`credit`, `name`, `username`, `password`) VALUES ('555555
 INSERT INTO `customer`(`credit`, `name`, `username`, `password`) VALUES ('5555555555555555','Henry','Henry1','1234');
 
 --Create Orders--
-INSERT INTO `tab`(`venue_id`, `customer_id`, `table_number`, `start_time`, `status`) VALUES (1,1,'0',NOW(),'Ordered');
-INSERT INTO `tab`(`venue_id`, `customer_id`, `table_number`, `start_time`, `status`) VALUES (1,2,'10',NOW(),'Ordered');
-INSERT INTO `tab`(`venue_id`, `customer_id`, `table_number`, `start_time`, `status`) VALUES (1,3,'14',NOW(),'Ordered');
-INSERT INTO `tab`(`venue_id`, `customer_id`, `table_number`, `start_time`, `status`) VALUES (1,4,'3',NOW(),'Ordered');
-INSERT INTO `tab`(`venue_id`, `customer_id`, `table_number`, `start_time`, `status`) VALUES (1,5,'2',NOW(),'Ordered');
-INSERT INTO `tab`(`venue_id`, `customer_id`, `table_number`, `start_time`, `status`) VALUES (1,1,'1',NOW(),'Ordered');
-INSERT INTO `tab`(`venue_id`, `customer_id`, `table_number`, `start_time`, `status`) VALUES (2,2,'11',NOW(),'Ordered');
-INSERT INTO `tab`(`venue_id`, `customer_id`, `table_number`, `start_time`, `status`) VALUES (2,3,'0',NOW(),'Ordered');
-INSERT INTO `tab`(`venue_id`, `customer_id`, `table_number`, `start_time`, `status`) VALUES (2,4,'2',NOW(),'Ordered');
-INSERT INTO `tab`(`venue_id`, `customer_id`, `table_number`, `start_time`, `status`) VALUES (2,5,'6',NOW(),'Ordered');
-INSERT INTO `tab`(`venue_id`, `customer_id`, `table_number`, `start_time`, `status`) VALUES (2,1,'9',NOW(),'Ordered');
-INSERT INTO `tab`(`venue_id`, `customer_id`, `table_number`, `start_time`, `status`) VALUES (2,2,'10',NOW(),'Ordered');
+INSERT INTO `tab`(`venue_id`, `customer_id`, `table_number`, `start_time`, `status`) VALUES (1,1,'0',NOW() - INTERVAL 5 MINUTE,'Ordered');
+INSERT INTO `tab`(`venue_id`, `customer_id`, `table_number`, `start_time`, `status`) VALUES (1,2,'10',NOW() - INTERVAL 15 MINUTE,'Ordered');
+INSERT INTO `tab`(`venue_id`, `customer_id`, `table_number`, `start_time`, `status`) VALUES (1,3,'14',NOW() - INTERVAL 30 MINUTE,'Ordered');
+INSERT INTO `tab`(`venue_id`, `customer_id`, `table_number`, `start_time`, `status`) VALUES (1,4,'3',NOW() - INTERVAL 60 MINUTE,'Ordered');
+INSERT INTO `tab`(`venue_id`, `customer_id`, `table_number`, `start_time`, `status`) VALUES (1,5,'2',NOW() - INTERVAL 0 MINUTE,'Ordered');
+INSERT INTO `tab`(`venue_id`, `customer_id`, `table_number`, `start_time`, `status`) VALUES (1,1,'1',NOW() - INTERVAL 2 MINUTE,'Ordered');
+INSERT INTO `tab`(`venue_id`, `customer_id`, `table_number`, `start_time`, `status`) VALUES (2,2,'11',NOW() - INTERVAL 5 MINUTE,'Ordered');
+INSERT INTO `tab`(`venue_id`, `customer_id`, `table_number`, `start_time`, `status`) VALUES (2,3,'0',NOW() - INTERVAL 15 MINUTE,'Ordered');
+INSERT INTO `tab`(`venue_id`, `customer_id`, `table_number`, `start_time`, `status`) VALUES (2,4,'2',NOW() - INTERVAL 30 MINUTE,'Ordered');
+INSERT INTO `tab`(`venue_id`, `customer_id`, `table_number`, `start_time`, `status`) VALUES (2,5,'6',NOW() - INTERVAL 60 MINUTE,'Ordered');
+INSERT INTO `tab`(`venue_id`, `customer_id`, `table_number`, `start_time`, `status`) VALUES (2,1,'9',NOW() - INTERVAL 0 MINUTE,'Ordered');
+INSERT INTO `tab`(`venue_id`, `customer_id`, `table_number`, `start_time`, `status`) VALUES (2,2,'10',NOW() - INTERVAL 2 MINUTE,'Ordered');
 
 --Create Drink Orders--
 --Order 1--
