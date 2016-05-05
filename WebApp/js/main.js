@@ -1,7 +1,17 @@
 var lastCalled = 1;
+var scrollPos = 0;
+
 window.setInterval(function() {
 	initOrder(lastCalled);
 }, 15000);
+
+$(function(){
+    $(window).scroll(function() {
+    	if($(this).scrollTop() != 0) {
+    		scrollPos = $(this).scrollTop();
+    	}
+    });
+});
 
 function convertDateTime(original){
     dateTime = original.split(" ");

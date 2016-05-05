@@ -29,11 +29,11 @@ function viewOrderedDrinks(order_id){
 }
 
 function initOrder(type_of_display){
-	$('#order_holder').html("");
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			var result1 = xmlhttp.responseText;
+			$('#order_holder').html("");
 			$('#order_holder').append(result1);
 		}
 	};

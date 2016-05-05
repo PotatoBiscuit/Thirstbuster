@@ -50,7 +50,7 @@ $_SESSION["dbname"] = "eld66";
         <nav role="navigation" class="navbar navbar-default navbar-transparent navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-					<a href="#" class="navbar-brand"><img src="logo/drinkandgo.png" alt = "Logo" style = "width:25px;height:25px;"></a>
+					<a href="#" onclick = 'initOrder(lastCalled);' class="navbar-brand"><img src="logo/drinkandgo.png" alt = "Logo" style = "width:25px;height:25px;"></a>
                     <a href="#" class="navbar-brand">Drink And Go</a>
                 </div>
 				<ul class = "nav navbar-nav">
@@ -77,9 +77,8 @@ $_SESSION["dbname"] = "eld66";
 				
 			<div class = 'row'>
 				<div class = 'col-md-4'>
-					<!-- Button trigger Refresh Orders -->
-					<button type='button' class='btn btn-primary btn-lg' onclick = 'initOrder(lastCalled);' onkeypress = 'initOrder(lastCalled)'>Refresh Orders</button>
 				</div>
+				
 				<div class = 'col-md-4'>
 					<h2>Orders</h2>
 					
