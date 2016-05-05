@@ -42,4 +42,7 @@
 <fullyQualifiedTypeName name="com.android.volley.toolbox.Volley"/>
 <fullyQualifiedTypeName name="com.android.volley.Request.Method"/>
 <fullyQualifiedTypeName name="com.CS477.drinkandgo.R.drawable"/>
+<fullyQualifiedTypeName name="android.os.Build"/>
+<fullyQualifiedTypeName name="android.os.Build.VERSION"/>
+<fullyQualifiedTypeName name="android.os.Build.VERSION_CODES"/>
 </qualifiedTypeNameHistroy>

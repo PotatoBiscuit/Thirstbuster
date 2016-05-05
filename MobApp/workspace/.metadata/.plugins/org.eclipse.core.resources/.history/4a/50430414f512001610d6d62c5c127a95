@@ -1,6 +1,5 @@
 package com.CS477.drinkandgo;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.view.Gravity;
@@ -11,7 +10,6 @@ public class VenueLayout extends LinearLayout
 {	
 	private final Venue venue;
 	
-	@SuppressLint("NewApi")
 	public VenueLayout(Context context, Venue venue, OnClickListener listener) 
 	{
 		super(context);
@@ -24,8 +22,7 @@ public class VenueLayout extends LinearLayout
 		if(listener != null)
 		{
 			this.setOnClickListener(listener);
-			if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP)
-				this.setBackground(context.getDrawable(android.R.drawable.btn_default));
+			this.setBackground(context.getDrawable(android.R.drawable.btn_default, context.getTheme()));
 		}
 		
 		int pad = context.getResources().getDimensionPixelOffset(R.dimen.button_margin);

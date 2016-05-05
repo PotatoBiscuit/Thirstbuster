@@ -21,6 +21,8 @@ import com.android.volley.toolbox.Volley;
 
 public class OrderActivity extends DrinkAndGoActivity 
 {
+	private static final int delay = 5000;//in milliseconds
+	
 	private String status;
 	private Integer orderNum;
 	private Venue venue;
@@ -63,7 +65,7 @@ public class OrderActivity extends DrinkAndGoActivity
 		venue = (Venue) getIntent().getSerializableExtra("Venue");
 		venueView.setText(venue.getName());
 		
-		handler.postDelayed(new GetStatus(), 10000);
+		handler.postDelayed(new GetStatus(), delay);
 	}
 	
 	@Override
@@ -87,7 +89,7 @@ public class OrderActivity extends DrinkAndGoActivity
 				if(status.equals("Complete"))
 					findViewById(R.id.home_button).setVisibility(View.VISIBLE);
 				else
-					handler.postDelayed(this, 10000);
+					handler.postDelayed(this, delay);
 			}
 			catch(JSONException j)
 			{}

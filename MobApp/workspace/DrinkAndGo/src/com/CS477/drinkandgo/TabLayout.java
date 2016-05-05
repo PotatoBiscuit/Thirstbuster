@@ -1,5 +1,6 @@
 package com.CS477.drinkandgo;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.widget.LinearLayout;
@@ -7,6 +8,7 @@ import android.widget.TextView;
 
 public class TabLayout extends LinearLayout 
 {	
+	@SuppressLint("NewApi")
 	public TabLayout(Context context, Tab tab) 
 	{
 		super(context);
@@ -14,7 +16,8 @@ public class TabLayout extends LinearLayout
 		int pad = context.getResources().getDimensionPixelOffset(R.dimen.button_margin);
 		this.setPadding(pad, pad, pad, pad);
 		
-		this.setBackground(context.getDrawable(android.R.drawable.btn_default));
+		if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP)
+			this.setBackground(context.getDrawable(android.R.drawable.btn_default));
 		
 		TextView name = new TextView(context);
 		name.setText(String.format("Order Number: %s", tab.getId()));

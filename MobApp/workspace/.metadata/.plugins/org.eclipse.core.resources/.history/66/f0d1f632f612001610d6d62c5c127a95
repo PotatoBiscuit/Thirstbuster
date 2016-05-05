@@ -1,6 +1,5 @@
 package com.CS477.drinkandgo;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.widget.LinearLayout;
@@ -13,7 +12,6 @@ public class DrinkLayout extends LinearLayout
 	public DrinkLayout(Context context, Drink drink)
 	{	this(context, drink, null);}
 	
-	@SuppressLint("NewApi")
 	public DrinkLayout(Context context, Drink drink, OnClickListener listener) 
 	{	
 		super(context);

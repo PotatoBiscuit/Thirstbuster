@@ -9735,3 +9735,915 @@ Caused by: java.lang.IllegalArgumentException: Logging bundle must not be null.
 	at org.eclipse.core.runtime.Platform.getLog(Platform.java:1017)
 	at com.google.gdt.eclipse.platform.jetty.JettyEclipseLogger.<clinit>(JettyEclipseLogger.java:35)
 	... 20 more
+!SESSION 2016-05-02 18:34:23.988 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_40
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-05-02 18:35:27.065
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-05-02 18:35:27.200
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Temdog'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:36:41.077
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2016-05-02 18:36:42.372
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: Unable to read repository at http://developer.amazon.com/developer/eclipse.
+	at org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory.load(SimpleMetadataRepositoryFactory.java:128)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:57)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:768)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:668)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.io.IOException: http://developer.amazon.com/developer/eclipse is not a valid repository location.
+	at org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory.load(SimpleMetadataRepositoryFactory.java:102)
+	... 10 more
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1002 2016-05-02 18:36:42.413
+!MESSAGE Unable to read repository at http://developer.amazon.com/developer/eclipse.
+!STACK 0
+java.io.IOException: http://developer.amazon.com/developer/eclipse is not a valid repository location.
+	at org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory.load(SimpleMetadataRepositoryFactory.java:102)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:57)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:768)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:668)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:37:39.682
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:38:18.549
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:38:26.668
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:38:30.002
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:38:34.595
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:38:46.740
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:38:50.157
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:38:53.597
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:39:03.918
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:39:07.473
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:39:11.042
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:39:14.517
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:39:18.196
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:39:21.377
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:39:24.806
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:39:28.386
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:39:31.807
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:39:35.287
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:39:41.773
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:39:45.178
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:39:48.693
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:39:52.241
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:39:55.876
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:39:59.446
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:40:02.913
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:40:06.371
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:40:10.015
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:40:23.563
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:40:26.842
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:40:30.249
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:40:33.685
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:40:37.182
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:40:40.682
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:40:44.187
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:40:47.644
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:40:51.120
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:40:54.662
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:40:58.156
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:41:01.698
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:41:05.244
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:41:08.793
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:41:12.243
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:41:15.690
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:41:19.195
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:41:22.667
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:41:26.140
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:41:41.026
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:41:44.536
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:41:47.919
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:41:51.280
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:41:54.830
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:41:58.288
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:42:01.761
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:42:04.978
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:42:09.300
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:42:12.811
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:42:16.244
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:42:19.762
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:42:23.219
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:42:26.700
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:42:30.072
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:42:33.335
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:42:36.658
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:42:39.922
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:42:43.410
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:42:46.978
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:42:50.451
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:43:05.355
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:43:09.657
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:43:16.176
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:43:19.728
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:43:23.282
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:43:26.714
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:43:31.461
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:43:35.449
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:43:39.317
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:43:42.727
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:43:46.087
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:43:49.534
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:43:52.912
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:43:56.365
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:43:59.865
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:44:03.296
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:44:07.305
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:44:10.741
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:44:14.089
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:44:17.546
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:44:21.164
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:44:34.042
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:44:44.243
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:44:56.654
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:45:00.049
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:45:03.615
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:45:15.952
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:45:19.393
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:45:23.011
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:45:33.321
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:45:36.607
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:45:40.086
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:45:43.569
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:45:47.082
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:45:51.691
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:45:55.088
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:45:58.397
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:46:01.956
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:46:05.553
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:46:09.013
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:46:12.256
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:46:18.511
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:46:21.972
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:46:25.351
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:46:28.674
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:46:31.875
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:46:34.987
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:46:39.489
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:46:56.894
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:47:00.097
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:47:03.625
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:47:07.002
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:47:10.953
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:47:15.734
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:47:19.205
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:47:22.554
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:47:25.988
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:47:29.277
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:47:32.724
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:47:36.160
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:47:39.588
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:47:42.845
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:47:46.092
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:47:51.926
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:47:55.332
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:47:58.635
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:48:01.883
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:48:16.727
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:48:19.930
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:48:23.259
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:48:26.596
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:48:31.044
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:48:34.415
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:48:37.813
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:48:42.278
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:48:45.527
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:48:49.001
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:48:55.345
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2016-05-02 18:49:16.915
+!MESSAGE Connection to http://developer.amazon.com/developer/eclipse/content.jar failed on Connection timed out: connect. Retry attempt 0 started
+!STACK 0
+java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient4.ECFHttpClientSecureProtocolSocketFactory.performConnection(ECFHttpClientSecureProtocolSocketFactory.java:93)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient4.ECFHttpClientSecureProtocolSocketFactory.connectSocket(ECFHttpClientSecureProtocolSocketFactory.java:77)
+	at org.apache.http.conn.scheme.SchemeLayeredSocketFactoryAdaptor2.connectSocket(SchemeLayeredSocketFactoryAdaptor2.java:60)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:177)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:144)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:131)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:611)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:446)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1077)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1068)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1064)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:73)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:49:20.458
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:49:23.935
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:49:27.479
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:49:30.950
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:49:34.504
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:49:37.948
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:49:41.331
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:49:44.730
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:49:47.941
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:49:51.428
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:50:06.020
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:50:09.429
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:50:12.838
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:50:16.075
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:50:19.667
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:50:23.167
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:50:26.478
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:50:29.776
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:50:33.260
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:50:36.546
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:50:39.888
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:50:43.210
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:50:46.605
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:50:52.939
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:50:56.261
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:50:59.706
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:51:03.074
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:51:06.395
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:51:09.761
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:51:14.538
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2016-05-02 18:51:18.045
+!MESSAGE Server returned lastModified <= 0 for http://developer.amazon.com/developer/eclipse/content.jar
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2016-05-02 18:51:29.594
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10054 2016-05-02 18:51:29.594
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.594
+!MESSAGE Software being installed: ArchStudio 4 4.1.50.z20131023-185049000 (edu.uci.isr.archstudio4.feature.feature.group 4.1.50.z20131023-185049000)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.594
+!MESSAGE Software currently installed: Google Plugin for Eclipse 4.4 3.8.0.v201410302155-rel-r44 (com.google.gdt.eclipse.suite.e44.feature.feature.group 3.8.0.v201410302155-rel-r44)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-05-02 18:51:29.594
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.594
+!MESSAGE Core Runtime 3.10.0.v20140318-2214 (org.eclipse.core.runtime 3.10.0.v20140318-2214)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.594
+!MESSAGE Core Runtime 3.6.0.v20100505 (org.eclipse.core.runtime 3.6.0.v20100505)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.595
+!MESSAGE Core Runtime 3.8.0.v20120912-155025 (org.eclipse.core.runtime 3.8.0.v20120912-155025)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-05-02 18:51:29.595
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.595
+!MESSAGE From: Google Plugin for Eclipse 4.4 3.8.0.v201410302155-rel-r44 (com.google.gdt.eclipse.suite.e44.feature.feature.group 3.8.0.v201410302155-rel-r44)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.595
+!MESSAGE To: org.eclipse.core.runtime 3.9.0
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-05-02 18:51:29.595
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.595
+!MESSAGE From: ArchStudio 4 4.1.50.z20131023-185049000 (edu.uci.isr.archstudio4.feature.feature.group 4.1.50.z20131023-185049000)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.595
+!MESSAGE To: org.eclipse.platform.feature.group [4.2.1.v20130118-173121-9MF7GHYdG0B5kx4E_SkfZV-1mNjVATf67ZAb7]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-05-02 18:51:29.595
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.595
+!MESSAGE From: Eclipse e4 Rich Client Platform 1.1.2.v20130130-191718-91FUvGP7GIX2Kgz-z-gvjMvXV1NS (org.eclipse.e4.rcp.feature.group 1.1.2.v20130130-191718-91FUvGP7GIX2Kgz-z-gvjMvXV1NS)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.595
+!MESSAGE To: org.eclipse.core.runtime [3.8.0.v20120912-155025]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-05-02 18:51:29.595
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.595
+!MESSAGE From: Eclipse Platform 4.2.1.v20130118-173121-9MF7GHYdG0B5kx4E_SkfZV-1mNjVATf67ZAb7 (org.eclipse.platform.feature.group 4.2.1.v20130118-173121-9MF7GHYdG0B5kx4E_SkfZV-1mNjVATf67ZAb7)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.595
+!MESSAGE To: org.eclipse.rcp.feature.group [4.2.2.v20130129-152330-7IARAABrMQkGSvMgQnUlz-DQz00h]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-05-02 18:51:29.595
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.595
+!MESSAGE From: Eclipse RCP 4.2.2.v20130129-152330-7IARAABrMQkGSvMgQnUlz-DQz00h (org.eclipse.rcp.feature.group 4.2.2.v20130129-152330-7IARAABrMQkGSvMgQnUlz-DQz00h)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.595
+!MESSAGE To: org.eclipse.e4.rcp.feature.group [1.1.2.v20130130-191718-91FUvGP7GIX2Kgz-z-gvjMvXV1NS]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2016-05-02 18:51:29.632
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10054 2016-05-02 18:51:29.632
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.632
+!MESSAGE Software being installed: ArchStudio 4 4.1.50.z20131023-185049000 (edu.uci.isr.archstudio4.feature.feature.group 4.1.50.z20131023-185049000)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.633
+!MESSAGE Software currently installed: Google Plugin for Eclipse 4.4 3.8.0.v201410302155-rel-r44 (com.google.gdt.eclipse.suite.e44.feature.feature.group 3.8.0.v201410302155-rel-r44)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-05-02 18:51:29.633
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.633
+!MESSAGE Core Runtime 3.10.0.v20140318-2214 (org.eclipse.core.runtime 3.10.0.v20140318-2214)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.633
+!MESSAGE Core Runtime 3.6.0.v20100505 (org.eclipse.core.runtime 3.6.0.v20100505)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.633
+!MESSAGE Core Runtime 3.8.0.v20120912-155025 (org.eclipse.core.runtime 3.8.0.v20120912-155025)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-05-02 18:51:29.633
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.633
+!MESSAGE From: Google Plugin for Eclipse 4.4 3.8.0.v201410302155-rel-r44 (com.google.gdt.eclipse.suite.e44.feature.feature.group 3.8.0.v201410302155-rel-r44)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.633
+!MESSAGE To: org.eclipse.core.runtime 3.9.0
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-05-02 18:51:29.633
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.633
+!MESSAGE From: ArchStudio 4 4.1.50.z20131023-185049000 (edu.uci.isr.archstudio4.feature.feature.group 4.1.50.z20131023-185049000)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.633
+!MESSAGE To: org.eclipse.platform.feature.group [4.2.1.v20130118-173121-9MF7GHYdG0B5kx4E_SkfZV-1mNjVATf67ZAb7]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-05-02 18:51:29.633
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.633
+!MESSAGE From: Eclipse e4 Rich Client Platform 1.1.2.v20130130-191718-91FUvGP7GIX2Kgz-z-gvjMvXV1NS (org.eclipse.e4.rcp.feature.group 1.1.2.v20130130-191718-91FUvGP7GIX2Kgz-z-gvjMvXV1NS)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.633
+!MESSAGE To: org.eclipse.core.runtime [3.8.0.v20120912-155025]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-05-02 18:51:29.633
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.633
+!MESSAGE From: Eclipse Platform 4.2.1.v20130118-173121-9MF7GHYdG0B5kx4E_SkfZV-1mNjVATf67ZAb7 (org.eclipse.platform.feature.group 4.2.1.v20130118-173121-9MF7GHYdG0B5kx4E_SkfZV-1mNjVATf67ZAb7)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.633
+!MESSAGE To: org.eclipse.rcp.feature.group [4.2.2.v20130129-152330-7IARAABrMQkGSvMgQnUlz-DQz00h]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-05-02 18:51:29.633
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.633
+!MESSAGE From: Eclipse RCP 4.2.2.v20130129-152330-7IARAABrMQkGSvMgQnUlz-DQz00h (org.eclipse.rcp.feature.group 4.2.2.v20130129-152330-7IARAABrMQkGSvMgQnUlz-DQz00h)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.633
+!MESSAGE To: org.eclipse.e4.rcp.feature.group [1.1.2.v20130130-191718-91FUvGP7GIX2Kgz-z-gvjMvXV1NS]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2016-05-02 18:51:29.685
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10054 2016-05-02 18:51:29.686
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.686
+!MESSAGE Software being installed: ArchStudio 4 4.1.50.z20131023-185049000 (edu.uci.isr.archstudio4.feature.feature.group 4.1.50.z20131023-185049000)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.686
+!MESSAGE Software currently installed: Google Plugin for Eclipse 4.4 3.8.0.v201410302155-rel-r44 (com.google.gdt.eclipse.suite.e44.feature.feature.group 3.8.0.v201410302155-rel-r44)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-05-02 18:51:29.686
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.686
+!MESSAGE Core Runtime 3.10.0.v20140318-2214 (org.eclipse.core.runtime 3.10.0.v20140318-2214)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.686
+!MESSAGE Core Runtime 3.6.0.v20100505 (org.eclipse.core.runtime 3.6.0.v20100505)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.686
+!MESSAGE Core Runtime 3.8.0.v20120912-155025 (org.eclipse.core.runtime 3.8.0.v20120912-155025)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-05-02 18:51:29.686
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.686
+!MESSAGE From: Google Plugin for Eclipse 4.4 3.8.0.v201410302155-rel-r44 (com.google.gdt.eclipse.suite.e44.feature.feature.group 3.8.0.v201410302155-rel-r44)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.686
+!MESSAGE To: org.eclipse.core.runtime 3.9.0
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-05-02 18:51:29.686
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.686
+!MESSAGE From: ArchStudio 4 4.1.50.z20131023-185049000 (edu.uci.isr.archstudio4.feature.feature.group 4.1.50.z20131023-185049000)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.686
+!MESSAGE To: org.eclipse.platform.feature.group [4.2.1.v20130118-173121-9MF7GHYdG0B5kx4E_SkfZV-1mNjVATf67ZAb7]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-05-02 18:51:29.686
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.686
+!MESSAGE From: Eclipse e4 Rich Client Platform 1.1.2.v20130130-191718-91FUvGP7GIX2Kgz-z-gvjMvXV1NS (org.eclipse.e4.rcp.feature.group 1.1.2.v20130130-191718-91FUvGP7GIX2Kgz-z-gvjMvXV1NS)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.686
+!MESSAGE To: org.eclipse.core.runtime [3.8.0.v20120912-155025]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-05-02 18:51:29.686
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.686
+!MESSAGE From: Eclipse Platform 4.2.1.v20130118-173121-9MF7GHYdG0B5kx4E_SkfZV-1mNjVATf67ZAb7 (org.eclipse.platform.feature.group 4.2.1.v20130118-173121-9MF7GHYdG0B5kx4E_SkfZV-1mNjVATf67ZAb7)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.686
+!MESSAGE To: org.eclipse.rcp.feature.group [4.2.2.v20130129-152330-7IARAABrMQkGSvMgQnUlz-DQz00h]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-05-02 18:51:29.686
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.686
+!MESSAGE From: Eclipse RCP 4.2.2.v20130129-152330-7IARAABrMQkGSvMgQnUlz-DQz00h (org.eclipse.rcp.feature.group 4.2.2.v20130129-152330-7IARAABrMQkGSvMgQnUlz-DQz00h)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.687
+!MESSAGE To: org.eclipse.e4.rcp.feature.group [1.1.2.v20130130-191718-91FUvGP7GIX2Kgz-z-gvjMvXV1NS]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2016-05-02 18:51:29.705
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10054 2016-05-02 18:51:29.705
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.705
+!MESSAGE Software being installed: ArchStudio 4 4.1.50.z20131023-185049000 (edu.uci.isr.archstudio4.feature.feature.group 4.1.50.z20131023-185049000)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.705
+!MESSAGE Software currently installed: Google Plugin for Eclipse 4.4 3.8.0.v201410302155-rel-r44 (com.google.gdt.eclipse.suite.e44.feature.feature.group 3.8.0.v201410302155-rel-r44)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-05-02 18:51:29.706
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.706
+!MESSAGE Core Runtime 3.10.0.v20140318-2214 (org.eclipse.core.runtime 3.10.0.v20140318-2214)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.706
+!MESSAGE Core Runtime 3.6.0.v20100505 (org.eclipse.core.runtime 3.6.0.v20100505)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.706
+!MESSAGE Core Runtime 3.8.0.v20120912-155025 (org.eclipse.core.runtime 3.8.0.v20120912-155025)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-05-02 18:51:29.706
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.706
+!MESSAGE From: Google Plugin for Eclipse 4.4 3.8.0.v201410302155-rel-r44 (com.google.gdt.eclipse.suite.e44.feature.feature.group 3.8.0.v201410302155-rel-r44)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.706
+!MESSAGE To: org.eclipse.core.runtime 3.9.0
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-05-02 18:51:29.706
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.706
+!MESSAGE From: ArchStudio 4 4.1.50.z20131023-185049000 (edu.uci.isr.archstudio4.feature.feature.group 4.1.50.z20131023-185049000)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.706
+!MESSAGE To: org.eclipse.platform.feature.group [4.2.1.v20130118-173121-9MF7GHYdG0B5kx4E_SkfZV-1mNjVATf67ZAb7]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-05-02 18:51:29.706
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.706
+!MESSAGE From: Eclipse e4 Rich Client Platform 1.1.2.v20130130-191718-91FUvGP7GIX2Kgz-z-gvjMvXV1NS (org.eclipse.e4.rcp.feature.group 1.1.2.v20130130-191718-91FUvGP7GIX2Kgz-z-gvjMvXV1NS)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.706
+!MESSAGE To: org.eclipse.core.runtime [3.8.0.v20120912-155025]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-05-02 18:51:29.706
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.706
+!MESSAGE From: Eclipse Platform 4.2.1.v20130118-173121-9MF7GHYdG0B5kx4E_SkfZV-1mNjVATf67ZAb7 (org.eclipse.platform.feature.group 4.2.1.v20130118-173121-9MF7GHYdG0B5kx4E_SkfZV-1mNjVATf67ZAb7)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.706
+!MESSAGE To: org.eclipse.rcp.feature.group [4.2.2.v20130129-152330-7IARAABrMQkGSvMgQnUlz-DQz00h]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-05-02 18:51:29.707
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.707
+!MESSAGE From: Eclipse RCP 4.2.2.v20130129-152330-7IARAABrMQkGSvMgQnUlz-DQz00h (org.eclipse.rcp.feature.group 4.2.2.v20130129-152330-7IARAABrMQkGSvMgQnUlz-DQz00h)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-05-02 18:51:29.707
+!MESSAGE To: org.eclipse.e4.rcp.feature.group [1.1.2.v20130130-191718-91FUvGP7GIX2Kgz-z-gvjMvXV1NS]
+
+!ENTRY com.google.gwt.eclipse.core 4 0 2016-05-02 18:52:20.777
+!MESSAGE Could not stop source viewer server.
+!STACK 0
+java.lang.ExceptionInInitializerError
+	at com.google.gdt.eclipse.platform.jetty.JettyServer.initLogging(JettyServer.java:40)
+	at com.google.gdt.eclipse.platform.jetty.JettyServer.<clinit>(JettyServer.java:30)
+	at com.google.gwt.eclipse.core.GWTPlugin.stop(GWTPlugin.java:147)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:827)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:820)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:950)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:324)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1623)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1542)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:248)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:145)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:186)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:160)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: Logging bundle must not be null.
+	at org.eclipse.core.internal.runtime.Log.<init>(Log.java:30)
+	at org.eclipse.core.internal.runtime.InternalPlatform.getLog(InternalPlatform.java:351)
+	at org.eclipse.core.runtime.Platform.getLog(Platform.java:1017)
+	at com.google.gdt.eclipse.platform.jetty.JettyEclipseLogger.<clinit>(JettyEclipseLogger.java:35)
+	... 20 more
+!SESSION 2016-05-05 12:01:03.009 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_40
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product -data C:\Users\Temdog\Documents\GitHub\Thirstbuster\MobApp\workspace -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-05-05 12:01:19.460
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-05-05 12:01:19.538
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Temdog'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.osgi 2 0 2016-05-05 12:04:13.286
+!MESSAGE While loading class "com.google.gdt.eclipse.suite.preferences.GdtPreferences", thread "Thread[Worker-6,5,main]" timed out waiting (5001ms) for thread "Thread[Worker-3,5,main]" to finish starting bundle "com.google.gdt.eclipse.suite_3.8.0.v201410302155-rel-r44 [506]". To avoid deadlock, thread "Thread[Worker-6,5,main]" is proceeding but "com.google.gdt.eclipse.suite.preferences.GdtPreferences" may not be fully initialized.
+!STACK 0
+org.osgi.framework.BundleException: Unable to acquire the state change lock for the module: osgi.identity; osgi.identity="com.google.gdt.eclipse.suite"; type="osgi.bundle"; version:Version="3.8.0.v201410302155-rel-r44"; singleton:="true" [id=506] STARTED [STARTED]
+	at org.eclipse.osgi.container.Module.lockStateChange(Module.java:329)
+	at org.eclipse.osgi.container.Module.start(Module.java:389)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:454)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:531)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:324)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:320)
+	at org.eclipse.osgi.internal.loader.sources.SingleSourcePackage.loadClass(SingleSourcePackage.java:36)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:391)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at com.google.appengine.eclipse.wtp.runtime.GaeRuntimeConfigurator.startup(GaeRuntimeConfigurator.java:41)
+	at org.eclipse.wst.server.core.internal.ResourceManager.executeStartups(ResourceManager.java:207)
+	at org.eclipse.wst.server.core.internal.ResourceManager.init(ResourceManager.java:245)
+	at org.eclipse.wst.server.core.internal.ResourceManager.getServers(ResourceManager.java:795)
+	at org.eclipse.wst.server.core.ServerCore.getServers(ServerCore.java:316)
+	at org.eclipse.wst.server.ui.internal.InitializeJob.run(InitializeJob.java:34)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.google.gwt.eclipse.core 4 0 2016-05-05 12:32:03.135
+!MESSAGE Could not stop source viewer server.
+!STACK 0
+java.lang.ExceptionInInitializerError
+	at com.google.gdt.eclipse.platform.jetty.JettyServer.initLogging(JettyServer.java:40)
+	at com.google.gdt.eclipse.platform.jetty.JettyServer.<clinit>(JettyServer.java:30)
+	at com.google.gwt.eclipse.core.GWTPlugin.stop(GWTPlugin.java:147)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:827)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:820)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:950)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:324)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1623)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1542)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:248)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:145)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:186)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:160)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: Logging bundle must not be null.
+	at org.eclipse.core.internal.runtime.Log.<init>(Log.java:30)
+	at org.eclipse.core.internal.runtime.InternalPlatform.getLog(InternalPlatform.java:351)
+	at org.eclipse.core.runtime.Platform.getLog(Platform.java:1017)
+	at com.google.gdt.eclipse.platform.jetty.JettyEclipseLogger.<clinit>(JettyEclipseLogger.java:35)
+	... 20 more
