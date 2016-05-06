@@ -104,9 +104,6 @@ if ($result->num_rows != 0){
 		. "<label onclick='changeOrderStatus(" . $row["id"] . ", 1, \"Filling\")' for='sc-1-" . $row["id"] . "-2' data-value='Filling'>Filling</label>"
 		. "<label onclick='changeOrderStatus(" . $row["id"] . ", 1, \"Delivering\")' for='sc-1-" . $row["id"] . "-3' data-value='Delivering'>Delivering</label>"
 		. "</div>"
-
-
-
 		. "</td></tr>\n"
 		. "<tr><td>Table</td> <td>" . $table_number . "</td></tr>\n"
 		. "<tr><td class = '" . $warningState . "'>Wait Time</td> <td class = '" . $warningState . "'>" . $elapsedTime . "</td></tr>\n"
