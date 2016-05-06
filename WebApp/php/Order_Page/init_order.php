@@ -71,31 +71,49 @@ if ($result->num_rows != 0){
 		}
 		
 		if($row["status"] == "Ordered"){
-			$percentage = "0%";
+			$statusOrdered = "Checked";
+			$statusFilling = "";
+			$statusDelivering = "";
 		}
 		else if($row["status"] == "Filling"){
-			$percentage = "50%";
+			$statusOrdered = "";
+			$statusFilling = "Checked";
+			$statusDelivering = "";
 		}
 		else if($row["status"] == "Delivering"){
-			$percentage = "100%";
+			$statusOrdered = "";
+			$statusFilling = "";
+			$statusDelivering = "Checked";
 		}
 		else{
-			$percentage = "0%";
+			$statusOrdered = "Checked";
+			$statusFilling = "";
+			$statusDelivering = "";
 		}
 		
-		$outputString .= "<div class = 'col-md-4'>\n"
+		$outputString .= "<div class = 'col-md-6'>\n"
 		. "<table id = 'order_table' class = 'table table-striped'>\n"
 		. "<thead class='thead-inverse'><tr><th>Customer Name</th> <th>" . $row1["name"] . "</th></tr></thead>\n"
 		. "<tbody><tr><td>Status</td>\n"
-		. "<td>" . $row["status"] . " <button onclick = 'changeStatusMinus(" . $row["id"] . ", 1)' onkeypress = 'changeStatusMinus(" . $row["id"] . ", 1)' type = 'button' class = 'btn btn-default'>-</button>\n"
-		. "<button onclick = 'changeStatusPlus(" . $row["id"] . ", 1)' onkeypress = 'changeStatusPlus(" . $row["id"] . ", 1)' type = 'button' class = 'btn btn-primary'>+</button>"
-		. "<br><br><div class = 'progress'><div class = 'progress-bar' role = 'progressbar' aria-valuemin='0' aria-valuemax='100' style='width:" . $percentage . "'>"
-		. "</div></div></td></tr>\n"
+		. "<td>"
+		. "<div id='order_status" . $row["id"] . "' class='segmented-control' style='width: 100%; color: #385bad'>"
+		. "<input type='radio' name='sc-1-" . $row["id"] . "' id='sc-1-" . $row["id"] . "-1' value='Ordered' " . $statusOrdered . ">"
+		. "<input type='radio' name='sc-1-" . $row["id"] . "' id='sc-1-" . $row["id"] . "-2' value='Filling' " . $statusFilling . ">"
+		. "<input type='radio' name='sc-1-" . $row["id"] . "' id='sc-1-" . $row["id"] . "-3' value='Delivering' " . $statusDelivering . ">"
+		. "<label onclick='changeOrderStatus(" . $row["id"] . ", 1, \"Ordered\")' for='sc-1-" . $row["id"] . "-1' data-value='Ordered'>Ordered</label>"
+		. "<label onclick='changeOrderStatus(" . $row["id"] . ", 1, \"Filling\")' for='sc-1-" . $row["id"] . "-2' data-value='Filling'>Filling</label>"
+		. "<label onclick='changeOrderStatus(" . $row["id"] . ", 1, \"Delivering\")' for='sc-1-" . $row["id"] . "-3' data-value='Delivering'>Delivering</label>"
+		. "</div>"
+
+
+
+		. "</td></tr>\n"
 		. "<tr><td>Table</td> <td>" . $table_number . "</td></tr>\n"
 		. "<tr><td class = '" . $warningState . "'>Wait Time</td> <td class = '" . $warningState . "'>" . $elapsedTime . "</td></tr>\n"
 		. "<tr><td>Drinks</td> <td><button onclick = 'viewOrderedDrinks(" . $row["id"] . ")' onkeypress = 'viewOrderedDrinks(" . $row["id"] . ")' type = 'button' class = 'btn btn-primary'>View</button></td></tr>\n"
-		. "<tr><td>Action</td> <td><button onclick = 'deleteOrder(" . $row["id"] . ")' onkeypress = 'deleteOrder(" . $row["id"] . ")' type = 'button' class = 'btn btn-danger'>Delete</button>\n"
-		. "<button onclick = 'finishOrder(" . $row["id"] . ")' onkeypress = 'finishOrder(" . $row["id"] . ")' type = 'button' class = 'btn btn-success'>Finish</button></td></tr>\n"
+		. "<tr><td>Action</td> <td><div class='row'><div class='col-md-4'><button onclick = 'finishOrder(" . $row["id"] . ")' onkeypress = 'finishOrder(" . $row["id"] . ")' type = 'button' class = 'btn btn-success'>Finish</button></div>"
+		. "<div class='col-md-2'><div class='vertical_hr' style='height=45px;'>&nbsp;</div></div>"
+		. "<div class='col-md-4'><button onclick = 'deleteOrder(" . $row["id"] . ")' onkeypress = 'deleteOrder(" . $row["id"] . ")' type = 'button' class = 'btn btn-danger'>Delete</button></div></div></td></tr>"
 		. "</tbody></table>\n"
 		. "</div>\n";
 	}

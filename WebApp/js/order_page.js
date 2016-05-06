@@ -13,6 +13,29 @@ function ViewRefresh(){
 	xmlhttp.send();
 }
 
+function changeOrderStatus(order_id, type_of_display, order_status){
+	//var str = "input[name='sc-1-" + order_id + "']:checked";
+	//var order_status = $(str).val();
+
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			$('#success_div').html("");
+			$('#success_div').append("Status Changed");
+			$("#success_div").show().delay(3000).fadeOut();
+			initOrder(type_of_display);
+		}
+	};
+	var input_str = order_id + "," + order_status;
+	xmlhttp.open("GET", "php/Order_Page/change_order_status.php?q=" + input_str, true);
+	xmlhttp.send();
+}
+$(document).ready(function () {
+    $(":radio").on("change", function (event) {
+        alert('clicked');
+    });
+});
+
 function viewOrderedDrinks(order_id){
 	$('#ViewOrderedDrinkModal').modal('toggle');
 	$('#ordered_drinks').html("");
@@ -156,7 +179,8 @@ function finishOrderedDrink(ordered_drink_id, order_id){
 		}
 	};
 	
-	xmlhttp.open("GET", "php/Order_Page/finish_ordered_drink.php?q=" + ordered_drink_id, true);
+	var str = ordered_drink_id + "," + order_id;
+	xmlhttp.open("GET", "php/Order_Page/finish_ordered_drink.php?q=" + str, true);
 	xmlhttp.send();
 }
 

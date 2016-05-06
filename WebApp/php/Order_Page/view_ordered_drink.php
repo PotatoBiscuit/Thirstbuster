@@ -29,7 +29,7 @@ if ($result->num_rows == 0){
 }
 else{
 	$str = "<table class = 'table'>\n"
-	. "<tr><th>Name</th><th>Cost</th><th>Special Instructions</th><th>Drink Status</th><th>Action</th></tr>";
+	. "<tr><th>Name</th><th>Cost</th><th>Drink Status</th><th>Action</th></tr>";
 	$i = 1;
 	while($row = $result->fetch_assoc()){
 		$result1 = $conn->query("SELECT * FROM drink WHERE id = '" . $row["drink_id"] . "'");
@@ -41,10 +41,11 @@ else{
 		$str .= "<tr>\n<td>"
 		. $row1["name"] . "</td><td>"
 		. $row1["cost"] . "</td><td>"
-		. $row["special_instructions"] . "</td><td>"
 		. $row["drink_status"] . "</td><td>"
-		. "<button onclick = 'deleteOrderedDrink(" . $row["tab_drink_id"] . "," . $q . ")' onkeypress = 'deleteOrderedDrink(" . $row["tab_drink_id"] . "," . $q . ")' type = 'button' class = 'btn btn-danger'>Delete</button>\n"
-		. "<button onclick = 'finishOrderedDrink(" . $row["tab_drink_id"] . "," . $q . ")' onkeypress = 'finishOrderedDrink(" . $row["tab_drink_id"] . "," . $q . ")' type = 'button' class = 'btn btn-success'>Fill</button></td>"
+		. "<div class='row'>"
+		. "<div class='col-sm-4'><button onclick = 'finishOrderedDrink(" . $row["tab_drink_id"] . "," . $q . ")' onkeypress = 'finishOrderedDrink(" . $row["tab_drink_id"] . "," . $q . ")' type = 'button' class = 'btn btn-success'>Fill</button></div>\n"
+		. "<div class='col-sm-1'><div class='vertical_hr' style='height=45px;'>&nbsp;</div></div>"
+		. "<div class='col-sm-4'><button onclick = 'deleteOrderedDrink(" . $row["tab_drink_id"] . "," . $q . ")' onkeypress = 'deleteOrderedDrink(" . $row["tab_drink_id"] . "," . $q . ")' type = 'button' class = 'btn btn-danger'>Delete</button></div></td>"
 		. "</tr>\n";
 		$i = $i + 1;
 	}

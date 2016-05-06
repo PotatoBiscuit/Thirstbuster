@@ -20,6 +20,7 @@ $_SESSION["dbname"] = "eld66";
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+		<link rel="stylesheet" type="text/css" href="css/segmented-controls.css">
         <link rel="stylesheet" type="text/css" href="css/main.css">
 
         <!-- JavaScript -->
@@ -74,15 +75,21 @@ $_SESSION["dbname"] = "eld66";
 		</div>
 		
         <div id="order_header" class='container'>
-				
+			<!--<div class = 'row'>
+				<div class = 'col-md-12'>
+					<div class="segmented-control" style="width: 100%; color: #5FBAAC">
+						<input type="radio" name="sc-1-1" id="sc-1-1-1">
+						<input type="radio" name="sc-1-1" id="sc-1-1-2">
+						<input type="radio" name="sc-1-1" id="sc-1-1-3" checked>
+						<input type="radio" name="sc-1-1" id="sc-1-1-4">
+						<label for="sc-1-1-1" data-value="Lorem Ipsum">Lorem Ipsum</label>
+						<label for="sc-1-1-2" data-value="Risus Purus">Risus Purus</label>
+						<label for="sc-1-1-3" data-value="Pellentesque Porta">Pellentesque Porta</label>
+						<label for="sc-1-1-4" data-value="Fringilla">Fringilla</label>
+					</div>
+				</div>
+			</div>-->
 			<div class = 'row'>
-				<div class = 'col-md-4'>
-				</div>
-				
-				<div class = 'col-md-4'>
-					<h2>Orders</h2>
-					
-				</div>
 				<div class = 'col-md-4'>
 					<div class='dropdown'>
 						<button class='btn btn-primary btn-lg dropdown-toggle' type='button' data-toggle='dropdown'>
@@ -94,6 +101,13 @@ $_SESSION["dbname"] = "eld66";
 							<li><a onclick='initOrder(3); lastCalled = 3; return false;' onkeypress='initOrder(3); lastCalled = 3; return false;' href='#'>Customer Name</a></li>
 						</ul>
 					</div>
+				</div>
+				
+				<div class = 'col-md-4'>
+					<h2>Orders</h2>
+					
+				</div>
+				<div class = 'col-md-4'>
 				</div>
 			</div>
 			<hr />
