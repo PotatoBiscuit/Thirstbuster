@@ -270,30 +270,40 @@ $_SESSION["dbname"] = "eld66";
 				<h4 class="modal-title">Add Drinks</h4>
 			  </div>
 			  <div class="modal-body">
+			  <form data-toggle="validator" role="form" onsubmit="addFunction();">
 					<div class="form-group">
 					  <label for="pwd">Re-enter Password: </label>
-					  <input id = "password4" type="password" class="form-control" id="pwd">
+					  <input id = "password4" type="password" class="form-control" id="pwd" required/>
 					</div>
 					<div class="form-group">
 					  <label for="name">Name: </label>
-					  <input id = "drink_name" type="text" class="form-control" id="name">
+					  <input id = "drink_name" type="text" class="form-control" id="name" required/>
 					</div>
 					<div class="form-group">
 					  <label for="cost">Cost: </label>
-					  <input id = "drink_cost" type="text" class="form-control" id="cost">
+					  <input id = "drink_cost" type="text" class="form-control" id="cost" required/>
 					</div>
+					
 					<div class="form-group">
-					  <label for="al_type">Type: </label>
-					  <input id = "drink_type" type="text" class="form-control" id="al_type">
-					</div>
+					<label for="al_type">Type: </label>
+					<select class="form-group" id = "drink_type">
+					  <option>Beer</option>
+					  <option>Wine</option>
+					  <option>Hard Alcohol</option>
+					  <option>Sprites</option>
+					  <option>Cocktails</option
+					</select>
+					</div></br></br>
 					<div class="form-group">
 					  <label for="description">Description:</label>
-					  <textarea id = "drink_description" class="form-control" rows="5" id="description"></textarea>
+					  <textarea id = "drink_description" class="form-control" rows="5" id="description" /required></textarea>
 					</div>
+			  </div>
 			  </div>
 			  <div class="modal-footer">
 				<button id="addDrink-cancel" onclick = "moveToViewDrinks();" onkeypress = "moveToViewDrinks();" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-				<button id="addDrink-add" onclick = "addFunction();" onkeypress = "addFunction();" type="submit" class="btn btn-primary">Add</button>
+				<button id="addDrink-add" type="submit" class="btn btn-primary">Add</button>
+				</form>
 			  </div>
 			</div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
