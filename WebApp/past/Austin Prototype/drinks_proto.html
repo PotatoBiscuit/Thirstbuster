@@ -1,0 +1,297 @@
+<?php
+session_start();
+
+$_SESSION["servername"] = "tund.cefns.nau.edu";
+$_SESSION["username"] = "eld66";
+$_SESSION["password"] = "cs477rocks";
+$_SESSION["dbname"] = "eld66";
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            .col-md-5{
+                height: 700px;
+                background-color: lightslategray;
+                margin-top: 40px;  
+                margin-left: 20px;
+                margin-right: 20px;
+                padding: 0px;
+            }
+
+            .toply{
+                min-height: 20%;
+                width: 100%;
+                background-color: dimgray;
+            }
+
+            .drink{
+                width:80%;
+                height: 15%;
+                background-color: lightgreen;
+                margin-top:30px;
+                margin-left: 5px;
+             
+                border-radius: 5px 15px;
+            }
+            
+            .drink-help{
+                background-color: gold;
+                width:35%;
+                height:100%;
+                float:right;
+                border-radius: 5px 15px;
+            }
+            .cancel{
+                width : 40px;
+                height : 40px;
+                background-color: indianred ; 
+                position:relative;
+                float:left;
+                left: -40px;
+            }
+            .complete{
+                width : 40px;
+                height : 40px;
+                background-color: forestgreen ; 
+                position:relative;
+                float:left;
+                top: 40px;
+                left:-80px;
+            }
+            .slidingDiv {
+                height:45%;
+                background-color: #99CCFF;
+                padding:20px;
+                margin-top:10px;
+                border-bottom:5px solid #3399FF;
+                position:relative;
+            }
+            .show_hide {
+                height:50px;
+                background-color: #f0f0f0;
+                width: 45px;
+                margin-top:45%;
+                float:right;
+                
+            }
+            .row-no-padding > [class*="col-"] {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                
+            }
+            /* Outer */
+            .popup {
+                width:100%;
+                height:100%;
+                display:none;
+                position:fixed;
+                top:0px;
+                left:0px;
+                background:rgba(0,0,0,0.75);
+            }
+
+            /* Inner */
+            .popup-inner {
+                max-width:700px;
+                width:90%;
+                padding:40px;
+                position:absolute;
+                top:50%;
+                left:50%;
+                -webkit-transform:translate(-50%, -50%);
+                transform:translate(-50%, -50%);
+                box-shadow:0px 2px 6px rgba(0,0,0,1);
+                border-radius:3px;
+                background:#fff;
+            }
+
+            /* Close Button */
+            .popup-close {
+                width:30px;
+                height:30px;
+                padding-top:4px;
+                display:inline-block;
+                position:absolute;
+                top:0px;
+                right:0px;
+                transition:ease 0.25s all;
+                -webkit-transform:translate(50%, -50%);
+                transform:translate(50%, -50%);
+                border-radius:1000px;
+                background:rgba(0,0,0,0.8);
+                font-family:Arial, Sans-Serif;
+                font-size:20px;
+                text-align:center;
+                line-height:100%;
+                color:#fff;
+            }
+
+            .popup-close:hover {
+                -webkit-transform:translate(50%, -50%) rotate(180deg);
+                transform:translate(50%, -50%) rotate(180deg);
+                background:rgba(0,0,0,1);
+                text-decoration:none;
+            }
+            
+        </style>
+
+
+        <title>UI PROTO</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" >
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    </head>
+    <body>
+        <div class="container">
+            
+
+            <div class ="row-no-padding" id="first_one">
+                <div class ="col-md-5">
+                    <div class="slidingDiv">Here is the waiting time, and other stuff<a href="#" class="show_hide"> X </a>
+                    </div>
+                    <a href="#" class="show_hide">></a>
+                    <div class="cancel">
+                       
+                    </div>
+                    <div class="complete"> </div>
+                    <div class="toply">
+                            <a class="btn" data-popup-open="popup-1" href="#"><h1>Name of person</h1></a>
+
+                    <div class="popup" data-popup="popup-1">
+                        <div class="popup-inner">
+                            <h1>This is information about this person</h1>
+                            <p></p>
+                            <p><a data-popup-close="popup-1" href="#">Close</a></p>
+                            <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="drink"></div>
+                    <div class="drink">
+                       <!-- <div class="drink-help">
+                            <a class="btn" data-popup-open="popup-2" href="#">Help</a>
+
+                    <div class="popup" data-popup="popup-2">
+                        <div class="popup-inner">
+                            <h2>Vodka!</h2>
+                            <p>Just pour it in you dingus!</p>
+                            <p><a data-popup-close="popup-2" href="#">Close</a></p>
+                            <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+                        </div>
+                    </div>
+                    </div>-->
+                        </div>
+                    
+                    <div class="drink"></div>
+                    <div class="drink"></div>
+                </div>
+                
+                <div class ="col-md-5">
+                    <div class="slidingDiv">Here is the waiting time, and other stuff<a href="#" class="show_hide"> X </a>
+                    </div>
+                    <a href="#" class="show_hide">></a>
+                    <div class="cancel">
+                        
+                    </div>
+                    <div class="complete"></div>
+                    <div class="toply">
+                        <a class="btn" data-popup-open="popup-1" href="#"><h1>Name of person</h1></a>
+
+                    <div class="popup" data-popup="popup-1">
+                        <div class="popup-inner">
+                            <h1>This is information about this person</h1>
+                            <p></p>
+                            <p><a data-popup-close="popup-1" href="#">Close</a></p>
+                            <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="drink"></div>
+                    <div class="drink"></div>
+                    <div class="drink"></div>
+                    <div class="drink"></div>
+                </div>
+
+                <div class ="col-lg-3">
+                   
+                </div>
+
+                <div class ="col-lg-3">
+                            </div>
+                
+ 
+                <div class ="col-lg-3"></div>
+                <div class ="col-lg-3"></div>
+                <div class ="col-lg-3"></div>
+            </div>
+
+        </div>
+        <script>
+            $(function () {
+                $(".drink").click(function () {
+                    $(this).css('background-color', '#B34040');
+                });
+            });
+
+            $(document).ready(function () {
+
+                $(".slidingDiv").hide();
+                $(".show_hide").show();
+
+                $('.show_hide').click(function () {
+                    $(".slidingDiv").toggle("slide");
+                });
+
+            });
+
+            $(function () {
+                //----- OPEN
+                $('[data-popup-open]').on('click', function (e) {
+                    var targeted_popup_class = jQuery(this).attr('data-popup-open');
+                    $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+
+                    e.preventDefault();
+                });
+
+                //----- CLOSE
+                $('[data-popup-close]').on('click', function (e) {
+                    var targeted_popup_class = jQuery(this).attr('data-popup-close');
+                    $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+
+                    e.preventDefault();
+                });
+            });
+            
+            $(document).ready(function () {
+    $("#container").on("click", ".amend_order .deleter", function () {
+        $(this).closest("div").remove();
+    });
+    
+    // Simulate one being added dynamically
+    setTimeout(function () {
+        var new_item = $("#template1").html();
+        $("#container").append(new_item);
+    }, 1000);
+});
+
+function removeDiv(first_one) {
+   $("#"+first_one).remove();
+}
+        </script>
+    </body>
+
+
+</html>
