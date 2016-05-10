@@ -273,15 +273,15 @@ $_SESSION["dbname"] = "eld66";
 			  <form data-toggle="validator" role="form" onsubmit="addFunction();">
 					<div class="form-group">
 					  <label for="pwd">Re-enter Password: </label>
-					  <input id = "password4" type="password" class="form-control" id="pwd" required/>
+					  <input id = "password4" type="password" class="form-control" id="pwd" required>
 					</div>
 					<div class="form-group">
 					  <label for="name">Name: </label>
-					  <input id = "drink_name" type="text" class="form-control" id="name" required/>
+					  <input id = "drink_name" type="text" class="form-control" id="name" required>
 					</div>
 					<div class="form-group">
 					  <label for="cost">Cost: </label>
-					  <input id = "drink_cost" type="text" class="form-control" id="cost" required/>
+					  <input id = "drink_cost" type="text" class="form-control" id="cost" required>
 					</div>
 					
 					<div class="form-group">
@@ -298,7 +298,7 @@ $_SESSION["dbname"] = "eld66";
 					  <label for="description">Description:</label>
 					  <textarea id = "drink_description" class="form-control" rows="5" id="description" /required></textarea>
 					</div>
-			  </div>
+			  
 			  </div>
 			  <div class="modal-footer">
 				<button id="addDrink-cancel" onclick = "moveToViewDrinks();" onkeypress = "moveToViewDrinks();" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -335,31 +335,41 @@ $_SESSION["dbname"] = "eld66";
 				<h4 class="modal-title">Edit Drinks</h4>
 			  </div>
 			  <div class="modal-body">
+			  <form data-toggle="validator" role="form" onsubmit="EditDrink();">
 					<div class="form-group">
 					  <label for="pwd">Re-enter Password: </label>
-					  <input id = "password5" type="password" class="form-control" id="pwd">
+					  <input id = "password5" type="password" class="form-control" id="pwd" required>
 					</div>
 					<div class="form-group">
 					  <label for="name">Name: </label>
-					  <input id = "drink_name1" type="text" class="form-control" id="name">
+					  <input id = "drink_name1" type="text" class="form-control" id="name" required>
 					</div>
 					<div class="form-group">
 					  <label for="cost">Cost: </label>
-					  <input id = "drink_cost1" type="text" class="form-control" id="cost">
+					  <input id = "drink_cost1" type="text" class="form-control" id="cost" required>
 					</div>
+					
 					<div class="form-group">
-					  <label for="al_type">Type: </label>
-					  <input id = "drink_type1" type="text" class="form-control" id="al_type">
-					</div>
+					<label for="al_type">Type: </label>
+					<select class="form-group" id = "drink_type1">
+					  <option>Beer</option>
+					  <option>Wine</option>
+					  <option>Hard Alcohol</option>
+					  <option>Sprites</option>
+					  <option>Cocktails</option
+					</select>
+					</div></br></br>
 					<div class="form-group">
 					  <label for="description">Description:</label>
-					  <textarea id = "drink_description1" class="form-control" rows="5" id="description"></textarea>
+					  <textarea id = "drink_description1" class="form-control" rows="5" id="description" required></textarea>
 					</div>
 			  </div>
 			  <div class="modal-footer">
 				<button id="editDrink-cancel" onclick = "moveToViewDrinks();" onkeypress = "moveToViewDrinks();" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-				<button id = "changeButton" onclick = "EditDrink();" onkeypress = "EditDrink();" type="submit" class="btn btn-primary">Change</button>
+				<button id = "changeButton" type="submit" class="btn btn-primary">Change</button>
+				
 			  </div>
+			  </form>
 			</div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
