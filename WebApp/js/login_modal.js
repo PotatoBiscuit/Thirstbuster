@@ -46,12 +46,20 @@ function backToLogin(){
 function addVenueFunction(){
 	login = $("#venue_login1").val();
 	password2 = $("#password2").val();
+	confirm_password = $("#password22").val();
 	name = $("#venue_name").val();
 	address = $("#venue_address").val();
 	city = $("#venue_city").val();
 	state = $("#venue_state").val();
 	zip = $("#venue_zip").val();
 	credit = $("#venue_credit").val();
+	
+	if(confirm_password != password2){
+		$('#error_div').html("");
+		$('#error_div').append("Passwords do not match");
+		$("#error_div").show().delay(3000).fadeOut();
+		return;
+	}
 	
 	str = login + "," + password2 + "," + name + "," + address + "," + city + "," + state + "," + zip + "," + credit;
 	

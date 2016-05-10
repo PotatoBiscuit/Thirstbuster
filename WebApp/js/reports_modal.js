@@ -1,5 +1,6 @@
 function initReports(){
 	$('#ViewReportsModal').modal('toggle');
+	$('#reports_body').html("");
 }
 
 function initDisplay(display_choice){

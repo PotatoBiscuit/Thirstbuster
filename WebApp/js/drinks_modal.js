@@ -21,6 +21,11 @@ function addFunction(){
 				$('#success_div').append(result1);
 				$("#success_div").show().delay(3000).fadeOut();
 				$('#AddDrinkModal').modal('toggle');
+				$("#password4").val("");
+				$("#drink_name").val("");
+				$("#drink_cost").val("");
+				$("#drink_type").val("");
+				$("#drink_description").val("");
 				ViewInitialization();
 				
 			}
@@ -48,12 +53,12 @@ function ViewInitialization(){
 }
 
 function ViewInitRefresh(){
-	$('#view_modal_body').html("");
 	
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			var result1 = xmlhttp.responseText;
+			$('#view_modal_body').html("");
 			$('#view_modal_body').append(result1);
 		}
 	};
@@ -63,6 +68,11 @@ function ViewInitRefresh(){
 }
 
 function delDrink(drink_id){
+	var result = confirm("Are you sure you want to delete this drink?");
+	if (!result){
+		return;
+	}
+	
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -70,7 +80,6 @@ function delDrink(drink_id){
 			$('#success_div').html("");
 			$('#success_div').append("Drink Deleted");
 			$("#success_div").show().delay(3000).fadeOut();
-			$('#AddDrinkModal').modal('toggle');
 			ViewInitRefresh();
 		}
 	};
@@ -122,9 +131,9 @@ function EditDrink(drink_id){
 				$('#success_div').html("");
 				$('#success_div').append("Drink Edited");
 				$("#success_div").show().delay(3000).fadeOut();
+				$('#EditDrinkModal').modal('toggle');
+				ViewInitialization();
 			}
-			$('#EditDrinkModal').modal('toggle');
-			ViewInitialization();
 		}
 	};
 	

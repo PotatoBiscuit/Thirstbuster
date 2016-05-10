@@ -161,7 +161,7 @@ $_SESSION["dbname"] = "eld66";
 				<button id="register-close" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title">Register</h4>
 			  </div>
-			  <div class="modal-body">
+			  <div class="modal-body" style="height:500px; overflow: scroll;">
 					<div class="form-group">
 					  <label for="venue_login1">Venue Login: </label>
 					  <input id = "venue_login1" type="text" class="form-control" id="venue_login">
@@ -171,7 +171,11 @@ $_SESSION["dbname"] = "eld66";
 					  <input id = "password2" type="password" class="form-control" id="pwd">
 					</div>
 					<div class="form-group">
-					  <label for="name">Name: </label>
+					  <label for="password22">Confirm Password: </label>
+					  <input id = "password22" type="password" class="form-control">
+					</div>
+					<div class="form-group">
+					  <label for="name">Venue Name: </label>
 					  <input id = "venue_name" type="text" class="form-control" id="name">
 					</div>
 					<div class="form-group">
@@ -210,7 +214,7 @@ $_SESSION["dbname"] = "eld66";
 				<button id="settings-close" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title">Settings</h4>
 			  </div>
-			  <div class="modal-body">
+			  <div class="modal-body" style="height:500px; overflow: scroll;">
 					<div class="form-group">
 					  <label for="pwd">Re-enter Password: </label>
 					  <input id = "password3" type="password" class="form-control" id="pwd">
@@ -296,7 +300,7 @@ $_SESSION["dbname"] = "eld66";
 				<button id="viewDrink-close-top" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title">View Drinks</h4>
 			  </div>
-			  <div id = "view_modal_body" class="modal-body">
+			  <div id = "view_modal_body" class="modal-body" style="height:500px; overflow: scroll;">
 					<!--This is where data from an SQL call goes -->
 			  </div>
 			  <div class="modal-footer">
@@ -351,7 +355,7 @@ $_SESSION["dbname"] = "eld66";
 				<button id="viewOrderedDrink-close" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title">Drinks</h4>
 			  </div>
-			  <div id = "ordered_drinks" class="modal-body">
+			  <div id = "ordered_drinks" class="modal-body" style="height:500px; overflow: scroll;">
 			  </div>
 			  <div class="modal-footer">
 				<button id="viewOrderedDrink-cancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -367,7 +371,7 @@ $_SESSION["dbname"] = "eld66";
 				<button id="viewReports-close" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title">Reports</h4>
 			  </div>
-			  <div id = "reports_body" class="modal-body">
+			  <div id = "reports_body" class="modal-body" style="height:400px; overflow: scroll;">
 					
 			  </div>
 			  <div class="modal-footer">
@@ -392,7 +396,7 @@ $_SESSION["dbname"] = "eld66";
 				<button id="viewReports-close" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title">Receipts</h4>
 			  </div>
-			  <div id = "receipts_body" class="modal-body">
+			  <div id = "receipts_body" class="modal-body" style="height:500px; overflow: scroll;">
 				<div class="form-group">
 					  <label for="keyword">Keyword: </label>
 					  <input id = "keyword" type="text" class="form-control">

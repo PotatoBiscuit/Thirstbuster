@@ -84,6 +84,11 @@ function initOrder(type_of_display){
 }
 
 function deleteOrder(order_id){
+	var result = confirm("Are you sure you want to delete this order?");
+	if (!result){
+		return;
+	}
+	
 	var xmlhttp = new XMLHttpRequest();
 	
 	xmlhttp.onreadystatechange = function() {
@@ -160,9 +165,17 @@ function changeDrinkStatusPlus(tab_id, drink_id, order_id){
 }
 
 function deleteOrderedDrink(ordered_drink_id, order_id){
+	var result = confirm("Are you sure you want to delete this drink?");
+	if (!result){
+		return;
+	}
+	
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			$('#success_div').html("");
+			$('#success_div').append("Drink Deleted");
+			$("#success_div").show().delay(3000).fadeOut();
 			refreshOrderedDrinks(order_id);
 		}
 	};
@@ -175,6 +188,9 @@ function finishOrderedDrink(ordered_drink_id, order_id){
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			$('#success_div').html("");
+			$('#success_div').append("Drink Filled");
+			$("#success_div").show().delay(3000).fadeOut();
 			refreshOrderedDrinks(order_id);
 		}
 	};
