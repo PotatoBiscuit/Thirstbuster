@@ -61,6 +61,8 @@ function addVenueFunction(){
 		return;
 	}
 	
+   
+        
 	str = login + "," + password2 + "," + name + "," + address + "," + city + "," + state + "," + zip + "," + credit;
 	
 	var xmlhttp = new XMLHttpRequest();
@@ -76,3 +78,7 @@ function addVenueFunction(){
 	xmlhttp.open("GET", "php/Login_Modal/register.php?q=" + str, true);
 	xmlhttp.send();
 }
+
+
+
+

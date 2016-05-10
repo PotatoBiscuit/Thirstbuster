@@ -159,53 +159,59 @@ $_SESSION["dbname"] = "eld66";
 			<div class="modal-content">
 			  <div class="modal-header">
 				<button id="register-close" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				
+				
 				<h4 class="modal-title">Register</h4>
 			  </div>
-			  <div class="modal-body" style="height:500px; overflow: scroll;">
+			  <div class="modal-body" style="height:600px; overflow: scroll;">
+					<form data-toggle="validator" role="form" onsubmit="addVenueFunction();">
 					<div class="form-group">
+						
 					  <label for="venue_login1">Venue Login: </label>
-					  <input id = "venue_login1" type="text" class="form-control" id="venue_login">
+					  <input id = "venue_login1" type="text" class="form-control" id="venue_login" placeholder="Username" required/>
 					</div>
 					<div class="form-group">
 					  <label for="pwd">Password: </label>
-					  <input id = "password2" type="password" class="form-control" id="pwd">
+					  <input id = "password2" type="password" data-minlength="6"  class="form-control" placeholder="**************" id="pwd" required/>
+					  <div class="help-block">Minimum of 6 characters </div>
 					</div>
 					<div class="form-group">
 					  <label for="password22">Confirm Password: </label>
-					  <input id = "password22" type="password" class="form-control">
+					  <input id = "password22" type="password"  placeholder="**************" class="form-control" required/>
 					</div>
 					<div class="form-group">
 					  <label for="name">Venue Name: </label>
-					  <input id = "venue_name" type="text" class="form-control" id="name">
+					  <input id = "venue_name" type="text"  placeholder="Ex. Mikes bar" class="form-control" id="name" required/>
 					</div>
 					<div class="form-group">
 					  <label for="address">Address: </label>
-					  <input id = "venue_address" type="text" class="form-control" id="address">
+					  <input id = "venue_address" type="text" placeholder="123 Easy Street" class="form-control" id="address" required/>
 					</div>
-					<div class="form-group">
+					<div class="form-group col-md-4">
 					  <label for="address">City: </label>
-					  <input id = "venue_city" type="text" class="form-control" id="address">
+					  <input id = "venue_city" type="text"  class="form-control" id="address" required/>
 					</div>
-					<div class="form-group">
+					<div class="form-group col-md-4">
 					  <label for="address">State: </label>
-					  <input id = "venue_state" type="text" class="form-control" id="address">
+					  <input id = "venue_state" type="text" class="form-control" id="address" required/>
 					</div>
-					<div class="form-group">
+					<div class="form-group col-md-4">
 					  <label for="address">Zip: </label>
-					  <input id = "venue_zip" type="text" class="form-control" id="address">
+					  <input id = "venue_zip" type="text" placeholder="55555" class="form-control" id="address" required/>
 					</div>
 					<div class="form-group">
 					  <label for="credit">Credit #: </label>
-					  <input id = "venue_credit" type="text" class="form-control" id="credit">
+					  <input id = "venue_credit" type="text" class="form-control" id="credit" required/>
 					</div>
 			  </div>
 			  <div class="modal-footer">
 				<button id="back-to-login" onclick = "backToLogin();" onkeypress = "backToLogin();" type="button" class="btn btn-default">Cancel</button>
-				<button id="register-button" onclick = "addVenueFunction();" onkeypress = "addVenueFunction();" type="submit" class="btn btn-primary">Register</button>
+				<button id="register-button" type= "submit" class="btn btn-primary">Register</button>
+				</form>
 			  </div>
 			</div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
-		</div><!-- /.modal -->
+		 </div><!-- /.modal -->
 
 		<div id = "SettingsModal" class="modal fade" tabindex="-1" role="dialog">
 		  <div class="modal-dialog">
